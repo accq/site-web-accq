@@ -1,0 +1,33 @@
+solange:
+  name: Solange Solange
+  email: solange@solange.solange
+  postal_code: y1y 1y1
+  phone: 999-999-9999
+  city: St-Justin
+  created_at: <%=1.days.ago.to_s(:db)%>  
+  confirmed_at: <%=Time.now.to_s(:db)%>  
+marc:
+  name: Marc Marc
+  email: marc@marc.marc
+  postal_code: a1a 1a1
+  phone: 123-123-1234
+  city: Québec
+  created_at: <%=2.days.ago.to_s(:db)%>
+  confirmed_at: <%=Time.now.to_s(:db)%>  
+denis:
+  name: Denis
+  email: denis@denis.denis
+  postal_code: b1b 1b1
+  phone: 123-123-1234
+  city: Montréal
+  created_at: <%=3.days.ago.to_s(:db)%>
+  confirmed_at: <%=Time.now.to_s(:db)%>
+
+#John n'est pas confirmé (confirmed_at = nil) et ne devrait donc pas apparaitre dans la liste des signatures
+john_the_spammer:
+  name: John John
+  email: john@john.john
+  postal_code: h1h 1h1
+  phone: 123-123-1234
+  city: Sherbrooke
+  created_at: <%=5.days.ago.to_s(:db)%>

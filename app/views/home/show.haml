@@ -1,0 +1,219 @@
+.row
+  .col-xs-12
+    %br/
+    .alert.alert-info.lead
+      =fa_icon("star")
+      La toute première table nationale de l'ACCQ se tiendra le 12-13 septembre prochain à Drummondville! 
+      %small (Événement Facebook à venir).
+
+%h2
+  En démocratie véritable, c'est le peuple qui est souverain. C'est au peuple à dicter les règles du jeu, pas à l'État, ni aux politiciens, ni aux partis politiques, ni aux multinationales, ni aux banquiers, ni à quel qu’oligarchie que ce soit.    
+
+
+%p
+  Êtes-vous d'accord avec cet énoncé? #{link_to "Inscrivez-vous et <b>signez le manifeste!</b>".html_safe, manifest_path, class: "btn btn-danger", id: "#sign-manifest"}
+
+
+
+.row.regions
+  .col-md-6
+    %h3.sub-section Aimez notre page Facebook
+    :plain
+      <div class="fb-page" data-href="https://www.facebook.com/ConstituanteCitoyenne?fref=ts" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/ConstituanteCitoyenne?fref=ts"><a href="https://www.facebook.com/ConstituanteCitoyenne?fref=ts">Assemblée constituante citoyenne du Québec</a></blockquote></div></div>    
+  .col-md-6
+    %h3.sub-section Joignez votre assemblée régionale
+
+    .row
+      .col-md-4.col-xs-6
+        .thumbnail
+          =image_tag("regions/bas_st_laurent.jpg")
+          .caption
+            Région 01
+            %br/
+            Bas-St-Laurent
+            %br/
+            =fa_icon ("arrow-right")
+            =link_to("Aller à la page", hive_path("bas_st_laurent"))
+            
+      .col-md-4.col-xs-6
+        .thumbnail
+          =image_tag("regions/saguenay.jpg")
+          .caption
+            Région 02
+            %br/
+            Saguenay/Lac-St-Jean 
+            %br/
+            =fa_icon ("arrow-right")
+            =link_to("Aller à la page", hive_path("saguenay"))
+      .clearfix.visible-xs.visible-sm
+      .col-md-4.col-xs-6
+        .thumbnail
+          =image_tag("regions/capitale_nationale.jpg")
+          .caption
+            Région 03
+            %br/
+            Capitale-Nationale
+            %br/
+            =fa_icon ("arrow-right")
+            =link_to("Aller à la page", hive_path("capitale_nationale"))            
+      .clearfix.visible-md.visible-lg
+      .col-md-4.col-xs-6
+        .thumbnail
+          =image_tag("regions/mauricie.jpg")
+          .caption
+            Région 04
+            %br/
+            Mauricie
+            %br/
+            =fa_icon ("arrow-right")
+            =link_to("Aller à la page", hive_path("mauricie"))            
+      .clearfix.visible-xs.visible-sm
+      .col-md-4.col-xs-6
+        .thumbnail
+          =image_tag("regions/estrie.jpg")
+          .caption
+            Région 05
+            %br/
+            Estrie
+            %br/
+            =fa_icon ("arrow-right")
+            =link_to("Aller à la page", hive_path("estrie"))            
+      .col-md-4.col-xs-6
+        .thumbnail
+          =image_tag("regions/montreal.jpg")
+          .caption
+            Région 06
+            %br/
+            Montréal
+            %br/
+            =fa_icon ("arrow-right")
+            =link_to("Aller à la page", hive_path("montreal"))               
+      .clearfix
+
+      .col-md-4.col-xs-6
+        .thumbnail
+          =image_tag("regions/outaouais.jpg")
+          .caption
+            Région 07
+            %br/
+            Outaouais
+            %br/
+            =fa_icon ("arrow-right")
+            =link_to("Aller à la page", hive_path("outaouais"))               
+      
+      .col-md-4.col-xs-6
+        .thumbnail
+          =image_tag("regions/abitibi.jpg")
+          .caption
+            Région 08
+            %br/
+            Abitibi-Temiscamingue
+            %br/
+            =fa_icon ("arrow-right")
+            =link_to("Aller à la page", hive_path("abitibi"))               
+      .clearfix.visible-xs.visible-sm
+      .col-md-4.col-xs-6
+        .thumbnail
+          =image_tag("regions/cote_nord.jpg")
+          .caption
+            Région 09
+            %br/
+            Côte-Nord
+            %br/
+            =fa_icon ("arrow-right")
+            =link_to("Aller à la page", hive_path("cote_nord"))               
+      .clearfix.visible-md.visible-lg
+      .col-md-4.col-xs-6
+        .thumbnail
+          =image_tag("regions/nord_du_quebec.jpg")
+          .caption
+            Région 10
+            %br/
+            Nord-du-Québec
+            %br/
+            =fa_icon ("arrow-right")
+            =link_to("Aller à la page", hive_path("nord_du_quebec"))               
+      .clearfix.visible-xs.visible-sm
+      .col-md-4.col-xs-6
+        .thumbnail
+          =image_tag("regions/gaspesie.jpg")
+          .caption
+            Région 11
+            %br/
+            Gaspésie / îles-de-la-Madeleine
+            %br/
+            =fa_icon ("arrow-right")
+            =link_to("Aller à la page", hive_path("gaspesie"))   
+      .col-md-4.col-xs-6
+        .thumbnail
+          =image_tag("regions/chaudiere_appalaches.jpg")
+          .caption
+            Région 12
+            %br/
+            Chaudière-Appalaches
+            %br/
+            =fa_icon ("arrow-right")
+            =link_to("Aller à la page", hive_path("chaudiere_appalaches"))             
+      .col-md-4.col-xs-6
+        .thumbnail
+          =image_tag("regions/laval.jpg")
+          .caption
+            Région 13
+            %br/
+            Laval
+            %br/
+            =fa_icon ("arrow-right")
+            =link_to("Aller à la page", hive_path("laval"))             
+      .col-md-4.col-xs-6
+        .thumbnail
+          =image_tag("regions/lanaudiere.jpg")
+          .caption
+            Région 14
+            %br/
+            Lanaudière
+            %br/
+            =fa_icon ("arrow-right")
+            =link_to("Aller à la page", hive_path("lanaudiere"))             
+      .col-md-4.col-xs-6
+        .thumbnail
+          =image_tag("regions/laurentides.jpg")
+          .caption
+            Région 15
+            %br/
+            Laurentides
+            %br/
+            =fa_icon ("arrow-right")
+            =link_to("Aller à la page", hive_path("laurentides"))                         
+      .clearfix.visible-md.visible-lg            
+      .col-md-4.col-xs-6
+        .thumbnail
+          =image_tag("regions/monteregie.jpg")
+          .caption
+            Région 16
+            %br/
+            Montérégie
+            %br/
+            =fa_icon ("arrow-right")
+            =link_to("Aller à la page", hive_path("monteregie"))                         
+      .col-md-4.col-xs-6
+        .thumbnail
+          =image_tag("regions/centre_du_quebec.jpg")
+          .caption
+            Région 17
+            %br/
+            Centre-du-Québec
+            %br/
+            =fa_icon ("arrow-right")
+            =link_to("Aller à la page", hive_path("centre_du_quebec"))             
+:javascript
+  $( document ).ready(function() {      
+   
+      $('.thumbnail').hover(
+          function(){
+              $(this).find('.caption').slideDown(250); //.fadeIn(250)
+          },
+          function(){
+              $(this).find('.caption').slideUp(250); //.fadeOut(205)
+          }
+      ); 
+  });

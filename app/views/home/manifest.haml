@@ -1,0 +1,72 @@
+-content_for :page_title do
+  Le manifeste de l'ACCQ
+
+.row
+  .col-md-8#manifesto
+    %h3 Notre vision
+    %ol
+      %li
+        En démocratie véritable, <strong>c'est le peuple qui est souverain</strong>. C'est au peuple à dicter les règles du jeu, pas à l'État, ni aux politiciens, ni aux partis politiques, ni aux multinationales, ni aux banquiers, ni à quel qu’oligarchie que ce soit.
+      %li
+        Présentement, <strong>la souveraineté du peuple est bafouée</strong> de toutes parts. Ceux que nous avons choisis pour nous représenter, une fois élus, écoutent davantage les puissants que les simples citoyens.
+      %li
+        Pour sortir de cette impuissance, il ne suffit pas de manifester ni de changer de parti au pouvoir. <strong>Il faut changer le régime démocratique lui-même</strong> et les règles du jeu qui sont à la source de notre impuissance.
+      %li
+        Le moyen de changer de régime politique, c'est d'<strong>écrire ou de réviser la constitution du pays</strong>. Une constitution est ce qui nous constitue et nous définit comme pays distinct et nous protège des abus de pouvoir, la loi fondamentale que tous les dirigeants, organismes et citoyens doivent respecter.
+      %li
+        <strong>Le peuple québécois n'a jamais été consulté</strong> sur ce qui nous sert de constitution, aussi bien au Québec qu'au Canada.
+      %li
+        Pour écrire ou réécrire notre constitution, il faut avoir <strong>recours au peuple souverain</strong>, car les politiciens sont sur ce sujet, en conflit d’intérêt.
+      %li
+        L'assemblée par laquelle le peuple peut exercer sa souveraineté et son pouvoir constituant de façon légitime, ordonnée et efficace est ce qu'on appelle une <strong>Assemblée constituante</strong>. Son rôle est de consulter la population et de proposer, en toute liberté, un texte de constitution pour adoption par référendum. Elle doit être représentative, libre de toute allégeance et de toute pression indue, donc, composée idéalement de citoyens tirés au sort et libres de toute allégeance. Le débat entourant son travail doit être équitablement encadré. Elle doit pouvoir avoir recours à toutes les ressources nécessaires pour faire son travail.
+      %li
+        L'Assemblée constituante doit être <strong>convoquée par l'Assemblée nationale</strong> pour s'assurer que la constitution qui en résultera, une fois adoptée par référendum, ne puisse être écartée par les pouvoirs en place, au Québec comme au Canada.      
+
+    %h3
+      L'ACCQ s'est donnée comme mission de préparer, promouvoir et provoquer la convocation de cette Assemblée constituante citoyenne non partisane. Pour y arriver, le Regroupement prévoit déployer les moyens suivants :
+
+    %ul
+      %li 
+        <strong>Regrouper</strong> des citoyens qui croient à la souveraineté du peuple et à la nécessité d'une assemblée constituante non partisane dans toutes les régions du Québec.
+
+      %li 
+        <strong>Dénoncer</strong> l'illusion de la démocratie actuelle, vraie cause de notre impuissance.
+
+      %li 
+        <strong>Expliquer</strong> et promouvoir le projet d'une Assemblée constituante et d'une Constitution écrite par et pour le peuple.
+
+      %li 
+        <strong>Préparer</strong> les citoyens à participer à l'écriture d'une constitution à leur image en participant à des <em>Ateliers constituants</em> portant sur les modalités d'une assemblée constituante non partisane et sur les divers chapitres d'une éventuelle constitution : choix de société, statut des minorités, langue officielle, laïcité, droits, libertés et responsabilités, services publics, ressources naturelles et environnement, sécurité, politiques économiques, fiscales et monétaires, type de gouvernement, mécanismes de participation des citoyens et des régions, gouvernements territoriaux, et évidemment le statut politique du Québec, etc.
+
+      %li 
+        <strong>Faire pression sur les partis politiques</strong>, les politiciens et les futurs candidats pour qu'ils s'engagent à convoquer officiellement et sans délai une Assemblée constituante non partisane mandatée pour rédiger et faire adopter la première constitution officielle du Québec. Cette convocation doit venir de l'Assemblée nationale.
+
+      %li 
+        <strong>Se doter d'une structure décentralisée</strong>, non partisane, démocratique, faisant appel au tirage au sort là où c'est souhaitable, mais centrée sur l'objectif d'une assemblée constituante non partisane et indépendante, entièrement libre de ses délibérations.
+
+    %h3
+      Si vous êtes de ceux et celles qui ne font plus confiance au régime politique actuel, n'hésitez pas à vous joindre à NOUS.  Vous trouverez ici l'information, le réseau et les moyens nécessaires pour favoriser l'instauration d'une réelle démocratie.
+
+    %p
+      LE PROCHAIN RÉFÉRENDUM DOIT PORTER SUR LA PREMIÈRE CONSTITUTION DÉMOCRATIQUE DU QUÉBEC, ISSUE DU PEUPLE SOUVERAIN.
+
+
+    %p Veuillez prendre note que lors de la #{link_to "première table nationale", table_nationale_path}, nous recevrons des propositons de modification à ce manifeste qui devront par la suite être entérinées par tous.
+  .col-md-4
+    %h3 Dernières signatures
+    %ul.list-unstyled#last-signatures
+      -@latest_signatures.each do |member|
+        %li          
+          %small
+            =member.name
+            \-          
+            =l(member.created_at.to_date, format: :long )
+
+          
+          
+
+
+.row
+  .col-xs-12  
+    %h3 Je signe!
+    =render "members/form"
