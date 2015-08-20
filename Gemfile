@@ -23,6 +23,7 @@ gem 'haml-rails', '~> 0.9.0'
 gem "font-awesome-rails"
 gem 'date_validator'
 gem 'email_validator'
+gem 'gretel', '~> 3.0.8'
 #...
 
 gem "spring-commands-rspec", group: :development #to run rspec under spring
