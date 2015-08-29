@@ -55,3 +55,10 @@ RSpec.configure do |config|
 
   config.infer_spec_type_from_file_location!
 end
+
+def connect(u)
+  visit "/users/sign_in"  
+  fill_in "user_email", with: u.email
+  fill_in "user_password", with: "thedefaultpassword"
+  click_button "sign-in"
+end

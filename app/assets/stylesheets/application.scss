@@ -11,6 +11,7 @@
  * file per style scope.
  *
  *= require_self
+ *= require devise_bootstrap_views
  */
 
  // Example using 'Cerulean' bootswatch
@@ -18,7 +19,6 @@
 //Import bootstrap-sprockets
 @import "bootstrap-sprockets";
 @import "font-awesome";
-
 
 //override theme variables
 $black: #333;

@@ -1,0 +1,21 @@
+-content_for :page_title do
+  Gestion des ACRQ
+
+.row
+  .col-xs-12
+    %p
+      =link_to "<i class='fa fa-plus'></i> Ajouter une ACRQ".html_safe, new_admin_hive_path, class: "btn btn-info", id: "add-hive"
+    %table.table.table-striped.table-hover
+      %thead
+        %tr
+          %th Numéro
+          %th Nom
+          %th
+      %tbody
+        -@hives.each do |h|
+          %tr
+            %td= show_hive_number(h.number)
+            %td= h.name
+            %td
+              =link_to "Modifier", edit_admin_hive_path(h), class: "btn btn-info btn-xs"
+              =link_to "Supprimer", admin_hive_path(h), class: "btn btn-danger btn-xs", data: {confirm: "Attention! Voulez-vous vraiment supprimer cette ACRQ?"}, method: :delete

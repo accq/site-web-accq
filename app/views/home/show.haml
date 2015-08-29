@@ -23,187 +23,22 @@
     %h3.sub-section Joignez votre assemblée régionale
 
     .row
-      .col-md-4.col-xs-6
-        .thumbnail
-          =image_tag("regions/bas_st_laurent.jpg")
-          .caption
-            Région 01
-            %br/
-            Bas-St-Laurent
-            %br/
-            =fa_icon ("arrow-right")
-            =link_to("Aller à la page", hive_path("bas_st_laurent"))
-            
-      .col-md-4.col-xs-6
-        .thumbnail
-          =image_tag("regions/saguenay.jpg")
-          .caption
-            Région 02
-            %br/
-            Saguenay/Lac-St-Jean 
-            %br/
-            =fa_icon ("arrow-right")
-            =link_to("Aller à la page", hive_path("saguenay"))
-      .clearfix.visible-xs.visible-sm
-      .col-md-4.col-xs-6
-        .thumbnail
-          =image_tag("regions/capitale_nationale.jpg")
-          .caption
-            Région 03
-            %br/
-            Capitale-Nationale
-            %br/
-            =fa_icon ("arrow-right")
-            =link_to("Aller à la page", hive_path("capitale_nationale"))            
-      .clearfix.visible-md.visible-lg
-      .col-md-4.col-xs-6
-        .thumbnail
-          =image_tag("regions/mauricie.jpg")
-          .caption
-            Région 04
-            %br/
-            Mauricie
-            %br/
-            =fa_icon ("arrow-right")
-            =link_to("Aller à la page", hive_path("mauricie"))            
-      .clearfix.visible-xs.visible-sm
-      .col-md-4.col-xs-6
-        .thumbnail
-          =image_tag("regions/estrie.jpg")
-          .caption
-            Région 05
-            %br/
-            Estrie
-            %br/
-            =fa_icon ("arrow-right")
-            =link_to("Aller à la page", hive_path("estrie"))            
-      .col-md-4.col-xs-6
-        .thumbnail
-          =image_tag("regions/montreal.jpg")
-          .caption
-            Région 06
-            %br/
-            Montréal
-            %br/
-            =fa_icon ("arrow-right")
-            =link_to("Aller à la page", hive_path("montreal"))               
-      .clearfix
+      -@hives.each_with_index do |h,index|
+        .col-md-4.col-xs-6  
+          .thumbnail
+            =image_tag(h.image.url)
+            .caption
+              Région #{show_hive_number(h.number)}
+              %br/
+              =h.name
+              %br/
+              =fa_icon ("arrow-right")
+              =link_to("Aller à la page", hive_path(h))
 
-      .col-md-4.col-xs-6
-        .thumbnail
-          =image_tag("regions/outaouais.jpg")
-          .caption
-            Région 07
-            %br/
-            Outaouais
-            %br/
-            =fa_icon ("arrow-right")
-            =link_to("Aller à la page", hive_path("outaouais"))               
-      
-      .col-md-4.col-xs-6
-        .thumbnail
-          =image_tag("regions/abitibi.jpg")
-          .caption
-            Région 08
-            %br/
-            Abitibi-Temiscamingue
-            %br/
-            =fa_icon ("arrow-right")
-            =link_to("Aller à la page", hive_path("abitibi"))               
-      .clearfix.visible-xs.visible-sm
-      .col-md-4.col-xs-6
-        .thumbnail
-          =image_tag("regions/cote_nord.jpg")
-          .caption
-            Région 09
-            %br/
-            Côte-Nord
-            %br/
-            =fa_icon ("arrow-right")
-            =link_to("Aller à la page", hive_path("cote_nord"))               
-      .clearfix.visible-md.visible-lg
-      .col-md-4.col-xs-6
-        .thumbnail
-          =image_tag("regions/nord_du_quebec.jpg")
-          .caption
-            Région 10
-            %br/
-            Nord-du-Québec
-            %br/
-            =fa_icon ("arrow-right")
-            =link_to("Aller à la page", hive_path("nord_du_quebec"))               
-      .clearfix.visible-xs.visible-sm
-      .col-md-4.col-xs-6
-        .thumbnail
-          =image_tag("regions/gaspesie.jpg")
-          .caption
-            Région 11
-            %br/
-            Gaspésie / îles-de-la-Madeleine
-            %br/
-            =fa_icon ("arrow-right")
-            =link_to("Aller à la page", hive_path("gaspesie"))   
-      .col-md-4.col-xs-6
-        .thumbnail
-          =image_tag("regions/chaudiere_appalaches.jpg")
-          .caption
-            Région 12
-            %br/
-            Chaudière-Appalaches
-            %br/
-            =fa_icon ("arrow-right")
-            =link_to("Aller à la page", hive_path("chaudiere_appalaches"))             
-      .col-md-4.col-xs-6
-        .thumbnail
-          =image_tag("regions/laval.jpg")
-          .caption
-            Région 13
-            %br/
-            Laval
-            %br/
-            =fa_icon ("arrow-right")
-            =link_to("Aller à la page", hive_path("laval"))             
-      .col-md-4.col-xs-6
-        .thumbnail
-          =image_tag("regions/lanaudiere.jpg")
-          .caption
-            Région 14
-            %br/
-            Lanaudière
-            %br/
-            =fa_icon ("arrow-right")
-            =link_to("Aller à la page", hive_path("lanaudiere"))             
-      .col-md-4.col-xs-6
-        .thumbnail
-          =image_tag("regions/laurentides.jpg")
-          .caption
-            Région 15
-            %br/
-            Laurentides
-            %br/
-            =fa_icon ("arrow-right")
-            =link_to("Aller à la page", hive_path("laurentides"))                         
-      .clearfix.visible-md.visible-lg            
-      .col-md-4.col-xs-6
-        .thumbnail
-          =image_tag("regions/monteregie.jpg")
-          .caption
-            Région 16
-            %br/
-            Montérégie
-            %br/
-            =fa_icon ("arrow-right")
-            =link_to("Aller à la page", hive_path("monteregie"))                         
-      .col-md-4.col-xs-6
-        .thumbnail
-          =image_tag("regions/centre_du_quebec.jpg")
-          .caption
-            Région 17
-            %br/
-            Centre-du-Québec
-            %br/
-            =fa_icon ("arrow-right")
-            =link_to("Aller à la page", hive_path("centre_du_quebec"))             
+        -if (index+1) % 2 == 0
+          .clearfix.visible-xs.visible-sm
+        -elsif (index+1) % 3 == 0
+          .clearfix.visible-md.visible-lg          
 :javascript
   $( document ).ready(function() {      
    

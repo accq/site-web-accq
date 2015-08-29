@@ -24,6 +24,11 @@ gem "font-awesome-rails"
 gem 'date_validator'
 gem 'email_validator'
 gem 'gretel', '~> 3.0.8'
+gem 'carrierwave', '~> 0.10.0'
+gem 'mini_magick'
+gem 'devise', '~> 3.5.1'
+gem 'devise-i18n'
+gem 'devise-bootstrap-views'
 #...
 
 gem "spring-commands-rspec", group: :development #to run rspec under spring

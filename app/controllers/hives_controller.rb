@@ -1,6 +1,9 @@
 class HivesController < ApplicationController
   def show
-    action_name = params[:id].gsub("-","_")
-    render action_name
+    @hive = Hive.find(params[:id])
+  end
+
+  def index
+    @hives = Hive.order(:number)
   end
 end

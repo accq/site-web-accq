@@ -1,0 +1,11 @@
+=simple_form_for [:admin, @hive] do |f|
+  =f.input :name, label: "Nom"
+  =f.input :number, label: "Numéro"
+  =f.input :fb_url, label: "Adresse Facebook"
+  =f.input :image, label: "Image"
+  -if @hive.persisted? && @hive.image.url.present?
+    Image actuelle: 
+    =image_tag @hive.image.url, width: "100"
+
+  %p
+    =f.button :submit, "Enregistrer", class: "btn btn-success", id: "btn-save"

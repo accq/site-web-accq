@@ -1,0 +1,17 @@
+-content_for :page_title do
+  Votre assemblée régionale
+
+-breadcrumb :hive, @hive.name
+.row
+  .col-md-6
+    =image_tag @hive.image.url, class: "img-responsive thumbnail"
+
+  .col-md-6
+    %h3.no-margin #{@hive.name} (#{show_hive_number(@hive.number)})
+    
+    %p Nom des personnes responsables et informations de contact à venir
+
+    -if @hive.fb_url.present?
+      %p
+        =fa_icon "facebook-square"
+        =link_to "Page facebook de l'ACRQ #{show_hive_number(@hive.number)}", @hive.fb_url, target: "_blank"
