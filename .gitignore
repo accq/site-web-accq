@@ -24,3 +24,6 @@
 config/database.yml
 
 config/deploy/production.rb
+
+#ignore uploads directory
+public/uploads

@@ -37,6 +37,7 @@ namespace :deploy do
 
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do      
+      execute "ln -nfs #{deploy_to}/shared/uploads/ #{release_path}/public/uploads"
     end
   end
   after :finishing, 'deploy:cleanup'  
