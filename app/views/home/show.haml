@@ -1,24 +1,27 @@
-.row
-  .col-xs-12
-    %br/
-    .alert.alert-info.lead
-      =fa_icon("facebook")
-      =link_to "La toute première table nationale de l'ACCQ se tiendra le 12-13 septembre prochain à Drummondville!", "https://www.facebook.com/events/694247704009973/", target: "_blank"
+%h2 Article #1 de notre manifeste
+.well
+  %p.lead
+    Dans une démocratie digne de ce nom, c'est le peuple qui est l'autorité ultime. C'est à lui de décider de la manière qu'il veut se gouverner. Ensemble, nous nous engageons à redéfinir le mode de fonctionnement de l'État.
 
-%h2
-  En démocratie véritable, c'est le peuple qui est souverain. C'est au peuple à dicter les règles du jeu, pas à l'État, ni aux politiciens, ni aux partis politiques, ni aux multinationales, ni aux banquiers, ni à quelque oligarchie que ce soit.    
-
-
-%p
-  Êtes-vous d'accord avec cet énoncé? #{link_to "Inscrivez-vous et <b>signez le manifeste!</b>".html_safe, manifest_path, class: "btn btn-danger", id: "#sign-manifest"}
+  %p
+    Êtes-vous d'accord avec cet énoncé? #{link_to "Inscrivez-vous et <b>signez le manifeste!</b>".html_safe, manifest_path, class: "btn btn-danger", id: "#sign-manifest"}
 
 
 
 .row.regions
   .col-md-6
+    %h3.sub-section Première table nationale
+    %ul
+      %li= link_to "Photos", ""
+      %li= link_to "Vidéos", ""
+      %li= link_to "Communiqué de presse", ""
+
+
     %h3.sub-section Aimez notre page Facebook
     :plain
       <div class="fb-page" data-href="https://www.facebook.com/ConstituanteCitoyenne?fref=ts" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/ConstituanteCitoyenne?fref=ts"><a href="https://www.facebook.com/ConstituanteCitoyenne?fref=ts">Assemblée constituante citoyenne du Québec</a></blockquote></div></div>    
+  
+
   .col-md-6
     %h3.sub-section Joignez votre assemblée régionale
 

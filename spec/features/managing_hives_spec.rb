@@ -18,8 +18,7 @@ feature "ManagingHives", :type => :feature do
   scenario "Editing an ACRQ" do
     connect(users(:the_admin))
     visit admin_root_path    
-    click_link "manage-hives"
-    
+    click_link "manage-hives"    
     edit_first_hive
 
     fill_in :hive_number, with: 10000

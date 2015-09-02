@@ -3,7 +3,7 @@ class MembersController < ApplicationController
     @member = Member.new(member_params)
     
     if @member.save
-      flash[:success] = "Merci d'avoir signé notre manifeste!"
+      flash[:success] = "Merci d'avoir signé notre manifeste! Nous vous invitons maintenant à lire nos <a href='mission' class='alert-link'>énoncés de mission</a>"
       redirect_to root_path
     else
       @latest_signatures = Member.confirmed.order("created_at DESC").limit(30)

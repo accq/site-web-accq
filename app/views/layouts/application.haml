@@ -41,7 +41,12 @@
         .collapse.navbar-collapse
           %ul.nav.navbar-nav            
             %li= link_to "Accueil", root_path
-            %li= link_to "Signer le manifeste", manifest_path
+            %li= link_to "Manifeste", manifest_path
+            %li= link_to "Mission", mission_path            
+            %li= link_to "Éducation", ""            
+            %li= link_to "Noyau central", ""
+            %li= link_to "Médias", ""
+            %li= link_to "Nous joindre", ""
     
     -if controller_name == 'home' && action_name=='show'
       %header
@@ -58,12 +63,13 @@
 
 
 
+      %br/
+      = breadcrumbs style: :bootstrap
       -if content_for?(:page_title)
         .page-header      
           %h1 
             =yield(:page_title)
-       
-      = breadcrumbs style: :bootstrap
+             
       = yield
 
     %footer

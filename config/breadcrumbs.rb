@@ -17,6 +17,10 @@ crumb :hive do |hive|
   parent :hives
 end
 
+crumb :mission do
+  link "Notre mission"
+  parent :root
+end
 
 # crumb :projects do
 #   link "Projects", projects_path
