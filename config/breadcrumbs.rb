@@ -18,7 +18,7 @@ crumb :hive do |hive|
 end
 
 crumb :mission do
-  link "Notre mission"
+  link "Mission"
   parent :root
 end
 
