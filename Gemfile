@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.1.5'
 gem 'rails', '4.2.3'
+gem 'rails_12factor'
 gem 'mysql2'
 #gem 'unicorn-rails'
 
