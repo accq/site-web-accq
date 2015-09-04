@@ -21,9 +21,12 @@
 *.sublime-workspace
 
 # Ignore database configuration file
-config/database.yml
+# config/database.yml
 
 config/deploy/production.rb
 
 #ignore uploads directory
 public/uploads
+
+#ignore file to store env variables
+.rbenv-vars
