@@ -12,6 +12,7 @@
             %th Téléphone
             %th Ville
             %th Code postal
+            %th Date de la signature
             %th
         %tbody
           -@unconfirmed_members.each do |m|
@@ -21,6 +22,7 @@
               %td= m.phone
               %td= m.city
               %td= m.postal_code
+              %td= l(m.created_at, format: :short)
               %td
                 =link_to "Approuver la signature", approve_admin_member_path(m), class: "btn btn-success btn-xs", data: {confirm: "La signature apparaîtra sur le site. Continuer?"}, method: :put
                 =link_to "Supprimer la signature", admin_member_path(m), class: "btn btn-danger btn-xs", data: {confirm: "La signature sera supprimée de la base de données. Continuer?"}, method: :delete
@@ -35,6 +37,7 @@
             %th Téléphone
             %th Ville
             %th Code postal
+            %th Date de la signature
             %th
         %tbody
           -@confirmed_members.each do |m|
@@ -44,5 +47,6 @@
               %td= m.phone
               %td= m.city
               %td= m.postal_code
+              %td= l(m.created_at, format: :short)
               %td
                 =link_to "Désapprouver la signature", disapprove_admin_member_path(m), class: "btn btn-danger btn-xs", data: {confirm: "La signature n'apparaîtra plus sur le site. Continuer?"}, method: :put
