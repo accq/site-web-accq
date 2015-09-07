@@ -2,7 +2,7 @@
   =f.input :name, label: "Nom"
   =f.input :number, label: "Numéro"
   =f.input :fb_url, label: "Adresse Facebook"
-  =f.input :image, label: "Image"
+  =f.input :image, as: :file, label: "Image"
   -if @hive.persisted? && @hive.image.url.present?
     Image actuelle: 
     =image_tag @hive.image.url, width: "100"
