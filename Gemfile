@@ -4,7 +4,6 @@ ruby '2.1.5'
 gem 'rails', '4.2.3'
 gem 'rails_12factor' #to run on Heroku or Dokku powered cloud hosting services
 gem 'pg'
-gem 'mysql2'
 gem 'puma', '~> 2.13.4'
 
 gem 'sass-rails', '~> 5.0'
