@@ -14,10 +14,8 @@ test:
   username: <%=ENV['DB_USER']%>
   password: <%=ENV['DB_PASS']%>
 
-production:
-  adapter: mysql2
-  host: <%=ENV["DB_HOST"]%>
-  username: <%=ENV["DB_USER"]%>
-  password: <%=ENV["DB_PASS"]%>
-  database: <%=ENV["DB_NAME"]%>
-  port: <%=ENV["DB_PORT"]%>
+production:  
+  adapter: postgresql
+  url: <%= ENV['DATABASE_URL'] %>
+  encoding: unicode
+  pool: 5
