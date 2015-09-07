@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.1.5'
 gem 'rails', '4.2.3'
-gem 'rails_12factor' #to run on Heroku or Dokku powered cloud hosting services
+gem 'rails_12factor', group: :production #to run on Heroku or Dokku powered cloud hosting services
 gem 'pg'
 gem 'puma', '~> 2.13.4'
 
