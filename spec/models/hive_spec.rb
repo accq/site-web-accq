@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Hive, :type => :model do
+  fixtures :hives
   it "is invalid without a name" do
     hive = Hive.new(hive_with_missing_required_fields)
     expect(hive).to have_exactly(1).error_on(:name)
@@ -12,9 +13,7 @@ RSpec.describe Hive, :type => :model do
   end
 
   it "is invalid if the specified name has already been taken" do
-    Hive.create(hive_with_valid_fields)
-    expect(Hive.count).to eq 1
-    hive = Hive.new(hive_with_valid_fields)
+    hive = Hive.new(hive_with_valid_fields.merge(name: hives(:vive_le_quebec).name))
     expect(hive).to have_exactly(1).error_on(:name)
   end
 
@@ -45,7 +44,7 @@ RSpec.describe Hive, :type => :model do
   def hive_with_valid_fields
     {
       name: "A new hive",
-      number: 1      
+      number: 2     
     }
   end
 
