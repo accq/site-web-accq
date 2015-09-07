@@ -15,6 +15,12 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :hives
+    resources :members do
+      member do
+        put :approve
+        put :disapprove
+      end
+    end
     root 'home#show'
   end
 end

@@ -6,4 +6,8 @@ class Member < ActiveRecord::Base
   def self.confirmed
     where("NOT confirmed_at IS NULL")
   end
+
+  def self.unconfirmed
+    where("confirmed_at IS NULL")
+  end  
 end
