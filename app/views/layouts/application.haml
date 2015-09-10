@@ -43,8 +43,16 @@
             %li= link_to "Accueil", root_path
             %li= link_to "Manifeste", manifest_path
             %li= link_to "Mission", mission_path            
-            %li= link_to "Éducation", ""            
-            %li= link_to "Noyau central", ""
+            %li.dropdown
+              %a{href: "#", class: "dropdown-toggle", "data-toggle" => "dropdown", role: "button", "aria-haspopup" => "true", "aria-expanded" => "false"}
+                Éducation
+                %span.caret
+          
+              %ul.dropdown-menu
+                %li= link_to "<i class='fa fa-book'></i> Bibliothèque".html_safe, bibliotheque_path
+                %li= link_to "<i class='fa fa-video-camera'></i> Médiathèque".html_safe, mediatheque_path
+
+            %li= link_to "Noyau central", noyau_path
             %li= link_to "Médias", ""
             %li= link_to "Nous joindre", ""
     

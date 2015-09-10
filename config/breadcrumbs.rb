@@ -37,6 +37,22 @@ crumb :objectifs do
   parent :mission
 end
 
+crumb :noyau do
+  link "Noyau central"
+  parent :root
+end
+
+crumb :bibliotheque do
+  link "Bibliothèque"
+  parent :root
+end
+
+crumb :mediatheque do
+  link "Médiathèque"
+  parent :root
+end
+
+
 
 # crumb :projects do
 #   link "Projects", projects_path
