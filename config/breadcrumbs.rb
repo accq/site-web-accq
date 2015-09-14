@@ -52,7 +52,20 @@ crumb :mediatheque do
   parent :root
 end
 
+crumb :media do
+  link "Médias"
+  parent :root
+end
 
+crumb :media_coverage do
+  link "Couverture médiatique", media_coverage_path
+  parent :media
+end
+
+crumb :press_releases do
+  link "Communiqués de presse", press_releases_path
+  parent :media
+end
 
 # crumb :projects do
 #   link "Projects", projects_path

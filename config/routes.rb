@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get '/mission/nos-objectifs', to: "home#objectifs", as: :nos_objectifs
   get '/education/bibliotheque', to: "home#bibliotheque", as: :bibliotheque
   get '/education/mediatheque', to: "home#mediatheque", as: :mediatheque
+  get '/medias/couverture-mediatique', to: "home#media_coverage", as: :media_coverage
+  get '/medias/communiques-de-presse', to: "home#press_releases", as: :press_releases
   resources :acrq, controller: :hives , as: :hives do   
   end
 
