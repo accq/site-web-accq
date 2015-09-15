@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get '/signez-le-manifeste', to: "home#manifest", as: :manifest
   get '/table-nationale', to: "home#table_nationale", as: :table_nationale
   get '/noyau-central', to: "home#noyau_central", as: :noyau
+  get '/constat', to: "home#constat", as: :constat
   get '/mission', to: "home#mission", as: :mission
   get '/mission/notre-vision', to: "home#vision", as: :notre_vision
   get '/mission/notre-moyen', to: "home#moyen", as: :notre_moyen
