@@ -20,6 +20,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :hives
+    resources :media_coverage_items
     resources :members do
       member do
         put :approve

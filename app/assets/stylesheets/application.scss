@@ -40,5 +40,8 @@ body { padding-top: 50px; }
 // And finally bootswatch style itself
 @import "bootswatch/cerulean/bootswatch";
 
+// datepicker style
+@import "datepicker3";
+
 // Whatever application styles you have go last
 @import "style";

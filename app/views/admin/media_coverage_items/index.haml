@@ -1,0 +1,24 @@
+-content_for :page_title do
+  Couverture médiatique
+.row
+  .col-xs-12  
+    %p
+      =link_to "<i class='fa fa-plus'></i> Ajouter un item".html_safe, new_admin_media_coverage_item_path, class: "btn btn-info", id: "add-mci"
+
+    -if @mci.any?
+      %table.table.table-striped.table-hover
+        %thead
+          %tr
+            %th Titre
+            %th Date de publication
+            %th Type de média
+            %th
+        %tbody
+          -@mci.each do |i|
+            %tr
+              %td= i.title
+              %td= l(i.published_on)
+              %td= i.media_type
+              %td
+                =link_to "Modifier", edit_admin_media_coverage_item_path(i), class: "btn btn-success btn-xs"
+                =link_to "Supprimer", admin_media_coverage_item_path(i), class: "btn btn-danger btn-xs", data: {confirm: "L'item sera supprimé de la base de données. Continuer?"}, method: :delete

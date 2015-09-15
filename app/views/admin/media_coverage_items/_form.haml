@@ -1,0 +1,22 @@
+=simple_form_for [:admin, @mci] do |f|
+  =f.input :title, label: "Titre"
+  =f.input :url, label: "URL de l'article"
+  =f.input :summary, label: "Résumé", as: :text
+  =f.input :archived_url, label: "URL de backup (prendre l'habitude de sauvegarder tous les liens sur archive.org)"  
+  =f.input :source, label: "Nom de la source (ex: La Presse, Journal de Montréal, etc.)"
+  =f.input :media_type, as: :select, collection: [:text, :audio, :video], include_blank: false
+  =f.input :published_on, label: "Date de publication", as: "string", input_html: {class: "form-control", data: { behavior: "datepicker" }}
+  =f.input :preview_image, as: :file, label: "Image d'aperçu"
+  -if @mci.persisted? && @mci.preview_image.url.present?
+    =image_tag @mci.preview_image.url, width: "100"
+    %p
+      =f.check_box :remove_preview_image
+      Supprimer l'image
+  %p
+    =f.button :submit, "Enregistrer", class: "btn btn-success", id: "btn-save"
+
+
+:javascript
+  $(function() {
+    $("#media_coverage_item_published_on").datepicker({language: "fr",format: "yyyy-mm-dd"});
+  });    

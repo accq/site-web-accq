@@ -13,4 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap-sprockets
+//= require bootstrap-datepicker
+//= require locales/bootstrap-datepicker.fr.js
 //= require_tree .

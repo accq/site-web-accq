@@ -1,0 +1,7 @@
+article_media_xyz:
+  title: Vive l'ACCQ!
+  url: http://www.constituantecitoyenne.quebec
+  archived_url: http://adressedebackupdelarticle.com
+  published_on: <%=Date.current.advance(days: -2)%>
+  media_type: text
+  preview_image: <%= File.open(Rails.root.join("tmp/test.png")) %>

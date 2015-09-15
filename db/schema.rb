@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150828195335) do
+ActiveRecord::Schema.define(version: 20150915145730) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,17 @@ ActiveRecord::Schema.define(version: 20150828195335) do
     t.string  "image"
     t.integer "number"
     t.string  "fb_url"
+  end
+
+  create_table "media_coverage_items", force: :cascade do |t|
+    t.string "title"
+    t.string "url"
+    t.string "source"
+    t.string "archived_url"
+    t.string "summary"
+    t.string "preview_image"
+    t.string "media_type"
+    t.date   "published_on"
   end
 
   create_table "members", force: :cascade do |t|

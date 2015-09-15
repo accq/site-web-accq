@@ -6,4 +6,8 @@ class HomeController < ApplicationController
   def show
     @hives = Hive.order(:number)
   end
+
+  def media_coverage
+    @mci = MediaCoverageItem.order("published_on DESC")
+  end
 end

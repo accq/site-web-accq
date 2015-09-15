@@ -3,16 +3,21 @@
 
 -breadcrumb :media_coverage
 .row
-  .col-md-6
-    %h3.sub-section Articles de journaux
-    %ul.list-unstyled
-      %li
-        14 septembre 2015 
-        \-
-        %i La Tribune 
-        \-
-        =link_to "Un groupe jete les bases d'une Constituante citoyenne du Québec", "http://www.lapresse.ca/la-tribune/estrie-et-regions/201509/14/01-4900298-un-groupe-jete-les-bases-dune-constituante-citoyenne-du-quebec.php", target: "_blank"
-
-  .col-md-6
-    %h3.sub-section Audio / Vidéo
-    Aucun lien à afficher pour le moment
+  .col-xs-12
+    -@mci.each do |i|
+      %h4
+        =link_to i.title, i.url, target: "_blank"              
+      %p.small
+        Publication: #{l(i.published_on, format: :long)}
+        |
+        Source: #{i.source}        
+        |
+        =show_media_type_icon(i.media_type)   
+      -if i.summary.present?
+        %cite      
+          =i.summary
+        %small
+          =link_to "<b>Afficher la suite »</b>".html_safe, i.url, target: "_blank", class: "btn btn-sm btn-default"
+      .row
+        .col-xs-12
+          %hr/
