@@ -17,6 +17,11 @@ crumb :hive do |hive|
   parent :hives
 end
 
+crumb :constat do
+  link "Constat", constat_path
+  parent :root
+end
+
 crumb :mission do
   link "Mission", mission_path
   parent :root
