@@ -33,13 +33,23 @@ crumb :vision do
 end
 
 crumb :moyen do
-  link "Notre moyen"
+  link "Nos moyens et objectifs"
   parent :mission
 end
 
-crumb :objectifs do
-  link "Nos objectifs"
+crumb :mission_nous_rejoindre do
+  link "Nous rejoindre"
   parent :mission
+end
+
+crumb :promotional_tools do
+  link "Outils de promotion"
+  parent :root
+end
+
+crumb :nous_joindre do
+  link "Nous joindre", nous_joindre_path
+  parent :root
 end
 
 crumb :noyau do
