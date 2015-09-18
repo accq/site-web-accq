@@ -2,7 +2,7 @@
 .row
   .col-md-6
     %p
-      Pour participer activement à notre démarche constituante, nous vous invitons à signer ce manifeste en nous laissant vos coordonnées. Nous pourrons ainsi entrer en contact à vous plus facilement.
+      Pour participer activement à notre démarche constituante, nous vous invitons à signer ce manifeste en nous laissant vos coordonnées. Il nous sera ainsi plus facile de vous rejoindre et vous inviter à participer.
       
     %p.pull-right.hidden-sm.hidden-xs
       %i.fa.fa-arrow-right.fa-3x
@@ -18,10 +18,10 @@
   .col-md-6        
     =simple_form_for @member || Member.new, url: { controller: "members", action: "create", anchor: "manifest_anchor" } do |f|
       .well.well-sm
-        =f.input :name, label: "Votre nom complet"
-        =f.input :email, label: "Adresse de courriel"
+        =f.input :name, label: "Nom complet"
+        =f.input :email, label: "Courriel"
         =f.input :phone, label: "Numéro de téléphone"
-        =f.input :city, label: "Ville"  
+        =f.input :city, label: "Municipalité"
         =f.input :postal_code, label: "Code postal"
 
       =f.button :submit, "Signer", class: "btn btn-success", id: "btn-save"

@@ -28,12 +28,12 @@ crumb :mission do
 end
 
 crumb :vision do
-  link "Notre vision"
+  link "Vision"
   parent :mission
 end
 
 crumb :moyen do
-  link "Nos moyens et objectifs"
+  link "Moyens et objectifs"
   parent :mission
 end
 
