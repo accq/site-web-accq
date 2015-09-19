@@ -1,25 +1,24 @@
 .well
   %h2.no-margin
-    Nous, CITOYENS CONSTITUANTS, nous nous engageons à promouvoir, exiger et préparer la convocation d'une Assemblée constituante non partisane, et à tout mettre en oeuvre pour obtenir le respect de la volonté du peuple.
+    Nous, <b>constituant.e.s</b>, nous nous engageons à promouvoir, à préparer et à exiger la convocation d'une Assemblée constituante non partisane, libre de ses délibérations, et à tout mettre en œuvre pour obtenir le respect de la volonté du peuple.
 
   %p
-    Nous vous invitons à vous engager avec nous. #{link_to "<b>Signez le manifeste!</b>".html_safe, manifest_path, class: "btn btn-danger btn-lg", id: "#sign-manifest"}
-
-
+    #{link_to "<i class='fa fa-pencil-square-o'></i> Nous vous invitons à vous engager avec NOUS. <b>Signez le manifeste!</b>".html_safe, manifest_path, class: "btn btn-danger btn-lg", id: "#sign-manifest"}
+%p.small
+  %i
+    * Veuillez noter que tout le contenu de notre site web est encore en processus d'approbation.     
 
 .row.regions
   .col-md-6
     %h3.sub-section Première rencontre nationale
-    %p Roméo Bouchard prend la parole lors de la première rencontre de l'ACCQ
+    %p Les constituant.e.s s'expriment!
+    .youtube-container
+      .youtube-player{"data-id" => "pvR3yU2KB44"}    
+
+    %p Roméo Bouchard prend la parole lors de la première rencontre nationale de l'Assemblée constituante citoyenne du Québec.
     .youtube-container
       .youtube-player{"data-id" => "YnKJn2_3Dzk"}    
 
-    %p.small * D'autres photos et vidéos sont à venir.
-    -if false
-      %ul
-        %li= link_to "Photos", ""
-        %li= link_to "Vidéos", ""
-        %li= link_to "Communiqué de presse", ""
 
 
     %h3.sub-section Aimez notre page Facebook
@@ -28,7 +27,7 @@
   
 
   .col-md-6
-    %h3.sub-section Joignez votre assemblée régionale
+    %h3.sub-section Pour rejoindre votre Assemblée constituante régionale québecoise (ACRQ) 
 
     .row
       -@hives.each_with_index do |h,index|

@@ -2,7 +2,7 @@
 %html
   %head
     %meta{:charset => "utf-8"}
-    %title ACCQ: L'assembléé constituante du Québec
+    %title L'Assembléé constituante du Québec #{content_for?(:page_title) ? " - " + yield(:page_title) : ""}
     %meta{:content => "width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no", :name => "viewport"}
     %meta{:name => "viewport", :content => "initial-scale=1.0, user-scalable=no"}
     %meta{:content => "", :name => "description"}
@@ -41,8 +41,9 @@
         .collapse.navbar-collapse
           %ul.nav.navbar-nav            
             %li= link_to "Accueil", root_path
+            %li= link_to "Constat", constat_path
             %li= link_to "Manifeste", manifest_path
-            %li= link_to "Mission", mission_path            
+            %li= link_to "Mission", mission_path
             %li= link_to "Noyau central", noyau_path
 
             %li.dropdown
@@ -53,6 +54,7 @@
               %ul.dropdown-menu
                 %li= link_to "Bibliothèque".html_safe, bibliotheque_path
                 %li= link_to "Médiathèque".html_safe, mediatheque_path
+                %li= link_to "Outils de promotion", promotional_tools_path
 
             %li.dropdown
               %a{href: "#", class: "dropdown-toggle", "data-toggle" => "dropdown", role: "button", "aria-haspopup" => "true", "aria-expanded" => "false"}
@@ -63,8 +65,7 @@
                 %li= link_to "Couverture médiatique", media_coverage_path
                 %li= link_to "Communiqués de presse", press_releases_path
 
-            %li= link_to "Outils de promotion", ""
-            %li= link_to "Nous joindre", ""
+            %li= link_to "Nous joindre", nous_joindre_path
     
     -if controller_name == 'home' && action_name=='show'
       %header
@@ -94,7 +95,7 @@
       .container        
         %p.text-muted
           =image_tag("logo_trans.png", height: 30)
-          Assemblée constituante citoyenne du Québec (ACCQ) @#{Date.today.year}
+          Assemblée constituante citoyenne du Québec @#{Date.today.year}
           \-          
-          %i.fa.fa-bitbucket-square
-          Code source sur #{link_to "bitbucket", "https://www.bitbucket.org/flamontagne/accq", target: "_blank"}     
+          %i.fa.fa-github-square
+          Code source sur #{link_to "Github", "https://github.com/accq/site-web", target: "_blank"}     

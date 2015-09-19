@@ -17,24 +17,39 @@ crumb :hive do |hive|
   parent :hives
 end
 
+crumb :constat do
+  link "Constat", constat_path
+  parent :root
+end
+
 crumb :mission do
   link "Mission", mission_path
   parent :root
 end
 
 crumb :vision do
-  link "Notre vision"
+  link "Vision"
   parent :mission
 end
 
 crumb :moyen do
-  link "Notre moyen"
+  link "Moyens et objectifs"
   parent :mission
 end
 
-crumb :objectifs do
-  link "Nos objectifs"
+crumb :mission_nous_rejoindre do
+  link "Nous rejoindre"
   parent :mission
+end
+
+crumb :promotional_tools do
+  link "Outils de promotion"
+  parent :root
+end
+
+crumb :nous_joindre do
+  link "Nous joindre", nous_joindre_path
+  parent :root
 end
 
 crumb :noyau do
