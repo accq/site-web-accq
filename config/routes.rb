@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root 'home#show'
   get '/signez-le-manifeste', to: "home#manifest", as: :manifest
-  get '/table-nationale', to: "home#table_nationale", as: :table_nationale
+  get '/deuxieme-rencontre-nationale', to: "home#deuxieme_rencontre_nationale"
   get '/noyau-central', to: "home#noyau_central", as: :noyau
   get '/constat', to: "home#constat", as: :constat
   get '/nous-joindre', to: "home#nous_joindre", as: :nous_joindre
