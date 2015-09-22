@@ -53,8 +53,18 @@ crumb :nous_joindre do
 end
 
 crumb :noyau do
-  link "Noyau central"
+  link "Noyau central", noyau_path
   parent :root
+end
+
+crumb :coor do
+  link "Comité organisateur (COOR)"
+  parent :noyau
+end
+
+crumb :responsables_regionaux do
+  link "Responsables régionaux"
+  parent :noyau
 end
 
 crumb :bibliotheque do

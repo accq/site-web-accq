@@ -4,15 +4,11 @@
 -breadcrumb :noyau
 
 .row
-  .col-sm-8
-    =image_tag "noyau_central.jpg", class: "thumbnail img-responsive"
-  .col-sm-4
-    %h3.sub-section.no-margin Comités
-    %ol{type: "A"}
-      %li Comité mobilisation et recrutement
-      %li Comité financement et trésorerie
-      %li Comité communication
-      %li Comité éducation populaire
-      %li Comité web
-      %li Comité secrétariat et registraire
-      %li Comité événements
+  .col-sm-7
+    =image_tag "noyau_central.jpg", class: "img-responsive thumbnail"
+  .col-sm-5
+    %h3.sub-section.no-margin Deux composantes forment le noyau central:
+
+    %ol
+      %li= link_to "Comité organisateur (COOR)", action: :coor
+      %li= link_to "Responsables régionaux", action: :responsables_regionaux

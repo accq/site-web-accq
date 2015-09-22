@@ -44,8 +44,18 @@
             %li= link_to "Constat", constat_path
             %li= link_to "Manifeste", manifest_path
             %li= link_to "Mission", mission_path
-            %li= link_to "Noyau central", noyau_path
+            
 
+            -if false
+              %li.dropdown
+                %a{href: "#", class: "dropdown-toggle", "data-toggle" => "dropdown", role: "button", "aria-haspopup" => "true", "aria-expanded" => "false"}
+                  Noyau central
+                  %span.caret
+
+                %ul.dropdown-menu
+                  %li= link_to "Comité organisateur (COOR)", action: :coor
+                  %li= link_to "Responsables régionaux", action: :responsables_regionaux
+          
             %li.dropdown
               %a{href: "#", class: "dropdown-toggle", "data-toggle" => "dropdown", role: "button", "aria-haspopup" => "true", "aria-expanded" => "false"}
                 Éducation

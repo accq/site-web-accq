@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get '/signez-le-manifeste', to: "home#manifest", as: :manifest
   get '/deuxieme-rencontre-nationale', to: "home#deuxieme_rencontre_nationale"
   get '/noyau-central', to: "home#noyau_central", as: :noyau
+  get '/noyau-central/coor', to: "home#coor"
+  get '/noyau-central/responsables-regionaux', to: "home#responsables_regionaux"
   get '/constat', to: "home#constat", as: :constat
   get '/nous-joindre', to: "home#nous_joindre", as: :nous_joindre
   get '/mission', to: "home#mission", as: :mission
