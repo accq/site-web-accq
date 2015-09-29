@@ -3,7 +3,7 @@
 .row
   .col-xs-12  
     -if @unconfirmed_members.any?
-      %h3 Signatures en attente d'approbation
+      %h3.sub-section #{Member.unconfirmed.count} signature(s) en attente d'approbation
       %table.table.table-striped.table-hover#unconfirmed-members
         %thead
           %tr
@@ -28,8 +28,9 @@
                 =link_to "Supprimer la signature", admin_member_path(m), class: "btn btn-danger btn-xs", data: {confirm: "La signature sera supprimée de la base de données. Continuer?"}, method: :delete
 
     -if @confirmed_members.any?
-      %h3 Signatures approuvées
-      %table.table.table-striped.table-hover#confirmed-members
+      %h3.sub-section #{Member.confirmed.count} signatures approuvées
+      = will_paginate @confirmed_members, renderer: BootstrapPagination::Rails
+      %table.table.table-striped.table-hover.table-condensed#confirmed-members
         %thead
           %tr
             %th Nom
@@ -50,3 +51,4 @@
               %td= l(m.created_at, format: :short)
               %td
                 =link_to "Désapprouver la signature", disapprove_admin_member_path(m), class: "btn btn-danger btn-xs", data: {confirm: "La signature n'apparaîtra plus sur le site. Continuer?"}, method: :put
+      = will_paginate @confirmed_members, renderer: BootstrapPagination::Rails

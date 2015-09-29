@@ -20,7 +20,7 @@ class Admin::MembersController < ApplicationController
 
   def index
     @unconfirmed_members = Member.unconfirmed.order("created_at")
-    @confirmed_members = Member.confirmed.order("created_at DESC")
+    @confirmed_members = Member.confirmed.paginate(page: params[:page]).order("created_at DESC")
   end
 
   def destroy
