@@ -10,15 +10,13 @@
       %thead
         %tr
           %th # Signature
-          %th Nom complet
-          %th Municipalité
+          %th Nom complet          
           %th Date de la signature
       %tbody
         -@confirmed_members.each_with_index do |m,i|
           %tr
             %td #{@confirmed_members.count - (Member.per_page * (page-1)) - i}
-            %td= m.name
-            %td= m.city
+            %td= m.name            
             %td= l(m.created_at.to_date, format: :long)
 
     = will_paginate @confirmed_members, renderer: BootstrapPagination::Rails        
