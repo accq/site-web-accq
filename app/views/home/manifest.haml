@@ -4,7 +4,6 @@
 -breadcrumb :manifest
 .row
   .col-md-8#manifesto
-    %h3 Le manifeste *
     %ol
       %li
         Dans une démocratie digne de ce nom, le peuple est souverain. C’est donc à lui de dicter les règles du jeu.
@@ -28,7 +27,11 @@
 
 
   .col-md-4
-    %h3 Dernières signatures
+    %p 
+      =link_to "<i class='fa fa-pencil-square-o'></i> Voir les #{Member.confirmed.count.to_s + " signatures"}".html_safe, signatures_path, class: "btn btn-primary", id: "#all-signatures"
+
+    %h3.sub-section 
+      Dernières signatures      
     %ul.list-unstyled#last-signatures
       -@latest_signatures.each do |member|
         %li          
@@ -36,9 +39,6 @@
             =member.name
             \-          
             =l(member.created_at.to_date, format: :long )
-
-          
-          
 
 
 .row

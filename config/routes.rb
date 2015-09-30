@@ -20,8 +20,12 @@ Rails.application.routes.draw do
   resources :acrq, controller: :hives , as: :hives do   
   end
 
-  resources :membres, controller: :members, as: :members do
+  resources :membres, controller: :members, as: :members, only: :create do
+    
   end
+
+  get '/signatures-manifeste' => 'members#index', as: :signatures
+  
 
   namespace :admin do
     resources :hives

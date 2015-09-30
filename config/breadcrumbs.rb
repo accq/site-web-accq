@@ -92,6 +92,12 @@ crumb :press_releases do
   parent :media
 end
 
+crumb :all_signatures do
+  link "Signatures du manifeste"
+  parent :root
+end
+
+
 # crumb :projects do
 #   link "Projects", projects_path
 # end

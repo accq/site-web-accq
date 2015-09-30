@@ -11,6 +11,10 @@ class MembersController < ApplicationController
     end
   end
 
+  def index
+    @confirmed_members = Member.confirmed.paginate(page: params[:page]).order("created_at DESC")
+  end
+
   private
   def member_params
     params.require(:member).permit(:name, :email, :phone, :postal_code, :city)

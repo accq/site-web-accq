@@ -1,0 +1,24 @@
+-content_for :page_title do
+  Merci #{@confirmed_members.count} fois pour votre engagement!
+
+-breadcrumb :all_signatures
+-page = params[:page].to_i == 0 ? 1 : params[:page].to_i
+.row
+  .col-md-12
+
+    %table.table.table-striped
+      %thead
+        %tr
+          %th # Signature
+          %th Nom complet
+          %th Municipalité
+          %th Date de la signature
+      %tbody
+        -@confirmed_members.each_with_index do |m,i|
+          %tr
+            %td #{@confirmed_members.count - (Member.per_page * (page-1)) - i}
+            %td= m.name
+            %td= m.city
+            %td= l(m.created_at.to_date, format: :long)
+
+    = will_paginate @confirmed_members, renderer: BootstrapPagination::Rails        

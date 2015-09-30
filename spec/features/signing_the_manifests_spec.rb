@@ -49,4 +49,20 @@ feature "SigningTheManifests", :type => :feature do
     expect(page).not_to have_content(members(:marc).phone)
     expect(page).not_to have_content(members(:denis).phone)
   end
+
+  scenario "You can access a page with all the signatures" do
+    visit "/"
+    click_link "#sign-manifest"
+    click_link "#all-signatures"
+    expect(page).to have_content("Merci 3 fois pour votre engagement!")
+    expect(page).to have_css("table tbody tr", count: 3)
+
+    #test the pagination
+    visit "/"
+    click_link "#sign-manifest"
+    Member.per_page = 1
+    click_link "#all-signatures"
+    expect(page).to have_css("table tbody tr", count: 1)
+    expect(page).to have_css("ul.pagination li", count: 5) #prev, next as well as a li for each page
+  end
 end
