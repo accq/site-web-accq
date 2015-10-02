@@ -1,5 +1,5 @@
 CarrierWave.configure do |config|
-  if (Rails.env.development? || Rails.env.test?) && true==false
+  if (Rails.env.development? || Rails.env.test?)
     config.storage = :file
   else    
     config.storage = :fog    
