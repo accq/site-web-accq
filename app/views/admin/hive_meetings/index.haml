@@ -5,7 +5,7 @@
 .row
   .col-xs-12
     %p
-      =link_to "<i class='fa fa-plus'></i> Ajouter une réunion".html_safe, new_admin_hive_hive_meeting_path, class: "btn btn-info"
+      =link_to "<i class='fa fa-plus'></i> Ajouter une réunion".html_safe, new_admin_hive_hive_meeting_path, class: "btn btn-info", id: "add-meeting"
 
     -if @hive_meetings.upcoming.any?
       .panel.panel-default
@@ -13,7 +13,7 @@
           %h3.panel-title
             Réunions à venir
         .panel-body
-          %table.table.table-striped.table-hover
+          %table#upcoming-meetings.table.table-striped.table-hover
             %thead
               %tr
                 %th Date / Heure
@@ -38,7 +38,7 @@
           %h3.panel-title
             Réunions passées
         .panel-body
-          %table.table.table-striped.table-hover
+          %table#past-meetings.table.table-striped.table-hover
             %thead
               %tr
                 %th Date / Heure

@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get '/medias/communiques-de-presse', to: "home#press_releases", as: :press_releases
   get '/education/outils-de-promotion', to: "home#promotional_tools", as: :promotional_tools
   resources :acrq, controller: :hives , as: :hives do   
+    resources :hive_meetings
   end
 
   resources :membres, controller: :members, as: :members, only: :create do

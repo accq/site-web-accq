@@ -32,7 +32,7 @@ class Admin::HiveMeetingsController < ApplicationController
     @hive_meeting = HiveMeeting.new(hive_meeting_params.merge(hive: @hive))
 
     if @hive_meeting.save
-      flash[:success] = "La réunion e a été ajoutée"
+      flash[:success] = "La réunion a été ajoutée"
       redirect_to admin_hive_hive_meetings_path
     else
       render :new

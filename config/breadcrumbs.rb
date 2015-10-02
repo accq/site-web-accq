@@ -13,9 +13,15 @@ crumb :hives do
 end
 
 crumb :hive do |hive|
-  link hive
+  link hive.name, hive_path(hive)
   parent :hives
 end
+
+crumb :hive_meetings do |h|
+  link "Réunions", hive_hive_meetings_path(h)
+  parent :hive, h
+end
+
 
 crumb :constat do
   link "Constat", constat_path

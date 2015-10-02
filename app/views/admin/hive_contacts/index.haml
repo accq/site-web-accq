@@ -5,7 +5,7 @@
 .row
   .col-xs-12
     %p
-      =link_to "<i class='fa fa-plus'></i> Ajouter un responsable".html_safe, new_admin_hive_hive_contact_path, class: "btn btn-info"
+      =link_to "<i class='fa fa-plus'></i> Ajouter un responsable".html_safe, new_admin_hive_hive_contact_path, class: "btn btn-info", id: "add-contact"
 
     -if @hive_contacts.any?
       %table.table.table-striped.table-hover.table-condensed
@@ -22,5 +22,5 @@
               %td= c.email
               %td= c.phone
               %td
-                =link_to "Modifier", edit_admin_hive_contact_path(c), class: "btn btn-info"
+                =link_to "Modifier", edit_admin_hive_contact_path(c), class: "btn btn-sm btn-info"
                 =link_to "Supprimer", admin_hive_contact_path(c), class: "btn btn-sm btn-danger", method: :delete, data: {confirm: "Attention. Voulez-vous vraiment supprimer ce responsable?"}

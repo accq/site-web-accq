@@ -1,14 +1,33 @@
 -content_for :page_title do
   #{show_hive_number(@hive.number)} . #{@hive.name}
 
--breadcrumb :hive, @hive.name
+-breadcrumb :hive, @hive
 .row
   .col-md-12
-    %p Bienvenue dans votre Assemblée constituante régionale québécoise!
+    %p.lead Bienvenue dans votre Assemblée constituante régionale québécoise!
 
 .row
   .col-md-6
-    %h3.no-margin.sub-section Réunions régionales
+    %h3.no-margin.sub-section Prochaine réunion régionale
+    -if @next_meeting
+      %p
+        Votre prochaine réunion régionale se tiendra le <b>#{l(@next_meeting.meeting_date, format: :long)} à #{l(@next_meeting.meeting_time, format: "%H:%M")}</b>
+      %blockquote
+        #{@next_meeting.location}
+        %br/
+        #{@next_meeting.address}
+        %br/
+        #{@next_meeting.city}
+        -if @next_meeting.agenda.url.present?
+          %br/
+          =fa_icon("download")
+          =link_to "Télécharger l'ordre du jour".html_safe, @next_meeting.agenda.url, target: "_blank"
+
+    -else
+      %p Aucune réunion n'est prévue
+
+    -if @past_meetings.any?
+      %p= link_to "Voir les réunions passées", hive_hive_meetings_path(@hive), id: "past-meetings"
 
   .col-md-6
     %h3.no-margin.sub-section Responsables
