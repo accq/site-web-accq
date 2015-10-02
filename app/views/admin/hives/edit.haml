@@ -1,4 +1,5 @@
 -content_for :page_title do
   Modifier une ACRQ
 
+-breadcrumb :edit_hive, @hive
 =render "form", locals: {hive: @hive}

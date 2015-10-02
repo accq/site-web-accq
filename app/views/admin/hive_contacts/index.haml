@@ -1,0 +1,26 @@
+-content_for :page_title do
+  Responsables de l'ACRQ « #{@hive.name} »
+
+-breadcrumb :admin_hive_contacts, @hive
+.row
+  .col-xs-12
+    %p
+      =link_to "<i class='fa fa-plus'></i> Ajouter un responsable".html_safe, new_admin_hive_hive_contact_path, class: "btn btn-info"
+
+    -if @hive_contacts.any?
+      %table.table.table-striped.table-hover.table-condensed
+        %thead
+          %tr
+            %th Nom
+            %th Courriel
+            %th Téléphone
+            %th
+        %tbody
+          -@hive_contacts.each do |c|
+            %tr
+              %td= c.full_name
+              %td= c.email
+              %td= c.phone
+              %td
+                =link_to "Modifier", edit_admin_hive_contact_path(c), class: "btn btn-info"
+                =link_to "Supprimer", admin_hive_contact_path(c), class: "btn btn-sm btn-danger", method: :delete, data: {confirm: "Attention. Voulez-vous vraiment supprimer ce responsable?"}

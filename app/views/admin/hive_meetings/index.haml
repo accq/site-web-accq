@@ -1,0 +1,54 @@
+-content_for :page_title do
+  Réunions de l'ACRQ « #{@hive.name} »
+
+-breadcrumb :admin_hive_meetings, @hive
+.row
+  .col-xs-12
+    %p
+      =link_to "<i class='fa fa-plus'></i> Ajouter une réunion".html_safe, new_admin_hive_hive_meeting_path, class: "btn btn-info"
+
+    -if @hive_meetings.upcoming.any?
+      .panel.panel-default
+        .panel-heading
+          %h3.panel-title
+            Réunions à venir
+        .panel-body
+          %table.table.table-striped.table-hover
+            %thead
+              %tr
+                %th Date / Heure
+                %th Lieu
+                %th Ordre du jour
+                %th
+            %tbody
+              -@hive_meetings.upcoming.each do |m|
+                %tr
+                  %td #{l(m.meeting_date, format: :long)} à #{l(m.meeting_time, format: "%H:%M")}
+                  %td= m.location
+                  %td #{m.agenda.url.present? ? link_to("Télécharger", m.agenda.url, target: "_blank") : ""}
+                  %td.options
+                    =link_to "Modifier", edit_admin_hive_meeting_path(m), class: "btn btn-sm btn-info"
+                    =link_to "Supprimer", admin_hive_meeting_path(m), class: "btn btn-sm btn-danger", method: :delete, data: {confirm: "Attention. Voulez-vous vraiment supprimer cette réunion?"}
+
+
+
+    -if @hive_meetings.past.any?
+      .panel.panel-default
+        .panel-heading
+          %h3.panel-title
+            Réunions passées
+        .panel-body
+          %table.table.table-striped.table-hover
+            %thead
+              %tr
+                %th Date / Heure
+                %th Lieu
+                %th Compte-rendu
+                %th
+            %tbody
+              -@hive_meetings.past.each do |m|
+                %tr
+                  %td #{l(m.meeting_date, format: :long)} à #{l(m.meeting_time, format: "%H:%M")}              
+                  %td= m.location
+                  %td #{m.report.url.present? ? link_to("Télécharger", m.report.url, target: "_blank") : ""}
+                  %td.options= link_to "Modifier", edit_admin_hive_meeting_path(m), class: "btn btn-sm btn-info"

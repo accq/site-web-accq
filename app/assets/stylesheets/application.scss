@@ -40,5 +40,10 @@ body { padding-top: 50px; }
 // And finally bootswatch style itself
 @import "bootswatch/cerulean/bootswatch";
 
+// PIckadate
+
+@import "pickadate/default";
+@import "pickadate/default.date";
+@import "pickadate/default.time";
 // Whatever application styles you have go last
 @import "style";

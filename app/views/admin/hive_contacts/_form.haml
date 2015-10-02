@@ -1,0 +1,8 @@
+=simple_form_for [:admin, hive, hive_contact] do |f|
+  =f.input :full_name, label: "Nom du responsable"
+  =f.input :email, label: "Courriel"
+  =f.input :phone, label: "Téléphone"
+  =f.input :fb_page, label: "Page Facebook"
+
+  %p
+    =f.button :submit, "Enregistrer", class: "btn btn-success", id: "btn-save"

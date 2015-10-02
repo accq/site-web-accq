@@ -1,0 +1,5 @@
+-content_for :page_title do
+  Ajouter une réunion dans l'ACRQ « #{@hive.name} »
+
+-breadcrumb :new_hive_meeting, @hive
+=render partial: "form", locals: {hive_meeting: @hive_meeting, hive: @hive}

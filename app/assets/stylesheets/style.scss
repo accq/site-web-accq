@@ -115,7 +115,19 @@ no-margin {
   margin-bottom:0;
 }
 
+.hive-dropdown {
+  margin-bottom: 20px;
+}
 
+
+.panel-heading h3.panel-title {
+  color: #317EAC;
+  font-weight: bold;
+}
+
+td.options {
+  text-align: right;
+}
 /* On demand youtube containers */
 .youtube-container { display: block; margin: 20px auto; width: 100%; max-width: 600px; }
 .youtube-player { display: block; width: 100%; /* assuming that the video has a 16:9 ratio */ padding-bottom: 56.25%; overflow: hidden; position: relative; width: 100%; height: 100%; cursor: hand; cursor: pointer; display: block; }

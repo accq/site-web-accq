@@ -52,6 +52,8 @@
           %button.close{:type => "button", :data => {:dismiss => "alert"}, :aria => {:hidden => "true"} } &times;
           =sanitize msg
 
+      %br/
+      = breadcrumbs style: :bootstrap, autoroot: false
 
 
       -if content_for?(:page_title)

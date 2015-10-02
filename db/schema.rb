@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150828195335) do
+ActiveRecord::Schema.define(version: 20151002150317) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,9 +22,24 @@ ActiveRecord::Schema.define(version: 20150828195335) do
     t.string  "phone"
     t.string  "email"
     t.string  "function"
+    t.string  "fb_page"
   end
 
   add_index "hive_contacts", ["hive_id"], name: "index_hive_contacts_on_hive_id", using: :btree
+
+  create_table "hive_meetings", force: :cascade do |t|
+    t.integer "hive_id"
+    t.string  "location"
+    t.string  "map_url"
+    t.string  "city"
+    t.string  "address"
+    t.date    "meeting_date"
+    t.time    "meeting_time"
+    t.string  "agenda"
+    t.string  "report"
+  end
+
+  add_index "hive_meetings", ["hive_id"], name: "index_hive_meetings_on_hive_id", using: :btree
 
   create_table "hives", force: :cascade do |t|
     t.string  "name"

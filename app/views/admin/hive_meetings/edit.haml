@@ -1,0 +1,5 @@
+-content_for :page_title do
+  Modifier une réunion dans l'ACRQ « #{@hive_meeting.hive.name} »
+
+-breadcrumb :edit_hive_meeting, @hive_meeting
+=render partial: "form", locals: {hive_meeting: @hive_meeting, hive: @hive}

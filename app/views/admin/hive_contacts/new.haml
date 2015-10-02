@@ -1,0 +1,5 @@
+-content_for :page_title do
+  Ajouter un responsable dans l'ACRQ « #{@hive.name} »
+
+-breadcrumb :new_hive_contact, @hive
+=render partial: "form", locals: {hive_contact: @hive_contact, hive: @hive}

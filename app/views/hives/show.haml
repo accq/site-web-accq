@@ -1,15 +1,37 @@
 -content_for :page_title do
-  Votre assemblée régionale
+  #{show_hive_number(@hive.number)} . #{@hive.name}
 
 -breadcrumb :hive, @hive.name
 .row
+  .col-md-12
+    %p Bienvenue dans votre Assemblée constituante régionale québécoise!
+
+.row
   .col-md-6
-    =image_tag @hive.image.url, class: "img-responsive thumbnail"
+    %h3.no-margin.sub-section Réunions régionales
 
   .col-md-6
-    %h3.no-margin #{@hive.name} (#{show_hive_number(@hive.number)})
+    %h3.no-margin.sub-section Responsables
     
-    %p Nom des personnes responsables et informations de contact à venir
+    -if @hive.hive_contacts.any?
+      -@hive.hive_contacts.each do |c|
+        %div
+          %strong= c.full_name
+          -if c.email.present?
+            %br/
+            =mail_to c.email
+
+          -if c.phone.present?
+            %br/
+            =c.phone
+
+          -if c.fb_page.present?
+            %br/
+            =link_to "Page Facebook", c.fb_page, target: "_blank"
+
+          %hr/
+    -else
+      %p Il n'y a aucun responsable à afficher pour le moment
 
     -if @hive.fb_url.present?
       %p

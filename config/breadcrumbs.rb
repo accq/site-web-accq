@@ -98,6 +98,56 @@ crumb :all_signatures do
 end
 
 
+#### ADMIN CRUMBS
+crumb :admin_root do
+  link "Accueil", admin_root_path    
+end
+
+crumb :admin_members do
+  link "Signatures", admin_members_path
+  parent :admin_root
+end
+
+
+crumb :admin_hives do
+  link "Gestion des ACRQ", admin_hives_path
+  parent :admin_root
+end
+
+crumb :edit_hive do |h|
+  link "Modifier une ACRQ", edit_admin_hive_path(h)
+  parent :admin_hives
+end
+
+crumb :admin_hive_contacts do |h|
+  link "Responsables (#{h.name})", admin_hive_hive_contacts_path(h)
+  parent :admin_hives
+end
+
+crumb :new_hive_contact do |h|
+  link "Ajouter un responsable", new_admin_hive_hive_contact_path(h)
+  parent :admin_hive_contacts, h
+end
+
+crumb :edit_hive_contact do |c|
+  link "Modifier un responsable", edit_admin_hive_contact_path(c)
+  parent :admin_hive_contacts, c.hive
+end
+
+crumb :admin_hive_meetings do |h|
+  link "Réunions (#{h.name})", admin_hive_hive_meetings_path(h)
+  parent :admin_hives
+end
+
+crumb :new_hive_meeting do |h|
+  link "Ajouter une réunion", new_admin_hive_hive_meeting_path(h)
+  parent :admin_hive_meetings, h
+end
+
+crumb :edit_hive_meeting do |m|
+  link "Modifier une réunion", edit_admin_hive_meeting_path(m)
+  parent :admin_hive_meetings, m.hive
+end
 # crumb :projects do
 #   link "Projects", projects_path
 # end

@@ -23,6 +23,7 @@ gem 'date_validator'
 gem 'email_validator'
 gem 'gretel', '~> 3.0.8'
 gem 'carrierwave', '~> 0.10.0'
+gem 'fog', '~> 1.34.0'
 gem 'mini_magick'
 gem 'devise', '~> 3.5.1'
 gem 'devise-i18n'
@@ -31,6 +32,7 @@ gem "spring-commands-rspec", group: :development #to run rspec under spring
 gem 'will_paginate', '~> 3.0.7'
 gem 'will_paginate-bootstrap'
 gem 'will-paginate-i18n'
+gem 'pickadate-rails'
 
 group :development, :test do
   gem 'byebug'

@@ -1,0 +1,32 @@
+=simple_form_for [:admin, hive, hive_meeting] do |f|
+  =f.input :location, label: "Endroit"
+  =f.input :city, label: "Municipalité"
+  =f.input :address, label: "Adresse"
+  =f.input :meeting_date, as: :string, label: 'Date de la réunion', input_html: {class: "datepicker"}
+  =f.input :meeting_time, as: :string, label: 'Heure de la réunion', input_html: {class: "timepicker"}  
+  =f.input :agenda, as: :file, label: 'Ordre du jour (Fichier .pdf)'
+  -if hive_meeting.persisted? && hive_meeting.agenda.url.present?
+    %p
+      = link_to "Fichier actuel", hive_meeting.agenda.url, target: "_blank"
+      (
+      =f.check_box :remove_agenda
+      Supprimer ce fichier
+      )
+    %hr/
+  =f.input :report, as: :file, label: 'Compte rendu  (Fichier .pdf)'
+  -if hive_meeting.persisted? && hive_meeting.report.url.present?
+    %p
+      = link_to "Fichier actuel", hive_meeting.report.url, target: "_blank"
+      (
+      =f.check_box :remove_report
+      Supprimer ce fichier
+      )
+  
+  %p
+    =f.button :submit, "Enregistrer", class: "btn btn-success", id: "btn-save"
+
+:javascript
+  $(document).ready(function() {      
+      $('.datepicker').pickadate();
+      $('.timepicker').pickatime();
+  });

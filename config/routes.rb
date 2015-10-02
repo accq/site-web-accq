@@ -28,7 +28,11 @@ Rails.application.routes.draw do
   
 
   namespace :admin do
-    resources :hives
+    resources :hives, shallow: true do
+      resources :hive_contacts
+      resources :hive_meetings
+    end
+
     resources :members do
       member do
         put :approve
