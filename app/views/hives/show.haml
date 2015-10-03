@@ -4,7 +4,26 @@
 -breadcrumb :hive, @hive
 .row
   .col-md-12
-    %p.lead Bienvenue dans votre Assemblée constituante régionale québécoise!
+    %h3 Bienvenue dans votre Assemblée constituante régionale québécoise!
+
+    .well.well-sm
+      %p
+        Afin d’obtenir des réponses à vos questions à propos du sens de notre démarche, vous êtes en mesure de rejoindre MAINTENANT  vos représentants régionaux par intérim. 
+      %p
+        Votre Conseil des opérations intérimaire (C.O.I.) suggère que tous ces mandats se terminent, au plus tard, le 21 janvier 2016. Nous vous invitons à faire en sorte que tous les postes de responsabilité dans votre région soient pourvus avant la toute première Table nationale de 2016, laquelle doit avoir lieu les 30 et 31 janvier prochain. (L’endroit sera déterminé lors de la 2e rencontre nationale.)
+      %p
+        Veuillez noter que vous serez en mesure de consulter la définition des tâches proposées dans la section « Organigramme » lorsque celle-ci sera en ligne. Nous travaillons à ce qu’elle le soit très bientôt. 
+      %p
+        L’instauration d’une véritable démocratie requiert la responsabilisation individuelle !
+      %p
+        Merci d’assister à vos rencontres régionales…
+        %br/
+        Votre C.O.I. #{mail_to "coi@constituantecitoyenne.quebec"}
+
+      -if @hive.fb_url.present?
+        %p
+          =fa_icon "facebook-square"
+          =link_to "Page facebook de l'ACRQ #{show_hive_number(@hive.number)}", @hive.fb_url, target: "_blank"
 
 .row
   .col-md-6
@@ -51,8 +70,3 @@
           %hr/
     -else
       %p Il n'y a aucun responsable à afficher pour le moment
-
-    -if @hive.fb_url.present?
-      %p
-        =fa_icon "facebook-square"
-        =link_to "Page facebook de l'ACRQ #{show_hive_number(@hive.number)}", @hive.fb_url, target: "_blank"
