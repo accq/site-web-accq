@@ -14,7 +14,7 @@ feature "ManagingHiveMeetings", :type => :feature do
     fill_in :hive_meeting_address, with: "2020 du finfin"
     fill_in :hive_meeting_meeting_date, with: Date.current.advance(days: 5)
     fill_in :hive_meeting_meeting_time, with: "6:30 PM".to_time
-    attach_file :hive_meeting_agenda, Rails.root.to_s + "/tmp/example.pdf"
+    attach_file :hive_meeting_agenda, Rails.root.to_s + "/spec/example.pdf"
     click_button "btn-save"
     expect(page).to have_content("La réunion a été ajoutée")
     expect(page).to have_css("table#upcoming-meetings tbody tr", count: 2)

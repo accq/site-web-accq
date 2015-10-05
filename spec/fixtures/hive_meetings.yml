@@ -5,7 +5,7 @@ past_meeting_in_vlq:
   address: 1234 Elm Street
   meeting_date: <%=Date.current.advance(days: -3).to_s(:db)%>
   meeting_time: <%="5:00 PM".to_time.to_s(:db)%>
-  report: <%=Rails.root.to_s%> + "/tmp/example.pdf"
+  report: <%=Rails.root.to_s%> + "/spec/example.pdf"
 upcoming_meeting_in_vlq:
   hive: vive_le_quebec
   location: Restaurant XYZ
@@ -13,4 +13,4 @@ upcoming_meeting_in_vlq:
   address: 1234 Elm Street
   meeting_date: <%=Date.current.advance(days: 3).to_s(:db)%>
   meeting_time: <%="7:00 PM".to_time.to_s(:db)%>
-  agenda: <%=Rails.root.to_s%> + "/tmp/example.pdf"
+  agenda: <%=Rails.root.to_s%> + "/spec/example.pdf"

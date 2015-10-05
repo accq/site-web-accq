@@ -4,7 +4,7 @@
 -breadcrumb :hive_meetings, @hive
 .row
   .col-md-12  
-    %table.table.table-condensed.table-striped.table-hover
+    %table.table.table-condensed.table-striped.table-hover#past-meetings
       %thead
         %tr
           %th Date
@@ -13,7 +13,7 @@
       %tbody
         -@meetings.each do |m|
           %tr
-            %td #{l(m.meeting_date, format: :long)}
+            %td= l(m.meeting_date, format: :long)
             %td= m.location
             %td
               -if m.report.url.present?
