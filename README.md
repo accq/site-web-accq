@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/accq/site-web-accq.svg?branch=master)](https://travis-ci.org/accq/site-web-accq)
+
 # LISEZ-MOI #
 
 Toute la démarche de l'Assemblée constituante citoyenne du Québec se voulant transparente et ouverte, rendre le code source du site web accessible publiquement n'est qu'un pas de plus dans cette direction.
