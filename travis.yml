@@ -1,0 +1,15 @@
+language: ruby
+rvm:
+  - 2.1.5
+env:
+  - DB=sqlite
+  - DB=mysql
+  - DB=postgresql
+script: 
+  - RAILS_ENV=test bundle exec rake db:migrate --trace
+  - bundle exec rake db:test:prepare
+  - bundle exec rspec spec/
+before_script:
+  - mysql -e 'create database accq_test'
+  - psql -c 'create database accq_test' -U postgres
+bundler_args: --binstubs=./bundler_stubs
