@@ -18,6 +18,6 @@
             %td
               -if m.report.url.present?
                 =fa_icon("download")
-                =link_to "Télécharger le compte-rendu"
+                =link_to "Télécharger le compte-rendu", m.report.url, target: "_blank"
               -else
                 Le compte-rendu n'est pas disponible          
