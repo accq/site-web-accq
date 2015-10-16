@@ -8,16 +8,16 @@
       %thead
         %tr
           %th Date
-          %th Endroit
+          %th Adresse
           %th Compte-rendu
       %tbody
         -@meetings.each do |m|
           %tr
             %td= l(m.meeting_date, format: :long)
-            %td= m.location
+            %td= m.address
             %td
               -if m.report.url.present?
                 =fa_icon("download")
-                =link_to "Télécharger le compte-rendu"
+                =link_to "Télécharger le compte-rendu", m.report.url, target: "_blank"
               -else
                 Le compte-rendu n'est pas disponible          

@@ -23,7 +23,7 @@ feature "HiveMeetings", :type => :feature do
     click_link "past-meetings"
     expect(page).to have_css("table#past-meetings tbody tr", count: 1)    
     expect(page).to have_css("table tbody tr:nth-child(1) td:nth-child(1)", text: I18n.l(hive_meetings(:past_meeting_in_vlq).meeting_date, format: :long).strip)
-    expect(page).to have_css("table tbody tr:nth-child(1) td:nth-child(2)", text: hive_meetings(:past_meeting_in_vlq).location)    
+    expect(page).to have_css("table tbody tr:nth-child(1) td:nth-child(2)", text: hive_meetings(:past_meeting_in_vlq).address)    
     expect(page).to have_css("table tbody tr:nth-child(1) td:nth-child(3)", text: "Télécharger le compte-rendu")
   end
 end
