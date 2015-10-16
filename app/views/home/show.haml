@@ -8,10 +8,14 @@
   %i
     * Veuillez noter que tout le contenu de notre site web est encore en processus d'approbation.     
 
-.row.regions
+.row
   .col-md-6
     %h3.sub-section Prochaine rencontre nationale à Lévis!
-    %p <b>Avis important!</b> Notre deuxième rencontre nationale se tiendra les 31 octobre et 1er novembre 2015 à Lévis. #{link_to "Joignez-vous à NOUS!", action: :deuxieme_rencontre_nationale}
+    %p 
+      =link_to image_tag("https://scontent-lga3-1.xx.fbcdn.net/hphotos-xal1/v/t1.0-0/p480x480/11224534_10206813383606502_4674573278830269321_n.jpg?oh=ae50d97e94db8c0e8eeefbb5458022e0&oe=568546C4", class: "img-responsive"),"https://www.facebook.com/events/470110276483190/", target: "_blank"
+      
+    %p.lead
+      =link_to "<i class='fa fa-facebook'></i> Plus de détails sur la page d'événement Facebook".html_safe, "https://www.facebook.com/events/470110276483190/", target: "_blank", class: "btn btn-info"
     %h3.sub-section Première rencontre nationale
     %p Les constituant.e.s s'expriment!
     .youtube-container
