@@ -1,8 +1,15 @@
 -content_for :page_title do
-  Outils de promotion
+  Promouvoir
 
 -breadcrumb :promotional_tools
 
 .row
-  .col-md-12    
-    %p Les outils de promotion seront disponibles sous peu.
+  .col-md-3
+    =image_tag "logo2.png", class: "img-responsive"
+  .col-md-9
+    %h2.no-margin Portez fièrement votre macaron sur Facebook!
+    %p 
+      Grâce au service <i>Picbadge</i>, votre avatar <i>Facebook</i> sera automatiquement modifié afin d'y inclure notre logo!
+
+    %p.lead
+      #{link_to "Nous vons invitons à porter nos couleurs maintenant!", "https://www.picbadges.com/community/5472195caa30b9aa172f6092", target: "_blank", class: "btn btn-primary btn-lg"}

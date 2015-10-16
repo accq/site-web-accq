@@ -49,7 +49,7 @@ crumb :mission_nous_rejoindre do
 end
 
 crumb :promotional_tools do
-  link "Outils de promotion"
+  link "Promouvoir"
   parent :root
 end
 
