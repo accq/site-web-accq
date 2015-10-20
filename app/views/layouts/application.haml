@@ -46,15 +46,8 @@
             %li= link_to "Mission", mission_path
             
 
-            -if false
-              %li.dropdown
-                %a{href: "#", class: "dropdown-toggle", "data-toggle" => "dropdown", role: "button", "aria-haspopup" => "true", "aria-expanded" => "false"}
-                  Organigramme
-                  %span.caret
+            %li= link_to "Organigramme", structure_path
 
-                %ul.dropdown-menu
-                  %li= link_to "Comité organisateur (COOR)", action: :coor
-                  %li= link_to "Responsables régionaux", action: :responsables_regionaux
           
             %li.dropdown
               %a{href: "#", class: "dropdown-toggle", "data-toggle" => "dropdown", role: "button", "aria-haspopup" => "true", "aria-expanded" => "false"}

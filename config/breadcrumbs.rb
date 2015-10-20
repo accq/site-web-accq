@@ -58,8 +58,8 @@ crumb :nous_joindre do
   parent :root
 end
 
-crumb :noyau do
-  link "Noyau central", noyau_path
+crumb :organigramme do
+  link "Organigramme", structure_path
   parent :root
 end
 

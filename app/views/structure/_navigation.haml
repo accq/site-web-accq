@@ -1,0 +1,50 @@
+#the-parent
+  .well#structure-nav.hidden-xs.hidden-sm{"data-spy"  => "affix", "data-offset-top" => "250"}              
+    %ul.list-unstyled
+      %li
+        %strong Nos structures régionales
+        %ul
+          %li= link_to "Nous, constituants", "#constituants"
+          %li 
+            =link_to "Nos responsables régionaux", "#responsables-regionaux"
+            %ul
+              %li= link_to "Responsable de l'accueil et de la mobilisation", "#responsable-ram"
+              %li= link_to "Responsable des services en région", "#responsable-rsr"
+              %li= link_to "Secrétaire", "#secretaire"
+              %li= link_to "Trésorier", "#tresorier"
+              %li= link_to "Porte-parole", "#porte-parole"
+
+
+      %li
+        %strong Notre structure nationale
+        %ul
+          %li= link_to "Tables nationales", "#tables-nationales"
+          %li
+            =link_to "Comité organisateur (COOR)", "#coor"
+            %ul
+              %li= link_to "Conseil des opérations", "#conseil-des-operations"
+              %li 
+                = link_to "Comités nationaux", "#comites-nationaux"
+                %ul                    
+                  %li= link_to "Mobilisation", "#comite-mobilisation"
+                  %li= link_to "Financement et trésorerie", "#comite-financement"
+                  %li= link_to "Communications", "#comite-communications"
+                  %li= link_to "Éducation", "#comite-education"
+                  %li= link_to "Web", "#comite-web"
+                  %li= link_to "Secrétariat et registrariat", "#comite-secretariat"
+                  %li= link_to "Résolution de problèmes", "#comite-resolution"
+              %li= link_to "Responsables des services en régions (RSR)", "#rsr"
+
+:javascript
+  $(document).ready(function () {
+      $(window).scroll(function () {
+          $('#structure-nav').width($('#the-parent').width());
+      });
+
+    
+    $("#structure-nav ul li a").click(function() {
+      $("#structure-nav ul").children().removeClass();    
+      $(this).parent().addClass('active');
+    })
+
+  });

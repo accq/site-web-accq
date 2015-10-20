@@ -1,0 +1,32 @@
+-content_for :page_title do
+  Organigramme
+
+-breadcrumb :organigramme
+
+.row
+  .col-xs-8
+    =render partial: "structure_organisationnelle_globale"
+
+    %section#constituants
+      =render partial: "/structure/structures_regionales/constituants"
+
+    %section#responsables-regionaux
+      =render partial: "/structure/structures_regionales/responsables_regionaux"
+
+    %section#tables-nationales
+      =render partial: "/structure/structure_nationale/tables_nationales"
+
+    %section#coor
+      =render partial: "/structure/structure_nationale/coor"
+
+    %section#conseil-des-operations
+      =render partial: "/structure/structure_nationale/conseil_des_operations"
+
+    %section#comites-nationaux
+      =render partial: "/structure/structure_nationale/comites_nationaux"
+
+    %section#rsr
+      =render partial: "/structure/structure_nationale/rsr"
+
+  .col-xs-4
+    =render partial: "navigation"

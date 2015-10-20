@@ -3,9 +3,6 @@ Rails.application.routes.draw do
   root 'home#show'
   get '/signez-le-manifeste', to: "home#manifest", as: :manifest
   get '/deuxieme-rencontre-nationale', to: "home#deuxieme_rencontre_nationale"
-  get '/noyau-central', to: "home#noyau_central", as: :noyau
-  get '/noyau-central/coor', to: "home#coor"
-  get '/noyau-central/responsables-regionaux', to: "home#responsables_regionaux"
   get '/constat', to: "home#constat", as: :constat
   get '/nous-joindre', to: "home#nous_joindre", as: :nous_joindre
   get '/mission', to: "home#mission", as: :mission
@@ -19,6 +16,9 @@ Rails.application.routes.draw do
   get '/education/outils-de-promotion', to: "home#promotional_tools", as: :promotional_tools
   resources :acrq, controller: :hives , as: :hives do   
     resources :hive_meetings
+  end
+
+  resource :organigramme, controller: :structure, as: :structure do
   end
 
   resources :membres, controller: :members, as: :members, only: :create do
