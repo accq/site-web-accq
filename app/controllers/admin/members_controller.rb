@@ -21,6 +21,14 @@ class Admin::MembersController < ApplicationController
   def index
     @unconfirmed_members = Member.unconfirmed.order("created_at")
     @confirmed_members = Member.confirmed.paginate(page: params[:page]).order("created_at DESC")
+
+    respond_to do |format|
+      format.html
+      format.csv {
+        x=Member.confirmed.order('created_at desc').collect{|m| ["\"#{m.name.to_s.strip}\"", "\"#{m.email.to_s.strip}\"", "\"#{m.phone.to_s.strip}\"", "\"#{m.city.to_s.strip}\"", "\"#{m.postal_code.to_s.strip}\"", "\"#{m.created_at}\""].join(',')}.join("\r\n")
+        send_data x
+      }
+    end
   end
 
   def destroy

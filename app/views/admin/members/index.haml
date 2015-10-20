@@ -31,6 +31,8 @@
 
     -if @confirmed_members.any?
       %h3.sub-section #{Member.confirmed.count} signatures approuvées
+      %p
+        =link_to "<i class='fa fa-download'></i> Télécharger la liste des membres au format CSV".html_safe, admin_members_path(format: :csv), class: "btn btn-info btn-sm"
       = will_paginate @confirmed_members, renderer: BootstrapPagination::Rails
       %table.table.table-striped.table-hover.table-condensed#confirmed-members
         %thead
