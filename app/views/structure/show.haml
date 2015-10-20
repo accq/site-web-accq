@@ -7,26 +7,37 @@
   .col-xs-8
     =render partial: "structure_organisationnelle_globale"
 
+    %hr/
+    %section#structures-regionales
+      %h1 Nos structures régionales
+      %p
+        =image_tag "organigramme/acrq.jpg", class: "img-responsive thumbnail"
+
+      %p Les #{link_to "ACRQ", hives_path} sont nos structures régionales. Chacune d’entre elles est établie en fonction des régions administratives du Québec. Notre prochain objectif est de mettre sur pied, le plus rapidement possible, des structures locales dans chacune de nos ACRQ. Des réunions régionales se tiennent actuellement dans plusieurs ACRQ. Merci d’y assister!       
+
     %section#constituants
       =render partial: "/structure/structures_regionales/constituants"
 
     %section#responsables-regionaux
       =render partial: "/structure/structures_regionales/responsables_regionaux"
 
-    %section#tables-nationales
-      =render partial: "/structure/structure_nationale/tables_nationales"
 
-    %section#coor
-      =render partial: "/structure/structure_nationale/coor"
+    %section#structure-nationale
+      %h1 Notre structure nationale
+      %section#tables-nationales
+        =render partial: "/structure/structure_nationale/tables_nationales"
 
-    %section#conseil-des-operations
-      =render partial: "/structure/structure_nationale/conseil_des_operations"
+      %section#coor
+        =render partial: "/structure/structure_nationale/coor"
 
-    %section#comites-nationaux
-      =render partial: "/structure/structure_nationale/comites_nationaux"
+        %section#conseil-des-operations
+          =render partial: "/structure/structure_nationale/conseil_des_operations"
 
-    %section#rsr
-      =render partial: "/structure/structure_nationale/rsr"
+        %section#comites-nationaux
+          =render partial: "/structure/structure_nationale/comites_nationaux"
+
+        %section#rsr
+          =render partial: "/structure/structure_nationale/rsr"
 
   .col-xs-4
     =render partial: "navigation"

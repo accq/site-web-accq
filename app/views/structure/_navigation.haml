@@ -2,7 +2,7 @@
   .well#structure-nav.hidden-xs.hidden-sm{"data-spy"  => "affix", "data-offset-top" => "250"}              
     %ul.list-unstyled
       %li
-        %strong Nos structures régionales
+        =link_to "Nos structures régionales", "#structures-regionales", class: "title_link"
         %ul
           %li= link_to "Nous, constituants", "#constituants"
           %li 
@@ -16,7 +16,7 @@
 
 
       %li
-        %strong Notre structure nationale
+        =link_to "Notre structure nationale", "#structure-nationale", class: "title_link"
         %ul
           %li= link_to "Tables nationales", "#tables-nationales"
           %li
@@ -47,4 +47,18 @@
       $(this).parent().addClass('active');
     })
 
+    $('a[href*=#]:not([href=#])').click(function() {
+      if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+        var target = $(this.hash);
+        target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+        if (target.length) {
+          $('html,body').animate({
+            scrollTop: target.offset().top
+          }, 1000);
+          return false;
+        }
+      }
+    });
+
   });
+

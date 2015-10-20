@@ -17,7 +17,7 @@ h1,h2,h3,h4,h5,h6 {
  
 }
 
-h2.sub-section, h3.sub-section {
+h2.sub-section, h3.sub-section, h4.sub-section {
   color: $black;
   border-bottom: 1px solid #ddd;
   padding-bottom:4px;
@@ -141,6 +141,11 @@ section {
 #structure-nav li.active > a {
   color: #777;
   font-style: italic;
+}
+
+#structure-nav a.title_link {
+  color: #333;
+  
 }
 
 /* On demand youtube containers */
