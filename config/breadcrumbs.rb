@@ -7,6 +7,11 @@ crumb :manifest do
   parent :root
 end
 
+crumb :about_website do
+  link "À propos du site web", a_propos_path
+  parent :root
+end
+
 crumb :hives do
   link "Liste des ACRQ", hives_path
   parent :root

@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get '/medias/couverture-mediatique', to: "home#media_coverage", as: :media_coverage
   get '/medias/communiques-de-presse', to: "home#press_releases", as: :press_releases
   get '/education/outils-de-promotion', to: "home#promotional_tools", as: :promotional_tools
+  get '/a-propos', to: "home#a_propos", as: :a_propos
   resources :acrq, controller: :hives , as: :hives do   
     resources :hive_meetings
   end
