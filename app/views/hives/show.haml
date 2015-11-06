@@ -7,18 +7,18 @@
     %h3 Bienvenue dans votre Assemblée constituante régionale québécoise!
 
     .well.well-sm
+      %h4.sub-section
+        Aux responsables des ACRQ, de même qu’à leurs membres. 
+        
       %p
-        Afin d’obtenir des réponses à vos questions à propos du sens de notre démarche, vous êtes en mesure de rejoindre MAINTENANT  vos représentants régionaux par intérim. 
-      %p
-        Votre Conseil des opérations intérimaire (C.O.I.) suggère que tous ces mandats se terminent, au plus tard, le 21 janvier 2016. Nous vous invitons à faire en sorte que tous les postes de responsabilité dans votre région soient pourvus avant la toute première Table nationale de 2016, laquelle doit avoir lieu les 30 et 31 janvier prochain. (L’endroit sera déterminé lors de la 2e rencontre nationale.)
-      %p
-        Veuillez noter que vous serez en mesure de consulter la définition des tâches proposées dans la section « Organigramme » lorsque celle-ci sera en ligne. Nous travaillons à ce qu’elle le soit très bientôt. 
-      %p
-        L’instauration d’une véritable démocratie requiert la responsabilisation individuelle !
-      %p
-        Merci d’assister à vos rencontres régionales…
-        %br/
-        Votre C.O.I. #{mail_to "coi@constituantecitoyenne.quebec"}
+        Liste de points à discuter lors de votre prochaine rencontre régionale.
+        %ol
+          %li
+            Suite aux discussions tenues lors de la Table nationale les 31 octobre et 1 novembre derniers, et compte tenu de l’échéancier prévoyant l’adoption des textes fondateurs d’ici le 31 décembre 2015, nous demandons aux ACRQ de toutes les régions de se réunir afin de discuter et proposer des modifications aux textes suivants : <em>le statut visant à encadrer les modifications aux textes adoptés, les énoncés de mission et l’organigramme</em> <sup>(#{link_to "documents", "https://www.facebook.com/download/1512313695751326/Documents%20ACRQ.pdf", target: "_blank"})</sup>. Les propositions transmises au COI doivent avoir été proposées, appuyées et adoptées à majorité par les membres présents aux réunions régionales.
+            %li 
+              Afin de laisser le temps au C.O.I. de compiler les propositions et de les retourner aux ACRQ avant la prochaine Table nationale, tenue la fin de semaine du 12 décembre, nous n’accepterons que les textes déposés (#{mail_to "COI@constituantecitoyenne.quebec"}) avant minuit le 31 novembre 2015.
+            %li
+              Nous invitons également les ACRQ à faire des suggestions sur le fonctionnement des comités nationaux, sur les modes de financement, sur le fonctionnement (lieu, animation, conférencier) de la Table nationale en décembre ainsi que les thèmes pouvant être abordés lors des Tables qui débuteront en 2016.
 
       -if @hive.fb_url.present?
         %p
