@@ -11,9 +11,6 @@
     %p
       <u>Votre nom apparaîtra dans la liste des signatures sur le site</u> après une validation de notre part. Vos informations personnelles (courriel, téléphone et code postal) demeureront confidentielles et ne seront jamais transmises à qui que ce soit sans votre consentement explicite.
   
-    %p * Veuillez noter que le manifeste est toujours en processus d'approbation par les membres
-
-
     
   .col-md-6        
     =simple_form_for @member || Member.new, url: { controller: "members", action: "create", anchor: "manifest_anchor" } do |f|
