@@ -9,11 +9,12 @@
     -if @next_event
       %h3.sub-section À ne pas manquer
 
-      %p.lead
+      %p
+        %strong Quoi? 
         = @next_event.name
         %br/
-        %small
-          Quand? Le #{l @next_event.start_date, format: :long}
+        %strong Quand?
+        =show_date_range(@next_event.start_date,@next_event.end_date)
 
       -if @next_event.image.url.present?
         =link_to(image_tag(@next_event.image_url, class: "img-responsive"), event_path(@next_event))
