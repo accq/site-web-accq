@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151002150317) do
+ActiveRecord::Schema.define(version: 20151127154334) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "events", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.date     "start_date", null: false
+    t.date     "end_date",   null: false
+    t.string   "image"
+    t.text     "body"
+    t.string   "fb_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "hive_contacts", force: :cascade do |t|
     t.integer "hive_id"
@@ -58,6 +69,18 @@ ActiveRecord::Schema.define(version: 20151002150317) do
     t.datetime "updated_at",   null: false
     t.datetime "confirmed_at"
   end
+
+  create_table "participants", force: :cascade do |t|
+    t.string   "first_name", null: false
+    t.string   "last_name",  null: false
+    t.string   "email",      null: false
+    t.string   "phone"
+    t.integer  "event_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "participants", ["event_id"], name: "index_participants_on_event_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

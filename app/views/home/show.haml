@@ -6,6 +6,22 @@
 
 .row
   .col-md-6
+    -if @next_event
+      %h3.sub-section À ne pas manquer
+
+      %p.lead
+        = @next_event.name
+        %br/
+        %small
+          Quand? Le #{l @next_event.start_date, format: :long}
+
+      -if @next_event.image.url.present?
+        =link_to(image_tag(@next_event.image_url, class: "img-responsive"), event_path(@next_event))
+
+      %p
+        %br/
+        =link_to "Inscription en ligne", event_path(@next_event), class: "btn btn-info"
+
     %h3.sub-section Joignez-vous à NOUS!
     .youtube-container
       .youtube-player{"data-id" => "YiwqudxfQIQ"}    

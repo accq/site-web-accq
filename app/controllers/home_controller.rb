@@ -5,5 +5,6 @@ class HomeController < ApplicationController
 
   def show
     @hives = Hive.order(:number)
+    @next_event = Event.upcoming.first
   end
 end

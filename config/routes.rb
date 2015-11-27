@@ -26,6 +26,11 @@ Rails.application.routes.draw do
     
   end
 
+  resources :evenements, controller: :events, as: :events, only: :show do
+    resources :participants, only: :create do
+    end    
+  end
+
   get '/signatures-manifeste' => 'members#index', as: :signatures
   
 
@@ -35,6 +40,10 @@ Rails.application.routes.draw do
       resources :hive_meetings
     end
 
+    resources :events do
+      resources :participants do
+      end
+    end
     resources :members do
       member do
         put :approve
