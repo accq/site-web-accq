@@ -30,3 +30,4 @@ public/uploads
 
 #ignore file to store env variables
 .rbenv-vars
+.ruby-version
