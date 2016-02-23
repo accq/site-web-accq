@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get '/signez-le-manifeste', to: "home#manifest", as: :manifest
   get '/deuxieme-rencontre-nationale', to: "home#deuxieme_rencontre_nationale"
   get '/constat', to: "home#constat", as: :constat
+  get '/questionnaire-bilan', to: "home#questionnaire_bilan", as: :questionnaire_bilan
   get '/nous-joindre', to: "home#nous_joindre", as: :nous_joindre
   get '/mission', to: "home#mission", as: :mission
   get '/mission/notre-vision', to: "home#vision", as: :notre_vision
