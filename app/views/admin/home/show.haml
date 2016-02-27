@@ -5,7 +5,5 @@
 %ul
   %li= link_to "Gérer les ACRQ", admin_hives_path
   %li= link_to "Gérer les signatures du manifeste", admin_members_path
-  -if Event.count > 0
-    %li= link_to "Liste des participants (3ieme rencontre nationale)", admin_event_participants_path(Event.first)  
   %li= link_to "Voir le site dans un nouvel onglet", root_path, target: "_blank"
   %li= link_to("Se déconnecter", destroy_user_session_path, :method => :delete, id: "sign-out") 
