@@ -8,18 +8,4 @@ class HomeController < ApplicationController
     @next_event = Event.upcoming.first
   end
 
-  def questionnaire_bilan
-    respond_to do |format|
-      format.html
-      format.pdf {
-        send_file(
-          "#{Rails.root}/public/Questionnaire-bilan-février-ACCQ.pdf",
-          :filename => "Questionnaire-bilan-février-ACCQ.pdf",
-          :type => "application/pdf"
-        )
-
-      }
-    end    
-  end
-
 end
