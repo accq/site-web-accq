@@ -6,29 +6,10 @@
   .col-md-12
     %h3 Bienvenue dans votre Assemblée constituante régionale québécoise!
 
-    .well.well-sm
-      -if @hive.number == 16
-        %h4.sub-section Bienvenue sur la page de la région de la Montérégie de l'Assemblée Constituante Citoyenne du Québec (ACCQ).
-        %p Notre région est très active et a besoin de l'implication des gens de la Montérégie. Vous trouverez beaucoup d'information sur notre page Facebook (voir le lien plus bas). Si vous habitez en Montérégie et que vous vous sentez interpellé par la mission de l'ACCQ, nous vous invitons à signer le manifeste et à vous inscrire à notre page Facebook.  Nous pourrons ainsi partager de l'information et faire avancer notre cause. Si vous n'êtes pas sur Facebook, contactez un(e) des responsables de la région pour recevoir plus d'information.
-        %p Au plaisir de vous rencontrer dans l'une de nos activités!
-      -else
-        %h4.sub-section
-          Aux responsables des ACRQ, de même qu’à leurs membres. 
-        
-        %p
-          Liste de points à discuter lors de votre prochaine rencontre régionale.
-          %ol
-            %li
-              Suite aux discussions tenues lors de la Table nationale les 31 octobre et 1 novembre derniers, et compte tenu de l’échéancier prévoyant l’adoption des textes fondateurs d’ici le 31 décembre 2015, nous demandons aux ACRQ de toutes les régions de se réunir afin de discuter et proposer des modifications aux textes suivants : <em>le statut visant à encadrer les modifications aux textes adoptés, les énoncés de mission et l’organigramme</em> <sup>(#{link_to "documents", "https://www.facebook.com/download/1512313695751326/Documents%20ACRQ.pdf", target: "_blank"})</sup>. Les propositions transmises au COI doivent avoir été proposées, appuyées et adoptées à majorité par les membres présents aux réunions régionales.
-            %li 
-              Afin de laisser le temps au C.O.I. de compiler les propositions et de les retourner aux ACRQ avant la prochaine Table nationale, tenue la fin de semaine du 12 décembre, nous n’accepterons que les textes déposés (#{mail_to "COI@constituantecitoyenne.quebec"}) avant minuit le 31 novembre 2015.
-            %li
-              Nous invitons également les ACRQ à faire des suggestions sur le fonctionnement des comités nationaux, sur les modes de financement, sur le fonctionnement (lieu, animation, conférencier) de la Table nationale en décembre ainsi que les thèmes pouvant être abordés lors des Tables qui débuteront en 2016.
-
-      -if @hive.fb_url.present?
-        %p
-          =fa_icon "facebook-square"
-          =link_to "Page facebook de l'ACRQ #{show_hive_number(@hive.number)}", @hive.fb_url, target: "_blank"
+    -if @hive.fb_url.present?
+      %p
+        =fa_icon "facebook-square"
+        =link_to "Page facebook de l'ACRQ #{show_hive_number(@hive.number)}", @hive.fb_url, target: "_blank"
 
 .row
   .col-md-6
@@ -55,7 +36,7 @@
 
   .col-md-6
     %h3.no-margin.sub-section Responsables
-    
+
     -if @hive.hive_contacts.any?
       -@hive.hive_contacts.each do |c|
         %div
