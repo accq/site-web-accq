@@ -33,11 +33,6 @@ crumb :constat do
   parent :root
 end
 
-crumb :questionnaire_bilan do
-  link "Questionnaire bilan", questionnaire_bilan_path
-  parent :root
-end
-
 crumb :mission do
   link "Mission", mission_path
   parent :root
