@@ -19,7 +19,7 @@ Ce qui suit est à faire une seule fois
 
 1. Crééz une branche sur votre ordinateur (e.g. git checkout -B regler_bogue_xyz)
 2. Corrigez le bogue / ajoutez la fonctionnalité / etc... 
-3. Testez votre code (Nous utilisons RSpec à cet effet)
+3. Autant que possible, testez votre code (Nous utilisons RSpec à cet effet)
 4. Poussez vos modifications sur votre propre fork (ex: git push origin regler_bogue_xyz)
 5. Initiez un pull request [pull request](https://help.github.com/articles/using-pull-requests/)
 
