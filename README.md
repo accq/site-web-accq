@@ -21,6 +21,6 @@ Ce qui suit est à faire une seule fois
 2. Corrigez le bogue / ajoutez la fonctionnalité / etc... 
 3. Autant que possible, testez votre code (Nous utilisons RSpec à cet effet)
 4. Poussez vos modifications sur votre propre fork (ex: git push origin regler_bogue_xyz)
-5. Initiez un pull request [pull request](https://help.github.com/articles/using-pull-requests/)
+5. Initiez un [pull request](https://help.github.com/articles/using-pull-requests/)
 
 Si tout est en ordre, vos modifications seront appliquées dans le dépôt de code source officiel!
