@@ -1,9 +1,9 @@
 -content_for :page_title do
-  Liste des Assemblées constituantes régionales québécoises (ACRQ)
+  Liste des Alliances constituantes régionales québécoises (ACRQ)
 
 -breadcrumb :hives
 .row
-  .col-md-12  
-    %ul 
+  .col-md-12
+    %ul
       -@hives.each do |h|
         %li= link_to "#{show_hive_number(h.number)} - #{h.name}", hive_path(h)
