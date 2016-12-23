@@ -1,11 +1,11 @@
 #the-parent
-  .well#structure-nav.hidden-xs.hidden-sm{"data-spy"  => "affix", "data-offset-top" => "250"}              
+  .well#structure-nav.hidden-xs.hidden-sm{"data-spy"  => "affix", "data-offset-top" => "250"}
     %ul.list-unstyled
       %li
         =link_to "Nos structures régionales", "#structures-regionales", class: "title_link"
         %ul
           %li= link_to "Nous, constituants", "#constituants"
-          %li 
+          %li
             =link_to "Nos responsables régionaux", "#responsables-regionaux"
             %ul
               %li= link_to "Responsable de l'accueil et de la mobilisation", "#responsable-ram"
@@ -23,16 +23,17 @@
             =link_to "Comité organisateur (COOR)", "#coor"
             %ul
               %li= link_to "Conseil des opérations", "#conseil-des-operations"
-              %li 
+              %li
                 = link_to "Comités nationaux", "#comites-nationaux"
-                %ul                    
+                %ul
                   %li= link_to "Mobilisation", "#comite-mobilisation"
-                  %li= link_to "Financement et trésorerie", "#comite-financement"
-                  %li= link_to "Communications", "#comite-communications"
-                  %li= link_to "Éducation", "#comite-education"
-                  %li= link_to "Web", "#comite-web"
-                  %li= link_to "Secrétariat et registrariat", "#comite-secretariat"
-                  %li= link_to "Résolution de problèmes", "#comite-resolution"
+                  %li= link_to "Financement", "#comite-financement"
+                  %li= link_to "Communication", "#comite-communications"
+                  %li= link_to "Éducation citoyenne", "#comite-education"
+                  %li= link_to "Multimedia (TI)", "#comite-web"
+                  %li= link_to "Secrétariat-registrariat", "#comite-secretariat"
+                  %li= link_to "Éthique", "#comite-resolution"
+                  %li= link_to "Événements", "#comite-evenements"
               %li= link_to "Responsables des services en régions (RSR)", "#rsr"
 
 :javascript
@@ -43,7 +44,7 @@
 
     
     $("#structure-nav ul li a").click(function() {
-      $("#structure-nav ul").children().removeClass();    
+      $("#structure-nav ul").children().removeClass();
       $(this).parent().addClass('active');
     })
 
@@ -59,4 +60,3 @@
     });
 
   });
-
