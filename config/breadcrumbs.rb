@@ -12,6 +12,11 @@ crumb :about_website do
   parent :root
 end
 
+crumb :mumble do
+  link "Discussion Mumble", mumble_path
+  parent :root    
+end
+
 crumb :hives do
   link "Liste des ACRQ", hives_path
   parent :root
@@ -111,7 +116,7 @@ end
 
 #### ADMIN CRUMBS
 crumb :admin_root do
-  link "Accueil", admin_root_path    
+  link "Accueil", admin_root_path
 end
 
 crumb :admin_members do

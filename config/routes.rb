@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'home#show'  
+  root 'home#show'
   get '/signez-le-manifeste', to: "home#manifest", as: :manifest
   get '/deuxieme-rencontre-nationale', to: "home#deuxieme_rencontre_nationale"
   get '/constat', to: "home#constat", as: :constat
@@ -15,7 +15,8 @@ Rails.application.routes.draw do
   get '/medias/communiques-de-presse', to: "home#press_releases", as: :press_releases
   get '/education/outils-de-promotion', to: "home#promotional_tools", as: :promotional_tools
   get '/a-propos', to: "home#a_propos", as: :a_propos
-  resources :acrq, controller: :hives , as: :hives do   
+  get '/mumble', to: "home#mumble", as: :mumble
+  resources :acrq, controller: :hives , as: :hives do
     resources :hive_meetings
   end
 
@@ -28,7 +29,7 @@ Rails.application.routes.draw do
 
   resources :evenements, controller: :events, as: :events, only: :show do
     resources :participants, only: :create do
-    end    
+    end
   end
 
   get '/signatures-manifeste' => 'members#index', as: :signatures

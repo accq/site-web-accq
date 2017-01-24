@@ -1,0 +1,64 @@
+-content_for :page_title do
+  Discussion sur Mumble
+
+-breadcrumb :mumble
+
+.row
+  .col-md-8
+    .row
+      .col-md-2
+        =image_tag "mumble-logo.png", class: "img-responsive"
+      .col-md-10
+        %p.lead
+          Nous mettons à votre disposition un outils libre et gratuit qui vous permet de venir discuter avec nous ou entre vous des sujets qui vous intéressent. Avec un ordinateur, une tablette ou un téléphone intelligent, un casque d’écoute, un micro et une connexion internet, vous serez en mesure de participer tous les jours à n’importe quelle heure.
+        
+    %h2 1. Installation
+    .row
+      .col-md-12
+        %p
+          Pour nous rejoindre, il vous suffit de télécharger le logiciel sous licence libre à l’adresse suivante : #{link_to "http://www.mumble.com/", "http://www.mumble.com/", target: "_blank"} et de suivre les #{link_to "étapes d’installation", "http://www.mumble.com/support/mumble-server-install-on-windows.php", target: "_blank"}
+        
+        %p= image_tag "download_mumble.jpg"
+        
+    %h2 2. Rejoindre la discussion
+    .row
+      .col-md-12
+        %p
+          Une fois installé, il vous suffit de l’ouvrir et de vous connecter à notre serveur avec les informations ci-dessous et en suivant les étapes décrites ici : #{link_to "http://www.mumble.com/support/how-to-connect-to-a-mumble-server.php", "http://www.mumble.com/support/how-to-connect-to-a-mumble-server.php", target: "_blank"}
+        %blockquote
+          %strong Nom:
+          A.C.C.Q. (vous pouvez mettre ce que vous voulez, ce champ vous permet de vous rappeler de quel serveur il s’agit).
+          %br/
+          %strong Adresse:
+          accq.mumble.com
+          %br/
+          %strong Port:
+          64082
+          %br/
+          %strong Nom d’utilisateur:
+          Votre pseudo (doit permetre de vous identifier)
+          
+      
+    %h2 3. Réglages MUMBLE
+    .row
+      .col-md-12
+        %p
+          Une fois connecté, il est important de régler la fonction « appuyer pour parler » (push to talk) qui est très pratique pour tout le monde, elle permet d’éviter les échos des autres personnes (rendant les conversations très désagréables). Vous n’avez qu’à suivre les étapes : #{link_to "http://www.mumble.com/support/mumble-server-push-to-talk.php", "http://www.mumble.com/support/mumble-server-push-to-talk.php", target: "_blank"}
+  .col-md-4
+    .row
+      .col-md-12
+        %blockquote.small
+          %p
+            %strong
+              %u Informations de connexion
+          %strong Nom:
+          A.C.C.Q. (vous pouvez mettre ce que vous voulez, ce champ vous permet de vous rappeler de quel serveur il s’agit).
+          %br/
+          %strong Adresse:
+          accq.mumble.com
+          %br/
+          %strong Port:
+          64082
+          %br/
+          %strong Nom d’utilisateur:
+          Votre pseudo  (doit permetre de vous identifier)
