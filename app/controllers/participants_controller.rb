@@ -1,14 +1,18 @@
-class ParticipantsController < ApplicationController  
+class ParticipantsController < ApplicationController
   def create
     @event = Event.find(params[:event_id])
     @participant = Participant.new(participant_params.merge(event_id: @event.id))
     
     if @participant.save
-      flash[:success] = "Merci! Votre présence à cet événement est grandement appréciée!"
+      if @event.id == 2
+        flash[:success] = "Merci! Nous avons bien reçu votre signature."
+      else
+        flash[:success] = "Merci! Votre présence à cet événement est grandement appréciée!"
+      end
       redirect_to root_path
     else
       render "events/show"
-    end    
+    end
 
   end
 

@@ -1,26 +1,38 @@
 -content_for :page_title do
   =@event.name
 
-/-breadcrumb :manifest
-
 .row
-  .col-md-7    
-    =image_tag @event.image.url, class: "img-responsive"
-  .col-md-5
-    %p.text-justify
+  .col-md-8
+    %div.text-justify
+      -if @event.id == 2
+        .well
+          Vous êtes cordialement invité.e à vous joindre à nous pour signer l’Appel ci-dessous. Cet Appel vise à exiger la convocation d’une Assemblée constituante citoyenne chargée de rédiger la première constitution de l’histoire du Québec.
       =@event.body.to_s.gsub("\n", "<br />").html_safe
 
-    %a#event-form
-      %h3.sub-section Formulaire d'inscription
-
-    =simple_form_for([@event, @participant || Participant.new(event_id: @event.id)], url: {controller: "participants", action: "create", anchor: "event-form", event_id: @event.id}) do |f|      
+  .col-md-4
+    %h3.sub-section{style: "margin-top:0"}
+      -if @event.id == 2
+        Signez l'appel ici
+      -else
+        Inscrivez-vous
+    .help-block Notez que seuls vos noms et prénoms seront rendus publics.
+    =simple_form_for([@event, @participant || Participant.new(event_id: @event.id)], url: {controller: "participants", action: "create", anchor: "event-form", event_id: @event.id}) do |f|
       .well.well-sm
         .row
           .col-md-6= f.input :first_name, label: "Prénom"
           .col-md-6= f.input :last_name, label: "Nom"
           .col-xs-12
-            =f.input :email, label: "Courriel"
+            =f.input :email, label: "Adresse de courriel"
             =f.input :phone, label: "Téléphone"
 
 
       =f.submit "Soumettre", class: "btn btn-success"
+
+    -if @event.id == 2
+      %br/
+      %br/
+      %h4.sub-section À voir aussi
+      %ul.list.small
+        %li= link_to "Devenir partenaire actif", partenaire_actif_path
+        %li= link_to "Une Constitution, un vieux papier inutile? Rien n’est plus faux!", constitution_path
+        %li= link_to "Engagement solennel des personnes candidates aux élections d'octobre 2018", engagement_candidats_path

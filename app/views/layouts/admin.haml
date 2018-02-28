@@ -41,8 +41,6 @@
         .collapse.navbar-collapse
           %ul.nav.navbar-nav
             %li= link_to "Accueil", admin_root_path
-            %li= link_to "Gérer les ACRQ", admin_hives_path, id: "manage-hives"
-            %li= link_to "Signataires", admin_members_path, id: "manage-members"
             %li= link_to "Voir le site", root_path, target: "_blank"
             %li=link_to("<i class='fa fa-power-off'></i> Se déconnecter".html_safe, destroy_user_session_path, :method => :delete, id: "sign-out")
     .container

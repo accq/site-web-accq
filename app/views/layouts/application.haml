@@ -61,12 +61,12 @@
             %li= link_to "Discutoire", mumble_path
             %li= link_to "Nous joindre", nous_joindre_path
 
-    -if controller_name == 'home' && action_name=='show'
+    -if (controller_name == 'home' && action_name=='show') || (controller_name == 'events' && action_name == 'show' && params[:id].to_i == 2)
       %header
-        =image_tag "bg3.jpg", class: "img-responsive"
+        =image_tag "new_cover.jpg", class: "img-responsive", style: "margin: auto"
     -else
-      %header
-        =image_tag "small_bg.jpg", class: "img-responsive"
+      %header.text-center
+        =image_tag "small_bg.jpg", class: "img-responsive", style: "margin: auto"
     .container
       - flash.each do |name, msg|
         %br/

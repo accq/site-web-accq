@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'home#show'
+  root 'events#show', id: 2
   get '/signez-le-manifeste', to: "home#manifest", as: :manifest
   get '/deuxieme-rencontre-nationale', to: "home#deuxieme_rencontre_nationale"
   get '/constat', to: "home#constat", as: :constat
@@ -16,6 +16,10 @@ Rails.application.routes.draw do
   get '/education/outils-de-promotion', to: "home#promotional_tools", as: :promotional_tools
   get '/a-propos', to: "home#a_propos", as: :a_propos
   get '/mumble', to: "home#mumble", as: :mumble
+  
+  get '/devenir-partenaire-actif', to: "home#partenaire_actif", as: :partenaire_actif
+  get '/constitution', to: "home#constitution", as: :constitution
+  get '/engagement-candidats', to: "home#engagement_candidats", as: :engagement_candidats
   resources :acrq, controller: :hives , as: :hives do
     resources :hive_meetings
   end
