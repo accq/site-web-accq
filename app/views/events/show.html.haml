@@ -8,6 +8,9 @@
         .well
           Vous êtes cordialement invité.e à vous joindre à nous pour signer l’Appel ci-dessous. Cet Appel vise à exiger la convocation d’une Assemblée constituante citoyenne chargée de rédiger la première constitution de l’histoire du Québec.
       =@event.body.to_s.gsub("\n", "<br />").html_safe
+      
+    %p.lead.text-center.alert.alert-danger
+      =link_to "Une Constitution, un vieux papier inutile? Rien n’est plus faux!", constitution_path, class: "alert-link"
 
   .col-md-4
     %h3.sub-section{style: "margin-top:0"}
