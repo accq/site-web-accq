@@ -34,11 +34,12 @@
             %span.icon-bar
             %span.icon-bar
 
-          =link_to image_tag("logo_trans.png", height: 50), root_path, class: "navbar-brand logo"
+          =link_to image_tag("logo_trans.png", height: 50), home_path, class: "navbar-brand logo"
 
         .collapse.navbar-collapse
           %ul.nav.navbar-nav
-            %li= link_to "Accueil", root_path
+            %li= link_to "Accueil", home_path
+            %li= link_to "L'APPEL", root_path
             %li= link_to "Constat", constat_path
             %li= link_to "Manifeste", manifest_path
             %li= link_to "Mission", mission_path

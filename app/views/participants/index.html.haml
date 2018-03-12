@@ -1,0 +1,8 @@
+-if @event.id == 2
+  -content_for :page_title do
+    Liste des signatures de « L' APPEL » .
+
+  %ul
+    -@event.participants.each do |p|
+      %li
+        #{p.first_name} #{p.last_name}

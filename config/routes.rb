@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   root 'events#show', id: 2
+  get '/appel', to: 'events#show', id: 2
+  get '/accueil', to: "home#show", as: :home
   get '/signez-le-manifeste', to: "home#manifest", as: :manifest
   get '/deuxieme-rencontre-nationale', to: "home#deuxieme_rencontre_nationale"
   get '/constat', to: "home#constat", as: :constat
@@ -32,7 +34,7 @@ Rails.application.routes.draw do
   end
 
   resources :evenements, controller: :events, as: :events, only: :show do
-    resources :participants, only: :create do
+    resources :participants, only: [:create, :index] do
     end
   end
 

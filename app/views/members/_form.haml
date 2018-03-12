@@ -2,7 +2,7 @@
 .row
   .col-md-6
     %p
-      Pour participer activement à notre démarche constituante, nous vous invitons à signer ce manifeste en nous laissant vos coordonnées. Il nous sera ainsi plus facile de vous rejoindre et vous inviter à participer.
+      Pour participer activement à notre démarche citoyenne, nous vous invitons à signer ce manifeste en nous laissant vos coordonnées. Il nous sera ainsi plus facile de vous rejoindre et vous inviter à participer.
       
     %p.pull-right.hidden-sm.hidden-xs
       %i.fa.fa-arrow-right.fa-3x
@@ -12,7 +12,7 @@
       <u>Votre nom apparaîtra dans la liste des signatures sur le site</u> après une validation de notre part. Vos informations personnelles (courriel, téléphone et code postal) demeureront confidentielles et ne seront jamais transmises à qui que ce soit sans votre consentement explicite.
   
     
-  .col-md-6        
+  .col-md-6
     =simple_form_for @member || Member.new, url: { controller: "members", action: "create", anchor: "manifest_anchor" } do |f|
       .well.well-sm
         =f.input :name, label: "Nom complet"

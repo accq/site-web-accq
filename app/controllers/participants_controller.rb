@@ -16,6 +16,10 @@ class ParticipantsController < ApplicationController
 
   end
 
+def index
+  @event = Event.find(params[:event_id])
+end
+
   private
   def participant_params
     params.require(:participant).permit(:first_name, :last_name, :email, :phone)
