@@ -1,7 +1,7 @@
 class Admin::ParticipantsController < ApplicationController
   layout "admin"
   before_filter :authenticate_user!
-  before_filter :get_event
+  before_filter :get_event, only: :index
 
   def index
     @participants = @event.participants.order("created_at DESC")
@@ -18,6 +18,13 @@ class Admin::ParticipantsController < ApplicationController
       }
     end
     
+  end
+  
+  def destroy
+    @participant = Participant.find(params[:id])
+    @participant.destroy
+    flash[:notice] = "L'élément a été supprimé"
+    redirect_to admin_event_participants_path(event_id: @participant.event.id)
   end
 
 

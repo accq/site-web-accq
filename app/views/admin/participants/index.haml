@@ -4,7 +4,7 @@
   .col-xs-12
 
     -if @participants.any?
-      %p=link_to "<i class='fa fa-download'></i> Télécharger la liste des signataires au format CSV".html_safe, admin_event_participants_path(@event.id, format: :csv), class: "btn btn-info btn-sm"    
+      %p=link_to "<i class='fa fa-download'></i> Télécharger la liste des signataires au format CSV".html_safe, admin_event_participants_path(@event.id, format: :csv), class: "btn btn-info btn-sm"
       %table.table.table-striped.table-hover.table-condensed
         %thead
           %tr
@@ -13,6 +13,7 @@
             %th Courriel
             %th Téléphone
             %th Date de réception
+            %th
         %tbody
           -@participants.each do |p|
             %tr
@@ -21,3 +22,5 @@
               %td= p.email
               %td= p.phone
               %td= l(p.created_at, format: :short)
+              %td.text-right= link_to "Supprimer", admin_participant_path(p), data: {confirm: "Voulez-vous vraiment supprimer cet élément?"}, method: :delete, class: "btn btn-xs btn-danger"
+              

@@ -47,7 +47,7 @@ Rails.application.routes.draw do
       resources :hive_meetings
     end
 
-    resources :events do
+    resources :events, shallow: true do
       resources :participants do
       end
     end
