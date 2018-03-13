@@ -5,7 +5,7 @@
   .col-md-8
     %div.text-justify
       -if @event.id == 2
-        .alert.alert-info
+        .alert.alert-info.lead
           Vous êtes cordialement invité.e à vous joindre à nous pour signer l’Appel ci-dessous. Cet Appel vise à exiger la convocation d’une Assemblée constituante citoyenne chargée de rédiger la première constitution de l’histoire du Québec.
       =@event.body.to_s.gsub("\n", "<br />").html_safe
       
@@ -14,24 +14,30 @@
         =link_to "Une Constitution, un vieux papier inutile? Rien n’est plus faux!", constitution_path, class: "alert-link"
 
       %p Joignez-vous à nous pour promouvoir, préparer et provoquer la convocation d'une Assemblée constituante citoyenne!
+      
+      %p.lead
+        %a{href: "#event-form", id: "signez-maintenant"}
+          Signez l'appel maintenant!
   .col-md-4
-    %h3.sub-section{style: "margin-top:0"}
-      -if @event.id == 2
-        Signez l'appel ici
-      -else
-        Inscrivez-vous
-    .help-block Notez que seuls vos noms et prénoms seront rendus publics. #{link_to "Voir les " + @event.participants.count.to_s + " signatures", event_participants_path(event_id: 2)}.
-    =simple_form_for([@event, @participant || Participant.new(event_id: @event.id)], url: {controller: "participants", action: "create", anchor: "event-form", event_id: @event.id}) do |f|
-      .well.well-sm
-        .row
-          .col-md-6= f.input :first_name, label: "Prénom"
-          .col-md-6= f.input :last_name, label: "Nom"
-          .col-xs-12
-            =f.input :email, label: "Adresse de courriel"
-            =f.input :phone, label: "Téléphone"
+    #event-form
+      %h3.sub-section{style: "margin-top:0"}
+        -if @event.id == 2
+          Signez l'appel ici
+        -else
+          Inscrivez-vous
+      .help-block Notez que seuls vos noms et prénoms seront rendus publics. #{link_to "Voir les " + @event.participants.count.to_s + " signatures", event_participants_path(event_id: 2)}.
+
+      =simple_form_for([@event, @participant || Participant.new(event_id: @event.id)], url: {controller: "participants", action: "create", anchor: "event-form", event_id: @event.id}) do |f|
+        .well.well-sm
+          .row
+            .col-md-6= f.input :first_name, label: "Prénom"
+            .col-md-6= f.input :last_name, label: "Nom"
+            .col-xs-12
+              =f.input :email, label: "Adresse de courriel"
+              =f.input :phone, label: "Téléphone"
 
 
-      =f.submit "Soumettre", class: "btn btn-success"
+          =f.submit "Soumettre", class: "btn btn-success"
 
     -if @event.id == 2
       %br/
@@ -42,3 +48,12 @@
         %li= link_to "Une Constitution, un vieux papier inutile? Rien n’est plus faux!", constitution_path
         %li= link_to "Engagement solennel des personnes candidates aux élections d'octobre 2018", engagement_candidats_path
         %li= link_to "Signez le manifeste de l'ACCQ", manifest_path
+
+
+:javascript
+  $( document ).ready(function() {
+    $("a#signez-maintenant").click(function() {
+      $("#event-form .well").css("border-color", "#ff0000")
+    })
+  })
+  
