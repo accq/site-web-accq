@@ -9,7 +9,7 @@ class ParticipantsController < ApplicationController
       else
         flash[:success] = "Merci! Votre présence à cet événement est grandement appréciée!"
       end
-      redirect_to root_path
+      redirect_to event_participants_path(@event)
     else
       render "events/show"
     end
