@@ -14,11 +14,11 @@ end
 
 crumb :mumble do
   link "Discussion Mumble", mumble_path
-  parent :root    
+  parent :root
 end
 
 crumb :hives do
-  link "Liste des ACRQ", hives_path
+  link "Nos organisations régionales", hives_path
   parent :root
 end
 

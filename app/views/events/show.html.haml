@@ -5,7 +5,7 @@
   .col-md-8
     %div.text-justify
       -if @event.id == 2
-        .well
+        .alert.alert-info
           Vous êtes cordialement invité.e à vous joindre à nous pour signer l’Appel ci-dessous. Cet Appel vise à exiger la convocation d’une Assemblée constituante citoyenne chargée de rédiger la première constitution de l’histoire du Québec.
       =@event.body.to_s.gsub("\n", "<br />").html_safe
       
