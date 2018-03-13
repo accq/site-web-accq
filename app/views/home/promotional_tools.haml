@@ -3,20 +3,39 @@
 
 -breadcrumb :promotional_tools
 .row
-  .col-md-12
+  .col-md-4
     %h2.sub-section Portez fièrement votre macaron sur Facebook!
     %p.lead
       Bientôt disponible, revenez nous visiter.
       -if false
         Nous vous invitons à modifier votre photo de profil Facebook afin de #{link_to "porter nos couleurs dès maintenant!", "http://www.onlinebadgemaker.com/badge/2354", target: "_blank"}
-.row
-  .col-md-12
-    %h2.sub-section Tracts à distribuer
+  .col-md-7.col-md-offset-1
+    %h2.sub-section Tracts à imprimer et distribuer
 
-    %p
-      =fa_icon "download"
-      =link_to "Tract (x3)", asset_url("tractx3.pdf"), target: "_blank"
+    %ol.lead
+      %li
+        Invitez vos ami.e.s à signer L'APPEL
+        %ul.list
+          %li
+            =fa_icon "file-pdf-o"
+            =link_to "L'appel", asset_url("tract_appel.pdf"), target: "_blank"
 
-    %p
-      =fa_icon "download"
-      =link_to "Tract (x6)", asset_url("tractx6.pdf"), target: "_blank"
+      %li
+        Faites la promotion de l'ACCQ en imprimant ces outils:
+        %ul.list
+          %li
+            =fa_icon "file-pdf-o"
+            =link_to "Une constitution est l'acte de naissance d'un État légitime", asset_url("tract_acte_naissance.pdf"), target: "_blank"
+          %li
+            =fa_icon "file-pdf-o"
+            =link_to "Affirmer la souveraineté du peuple du Québec", asset_url("tract_souverainete.pdf"), target: "_blank"
+          
+          %li
+            =fa_icon "file-pdf-o"
+            =link_to "La constitution doit être écrite par le peuple", asset_url("tract_ppp.pdf"), target: "_blank"
+          
+          %li
+            =fa_icon "file-pdf-o"
+            =link_to "Le pouvoir constituant", asset_url("tract_pouvoir_constituant.pdf"), target: "_blank"
+      
+    
