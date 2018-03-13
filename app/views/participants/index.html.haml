@@ -3,6 +3,6 @@
     Liste des signatures de « L' APPEL » .
 
   %ul
-    -@event.participants.each do |p|
+    -@event.participants.order("created_at DESC").each do |p|
       %li
         #{p.first_name} #{p.last_name}
