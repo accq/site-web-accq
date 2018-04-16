@@ -12,6 +12,8 @@
             %th Nom
             %th Courriel
             %th Téléphone
+            %th Muncipalité
+            %th Code postal
             %th Date de réception
             %th
         %tbody
@@ -21,6 +23,7 @@
               %td= p.last_name
               %td= p.email
               %td= p.phone
+              %td= p.city
+              %td= p.postal_code              
               %td= l(p.created_at, format: :short)
               %td.text-right= link_to "Supprimer", admin_participant_path(p), data: {confirm: "Voulez-vous vraiment supprimer cet élément?"}, method: :delete, class: "btn btn-xs btn-danger"
-              

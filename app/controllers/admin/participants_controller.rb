@@ -5,11 +5,11 @@ class Admin::ParticipantsController < ApplicationController
 
   def index
     @participants = @event.participants.order("created_at DESC")
-    
+
     respond_to do |format|
       format.html
       format.csv {
-        x=@event.participants.order('created_at desc').collect{|m| ["\"#{m.first_name.to_s.strip}\"","\"#{m.last_name.to_s.strip}\"", "\"#{m.email.to_s.strip}\"", "\"#{m.phone.to_s.strip}\"", "\"#{m.created_at}\""].join(',')}.join("\r\n")
+        x=@event.participants.order('created_at desc').collect{|m| ["\"#{m.first_name.to_s.strip}\"","\"#{m.last_name.to_s.strip}\"", "\"#{m.email.to_s.strip}\"", "\"#{m.city.to_s.strip}\"", "\"#{m.postal_code.to_s.strip}\"", "\"#{}\"", "\"#{m.created_at}\""].join(',')}.join("\r\n")
         if @event.id == 2
           send_data x, filename: "signataires.csv"
         else
@@ -17,9 +17,9 @@ class Admin::ParticipantsController < ApplicationController
         end
       }
     end
-    
+
   end
-  
+
   def destroy
     @participant = Participant.find(params[:id])
     @participant.destroy

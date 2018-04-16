@@ -2,7 +2,7 @@ class ParticipantsController < ApplicationController
   def create
     @event = Event.find(params[:event_id])
     @participant = Participant.new(participant_params.merge(event_id: @event.id))
-    
+
     if @participant.save
       if @event.id == 2
         flash[:success] = "Merci! Nous avons bien reçu votre signature."
@@ -22,6 +22,6 @@ end
 
   private
   def participant_params
-    params.require(:participant).permit(:first_name, :last_name, :email, :phone)
+    params.require(:participant).permit(:first_name, :last_name, :email, :phone, :city, :postal_code)
   end
 end
