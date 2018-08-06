@@ -28,7 +28,7 @@
 
   .col-md-4
     %p
-      =link_to "<i class='fa fa-pencil-square-o'></i> Voir les #{Member.confirmed.count.to_s + " signatures"}".html_safe, signatures_path, class: "btn btn-primary", id: "#all-signatures"
+      =link_to "<i class='fa fa-pencil-square-o'></i> Voir les #{Member.confirmed.count.to_s + " signatures"}".html_safe, signatures_path, class: "btn btn-primary", id: "all-signatures"
 
     %h3.sub-section
       Dernières signatures
