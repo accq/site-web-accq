@@ -21,7 +21,7 @@
         %td= c.full_name
         %td= c.district.name
         %td= c.political_party.name
-        %td= c.engagement ? display_engagement(c.engagement.status) : "Non sollicité"
+        %td= c.engagement ? display_engagement(c.engagement.status) : display_engagement(3)
         %td
           -if c.engagement
             = link_to "Supprimer la réponse", admin_candidate_path(c), method: :delete, data: {confirm: "Voulez-vous supprimer ce candidat?"}

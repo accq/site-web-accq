@@ -2,13 +2,13 @@ module Admin::EngagementsHelper
 
   def display_engagement(status)
     if status == 0
-      "rejette l'engagement"
+      "refuse de s'y engager"
     elsif status == 1
-      "s'engage solonellement"
+      "s'y engage solenellement"
     elsif status == 2
       "refuse de se prononcer"
     elsif status == 3
-      "Pas de réponse"
+      "en attente d'une réponse"
     end
   end
 end

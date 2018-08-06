@@ -1,7 +1,7 @@
 -content_for :page_title do
   Engagement des personnes candidates dans « #{@district.name} »
-%p.text-right
-  =link_to "« Retour à la liste des circonscriptions", districts_path, class: "btn btn-info"
+
+-breadcrumb :engagements, @district
 
 
 
@@ -15,47 +15,27 @@
 %table.table.table-striped.table-bordered
   %thead
     %tr
-      %th Personnes candidates interpellées par l'ACCQ
-      %th Parti
-      %th S'engage solonellement
-      %th Rejette l'engagement
-      %th Refuse de se prononcer
-      %th Pas de réponse
+      %th.small Personnes candidates
+      %th.small Parti
+      %th.small.text-center= display_engagement(1)
+      %th.small.text-center= display_engagement(0)
+      %th.small.text-center= display_engagement(2)
+      %th.small.text-center= display_engagement(3)
 
   %tbody
-    -@engagements.order("candidates.last_name,candidates.middle_name,candidates.first_name").each do |e|
+    -@candidates.order("last_name,middle_name,first_name").each do |c|
       %tr
-        %td= e.candidate.full_name
-        %td= e.candidate.political_party.name
-        %td.text-center.text-success= e.status == 1 ? fa_icon("check") : ""
-        %td.text-center.text-danger= e.status == 0 ? fa_icon("check") : ""
-        %td.text-center= e.status == 2 ? fa_icon("check") : ""
-        %td.text-center= e.status == 3 ? fa_icon("check") : ""
-    -if @engagements.count == 0
-      %tr
-        %td{colspan: 6}
-          Aucune personne candidate dans cette circonscription n'a été interpellée jusqu'à maintenant.
+        %td= c.full_name
+        %td= c.political_party.name
+        %td.text-center.text-success= c.engagement && c.engagement.status == 1 ? fa_icon("check") : ""
+        %td.text-center.text-danger= c.engagement && c.engagement.status == 0 ? fa_icon("check") : ""
+        %td.text-center.text-warning= c.engagement && c.engagement.status == 2 ? fa_icon("check") : ""
+        %td.text-center= c.engagement.nil? || c.engagement.status == 3 ? fa_icon("check") : ""
     -with_notes = @engagements.select{|e| e.notes.present?}
     -if with_notes.count > 0
       %tfoot
         %tr
-          %th.small{colspan: 6} Commentaires:
+          %th.small{colspan: 6} Espace réservé pour commentaires de l'ACCQ
         -with_notes.each do |e|
           %tr
-            %td.small{colspan: 6} #{e.candidate.full_name}: #{e.notes}
-
-
-
-
--if @non_sollicited.count > 0
-  %table.table.table-striped.table-bordered
-    %thead
-      %tr
-        %th Personnes candidates non-interpellées par l'ACCQ
-        %th Parti
-
-    %tbody
-      -@non_sollicited.order("last_name, middle_name,first_name").each do |c|
-        %tr
-          %td= c.full_name
-          %td= c.political_party.name
+            %td.small{colspan: 6} #{e.notes}

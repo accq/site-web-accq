@@ -1,7 +1,7 @@
 -content_for :page_title do
   Engagement solennel des personnes candidates aux élections d'octobre 2018
 
-
+-breadcrumb :engagement_candidats
 
 %p
   L’ACCQ, organisation non partisane, demande aux personnes candidates aux élections générales québécoises de s’engager solennellement, si élues, à œuvrer à l’adoption, dans la première année de leur mandat, d’une Loi créant une Assemblée constituante citoyenne du Québec, ouverte et totalement libre dans ses délibérations et ses conclusions. Cette demande inclut une #{link_to "proposition de projet de Loi", projet_de_loi_path} soumise par l’ACCQ.
@@ -31,5 +31,5 @@
 %ul
   %li= link_to "Le projet de loi", projet_de_loi_path
   %li= link_to "Liste des personnes candidates par circonscription", districts_path
-  %li= link_to "L'appel", event_path(2)
+  %li= link_to "Pour signer l'APPEL", event_path(2)
   %li= link_to "Imprimez nos outils de promotion maintenant", promotional_tools_path

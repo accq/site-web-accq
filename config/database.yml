@@ -1,4 +1,4 @@
-development: 
+development:
   adapter: postgresql
   database: accq_dev
   encoding: utf8
@@ -14,7 +14,13 @@ test:
   username: <%=ENV['DB_USER']%>
   password: <%=ENV['DB_PASS']%>
 
-production:  
+production:
+  adapter: postgresql
+  url: <%= ENV['DATABASE_URL'] %>
+  encoding: unicode
+  pool: 5
+
+staging:
   adapter: postgresql
   url: <%= ENV['DATABASE_URL'] %>
   encoding: unicode

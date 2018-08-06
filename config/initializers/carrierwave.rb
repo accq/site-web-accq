@@ -1,8 +1,8 @@
 CarrierWave.configure do |config|
-  if (Rails.env.development? || Rails.env.test?)
+  if (Rails.env.development? || Rails.env.test? || Rails.env.staging?)
     config.storage = :file
-  else    
-    config.storage = :fog    
+  else
+    config.storage = :fog
     config.fog_credentials = {
       :provider               => 'AWS',                        # required
       :region                 => 'us-west-2',

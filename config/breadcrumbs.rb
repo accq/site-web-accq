@@ -17,8 +17,34 @@ crumb :mumble do
   parent :root
 end
 
+crumb :engagement_candidats do
+  link "Engagement solennel", engagement_candidats_path
+  parent :root
+end
+
+crumb :projet_de_loi do
+  link "Projet de loi", projet_de_loi_path
+  parent :engagement_candidats
+end
+
+crumb :districts do
+  link "Liste des circonscriptions", districts_path
+  parent :engagement_candidats
+end
+
+crumb :engagements do |district|
+  link district.name, district_engagements_path(district)
+  parent :districts
+end
+
+
 crumb :hives do
   link "Nos organisations régionales", hives_path
+  parent :root
+end
+
+crumb :event do |event|
+  link event.name, event_path(event)
   parent :root
 end
 

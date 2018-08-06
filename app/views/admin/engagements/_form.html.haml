@@ -1,0 +1,23 @@
+=simple_form_for [:admin, engagement] do |f|
+  =hidden_field_tag "autocomplete_path",autocomplete_index_admin_candidates_path
+  =f.input :candidate_name, label: "Nom du candidat", hint: "Veuillez commencer à inscrire le nom pour afficher les résultats"
+  =f.input :candidate_id, as: :hidden
+  =f.input :status, as: :select, collection: [[display_engagement(1),1],[display_engagement(0),0],[display_engagement(2),2]], label: "Réponse", include_blank: false
+  =f.input :notes, as: :string, label: "Commentaires"
+  =f.submit "Enregistrer", class: "btn btn-success"
+
+:coffee
+  $('#engagement_candidate_name').autocomplete
+    source: $("#autocomplete_path").val()
+    autoFocus: true,
+    minLength:3,
+    select: (event, ui) ->
+      if (ui.item.id == -1)
+        event.preventDefault()
+      else
+        $("#engagement_candidate_id").val(ui.item.id)
+
+
+    focus: (event, ui) ->
+      if (ui.item.id == -1)
+        event.preventDefault()

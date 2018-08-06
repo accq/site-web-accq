@@ -34,11 +34,11 @@
             %span.icon-bar
             %span.icon-bar
 
-          =link_to image_tag("logo_trans.png", height: 50), home_path, class: "navbar-brand logo"
+          =link_to image_tag("logo_trans.png", height: 50), root_path, class: "navbar-brand logo"
 
         .collapse.navbar-collapse
           %ul.nav.navbar-nav
-            %li= link_to "Accueil", home_path
+            %li= link_to "Accueil", root_path
             %li= link_to "L'APPEL", event_path(2)
             %li= link_to "Engagement solennel", engagement_candidats_path
             %li= link_to "Projet de loi", projet_de_loi_path

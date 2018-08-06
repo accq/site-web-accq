@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'home#engagement_candidats'
+  root 'home#show'
+  get '/accueil', to: "home#show"
   get '/appel', to: 'events#show', id: 2
-  get '/accueil', to: "home#show", as: :home
   get '/signez-le-manifeste', to: "home#manifest", as: :manifest
   get '/deuxieme-rencontre-nationale', to: "home#deuxieme_rencontre_nationale"
   get '/constat', to: "home#constat", as: :constat

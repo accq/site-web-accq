@@ -10,6 +10,11 @@ class Admin::EngagementsController < ApplicationController
     @engagement = Engagement.new
   end
 
+  def edit
+    @engagement = Engagement.find(params[:id])
+    @engagement.candidate_name = @engagement.candidate.full_name
+  end
+
   def create
     @engagement = Engagement.new(engagement_params)
 
@@ -18,6 +23,18 @@ class Admin::EngagementsController < ApplicationController
       redirect_to admin_engagements_path
     else
       render :new
+    end
+  end
+
+  def update
+    @engagement = Engagement.find(params[:id])
+
+    @engagement.assign_attributes(engagement_params)
+    if @engagement.save
+      flash[:notice] = "La réponse du candidat a été modifiée"
+      redirect_to admin_engagements_path
+    else
+      render :edit
     end
   end
 

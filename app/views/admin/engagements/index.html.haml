@@ -21,4 +21,7 @@
         %td= e.candidate.district.name
         %td= e.candidate.political_party.name
         %td= display_engagement(e.status)
-        %td= link_to "Supprimer la réponse", admin_engagement_path(e), method: :delete, data: {confirm: "Voulez-vous supprimer cette réponse?"}
+        %td.small.text-right
+          = link_to "Modifier la réponse", edit_admin_engagement_path(e)
+          \|
+          = link_to "Supprimer la réponse", admin_engagement_path(e), method: :delete, data: {confirm: "Voulez-vous supprimer cette réponse?"}, class: "text-danger"
