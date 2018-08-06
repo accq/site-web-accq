@@ -27,8 +27,8 @@
       %tr
         %td= e.candidate.full_name
         %td= e.candidate.political_party.name
-        %td.text-center= e.status == 1 ? fa_icon("check") : ""
-        %td.text-center= e.status == 0 ? fa_icon("check") : ""
+        %td.text-center.text-success= e.status == 1 ? fa_icon("check") : ""
+        %td.text-center.text-danger= e.status == 0 ? fa_icon("check") : ""
         %td.text-center= e.status == 2 ? fa_icon("check") : ""
         %td.text-center= e.status == 3 ? fa_icon("check") : ""
     -if @engagements.count == 0
