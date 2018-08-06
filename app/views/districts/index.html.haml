@@ -1,0 +1,11 @@
+-content_for :page_title do
+  Liste des circonscriptions
+
+%h3 DÉCLARATION D'ENGAGEMENT DES CANDIDATS
+
+%p Afin d’éclairer le choix des électrices et des électeurs de votre circonscription, l’ACCQ publie ici, tout au long de la campagne électorale, la liste des personnes candidates ayant accepté de s’engager à partager le pouvoir avec le peuple en convoquant, dans la première année de leur mandat, une Assemblée constituante citoyenne ouverte et totalement libre dans ses délibérations et ses conclusions.
+-@hives.each do |h|
+  %h3= h.name
+  %ul
+    -h.districts.each do |d|
+      %li= link_to d.name, district_engagements_path(d)

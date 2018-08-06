@@ -1,0 +1,61 @@
+-content_for :page_title do
+  Engagement des personnes candidates dans « #{@district.name} »
+%p.text-right
+  =link_to "« Retour à la liste des circonscriptions", districts_path, class: "btn btn-info"
+
+
+
+%h3 Voici ce à quoi les personnes candidates de la circonscription « #{@district.name} » sont invitées à s'engager solennellement:
+
+
+.well
+  %p Advenant que je sois élu(e), je m’engage à faire le nécessaire pour que soit déposé, dès la première année de mon éventuel mandat, un projet de Loi de convocation d'une assemblée constituante citoyenne en vue d'établir une constitution pour le Québec conforme à l’esprit du projet que m’a soumis l’Alliance pour une constituante citoyenne du Québec. Je m’engage également à voter en faveur de l’adoption d’un tel projet de loi.
+  %p Je, _______, _____, candidat.e dans #{@district.name} m’y engage solennellement.
+  %p Signature_________________________  Date : _______________
+%table.table.table-striped.table-bordered
+  %thead
+    %tr
+      %th Personnes candidates interpellées par l'ACCQ
+      %th Parti
+      %th S'engage solonellement
+      %th Rejette l'engagement
+      %th Refuse de se prononcer
+      %th Pas de réponse
+
+  %tbody
+    -@engagements.order("candidates.last_name,candidates.middle_name,candidates.first_name").each do |e|
+      %tr
+        %td= e.candidate.full_name
+        %td= e.candidate.political_party.name
+        %td.text-center= e.status == 1 ? fa_icon("check") : ""
+        %td.text-center= e.status == 0 ? fa_icon("check") : ""
+        %td.text-center= e.status == 2 ? fa_icon("check") : ""
+        %td.text-center= e.status == 3 ? fa_icon("check") : ""
+    -if @engagements.count == 0
+      %tr
+        %td{colspan: 6}
+          Aucune personne candidate dans cette circonscription n'a été interpellée jusqu'à maintenant.
+    -with_notes = @engagements.select{|e| e.notes.present?}
+    -if with_notes.count > 0
+      %tfoot
+        %tr
+          %th.small{colspan: 6} Commentaires:
+        -with_notes.each do |e|
+          %tr
+            %td.small{colspan: 6} #{e.candidate.full_name}: #{e.notes}
+
+
+
+
+-if @non_sollicited.count > 0
+  %table.table.table-striped.table-bordered
+    %thead
+      %tr
+        %th Personnes candidates non-interpellées par l'ACCQ
+        %th Parti
+
+    %tbody
+      -@non_sollicited.order("last_name, middle_name,first_name").each do |c|
+        %tr
+          %td= c.full_name
+          %td= c.political_party.name

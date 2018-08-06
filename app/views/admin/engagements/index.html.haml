@@ -1,0 +1,24 @@
+-content_for :page_title do
+  Réponses des candidats
+
+  %small.pull-right
+    %ul.nav.nav-pills
+      %li= link_to "#{fa_icon("plus")} Nouvelle réponse".html_safe, new_admin_engagement_path
+%p.small.text-right
+  =link_to "Voir la liste de tous les candidats", admin_candidates_path
+%table.table.table-striped
+  %thead
+    %tr
+      %th Candidat
+      %th Circonscription
+      %th Parti politique
+      %th Réponse
+      %th
+  %tbody
+    -@engagements.each do |e|
+      %tr
+        %td= e.candidate.full_name
+        %td= e.candidate.district.name
+        %td= e.candidate.political_party.name
+        %td= display_engagement(e.status)
+        %td= link_to "Supprimer la réponse", admin_engagement_path(e), method: :delete, data: {confirm: "Voulez-vous supprimer cette réponse?"}

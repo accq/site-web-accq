@@ -1,0 +1,10 @@
+-content_for :page_title do
+  Nouveau candidat
+
+=simple_form_for [:admin, @candidate] do |f|
+  =f.input :first_name, label: "Prénom"
+  =f.input :last_name, label: "Nom de famille"
+  =f.input :middle_name, label: "Deuxième nom (middlename)"
+  =f.association :district, label: "Circonscription"
+  =f.association :political_party, label: "Parti"
+  =f.submit "Enregistrer", class: "btn btn-success"

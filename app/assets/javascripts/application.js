@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require pickadate/picker
+//= require jquery-ui/widgets/autocomplete
 //= require pickadate/picker.date
 //= require pickadate/picker.time
 // require pickadate/translations/fr_FR

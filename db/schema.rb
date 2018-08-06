@@ -11,10 +11,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180416193356) do
+ActiveRecord::Schema.define(version: 20180805151914) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "candidates", force: :cascade do |t|
+    t.string   "last_name"
+    t.string   "first_name"
+    t.string   "middle_name"
+    t.integer  "district_id"
+    t.integer  "political_party_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "candidates", ["district_id"], name: "index_candidates_on_district_id", using: :btree
+  add_index "candidates", ["political_party_id"], name: "index_candidates_on_political_party_id", using: :btree
+
+  create_table "districts", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "hive_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "districts", ["hive_id"], name: "index_districts_on_hive_id", using: :btree
+
+  create_table "engagements", force: :cascade do |t|
+    t.string   "notes"
+    t.integer  "candidate_id"
+    t.integer  "status"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
 
   create_table "events", force: :cascade do |t|
     t.string   "name",       null: false
@@ -83,6 +113,12 @@ ActiveRecord::Schema.define(version: 20180416193356) do
   end
 
   add_index "participants", ["event_id"], name: "index_participants_on_event_id", using: :btree
+
+  create_table "political_parties", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

@@ -4,4 +4,5 @@ class Hive < ActiveRecord::Base
   validates :number, presence: true, uniqueness: true, numericality: {only_integer: true}
   has_many :hive_contacts
   has_many :hive_meetings
+  has_many :districts
 end

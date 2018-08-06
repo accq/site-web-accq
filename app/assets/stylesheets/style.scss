@@ -14,7 +14,7 @@ h1,h2,h3,h4,h5,h6 {
 
 #manifesto ol li, #manifesto ul li {
   margin-bottom:15px;
- 
+
 }
 
 h2.sub-section, h3.sub-section, h4.sub-section, h5.sub-section {
@@ -53,7 +53,7 @@ h1,h2,h3,h4,h5,h6 {
     position:relative;
     overflow:hidden;
 }
- 
+
 .caption {
     position:absolute;
     top:0;
@@ -145,9 +145,16 @@ section {
 
 #structure-nav a.title_link {
   color: #333;
-  
+
 }
 
+#projet_de_loi h3, #projet_de_loi h4, #projet_de_loi h5 {
+  color: #333;
+}
+
+#projet_de_loi h3 {
+  text-decoration: underline;
+}
 /* On demand youtube containers */
 .youtube-container { display: block; margin: 20px auto; width: 100%; max-width: 600px; }
 .youtube-player { display: block; width: 100%; /* assuming that the video has a 16:9 ratio */ padding-bottom: 56.25%; overflow: hidden; position: relative; width: 100%; height: 100%; cursor: hand; cursor: pointer; display: block; }

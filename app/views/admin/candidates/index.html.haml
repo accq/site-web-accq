@@ -1,0 +1,29 @@
+-content_for :page_title do
+  Candidats
+  %small.pull-right
+    %ul.nav.nav-pills
+      %li
+        = link_to "#{fa_icon("plus")} Nouveau candidat".html_safe, new_admin_candidate_path
+
+%p.small.text-right
+  =link_to "Voir les réponses reçues", admin_engagements_path
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th Candidat
+      %th Circonscription
+      %th Parti politique
+      %th
+  %tbody
+    -@candidates.each do |c|
+      %tr
+        %td= c.full_name
+        %td= c.district.name
+        %td= c.political_party.name
+        %td= c.engagement ? display_engagement(c.engagement.status) : "Non sollicité"
+        %td
+          -if c.engagement
+            = link_to "Supprimer la réponse", admin_candidate_path(c), method: :delete, data: {confirm: "Voulez-vous supprimer ce candidat?"}
+          -else
+            = link_to "Supprimer le candidat", admin_candidate_path(c), method: :delete, data: {confirm: "Voulez-vous supprimer ce candidat?"}

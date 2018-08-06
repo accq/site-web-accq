@@ -10,6 +10,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
+gem 'jquery-ui-rails', '~> 6.0.1'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'rails-i18n'
@@ -41,9 +42,9 @@ group :development, :test do
 
   gem 'rspec', '~> 3.1.0'
   gem 'rspec-rails', '~> 3.1.0'
-  gem 'rb-fsevent', '~> 0.9.4'  
+  gem 'rb-fsevent', '~> 0.9.4'
   gem 'capybara', '~> 2.4.1'
-  gem 'launchy', '~> 2.4.2'    
+  gem 'launchy', '~> 2.4.2'
 end
 
 group :test do
@@ -52,5 +53,3 @@ group :test do
   gem 'rspec-collection_matchers', '~> 1.0.0'
   gem 'rspec-activemodel-mocks'
 end
-
-

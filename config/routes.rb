@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'events#show', id: 2
+  root 'home#engagement_candidats'
   get '/appel', to: 'events#show', id: 2
   get '/accueil', to: "home#show", as: :home
   get '/signez-le-manifeste', to: "home#manifest", as: :manifest
@@ -18,10 +18,11 @@ Rails.application.routes.draw do
   get '/education/outils-de-promotion', to: "home#promotional_tools", as: :promotional_tools
   get '/a-propos', to: "home#a_propos", as: :a_propos
   get '/mumble', to: "home#mumble", as: :mumble
-  
+  get '/medias', to: "home#media", as: :media
   get '/devenir-partenaire-actif', to: "home#partenaire_actif", as: :partenaire_actif
   get '/constitution', to: "home#constitution", as: :constitution
   get '/engagement-candidats', to: "home#engagement_candidats", as: :engagement_candidats
+  get '/projet-de-loi', to: "home#projet_de_loi", as: :projet_de_loi
   resources :acrq, controller: :hives , as: :hives do
     resources :hive_meetings
   end
@@ -30,7 +31,7 @@ Rails.application.routes.draw do
   end
 
   resources :membres, controller: :members, as: :members, only: :create do
-    
+
   end
 
   resources :evenements, controller: :events, as: :events, only: :show do
@@ -39,8 +40,11 @@ Rails.application.routes.draw do
   end
 
   get '/signatures-manifeste' => 'members#index', as: :signatures
-  
 
+
+  resources :districts do
+    resources :engagements
+  end
   namespace :admin do
     resources :hives, shallow: true do
       resources :hive_contacts
@@ -56,6 +60,14 @@ Rails.application.routes.draw do
         put :approve
         put :disapprove
       end
+    end
+
+    resources :engagements do
+
+    end
+
+    resources :candidates do
+      get :autocomplete_index, on: :collection
     end
     root 'home#show'
   end
