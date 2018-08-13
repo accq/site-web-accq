@@ -7,12 +7,14 @@
   .col-md-12
     =render "mission_nav", active: :nous_rejoindre
     %h2.sub-section En ralliant les forces vives québécoises autour d'un projet de société progressiste, nous engendrons la responsabilité collective!
-        
+
     %p Plus nous serons nombreux à endosser les pouvoirs constituants que nous sommes en droit de nous accorder, moins la légitimité de notre démarche sera contestable.
     %p Plus nous serons nombreux à élaborer une constitution préparatoire et plus elle sera représentative de la volonté populaire du Québec.
-    
+
     %p Une fois rédigée, cette constitution «préparatoire» sera alors l’assise d’une nouvelle démarche convoquée par l’Assemblée nationale visant à mobiliser la population du Québec pour qu'elle y participe.
     %p Si vous êtes de ceux et celles qui veulent réformer avec NOUS la façon dont nous sommes gouvernés et qui aimeraient participer à la création d’un projet de société plus conforme à vos aspirations, #{link_to "rejoignez votre ACRQ", hives_path}.
     %p Vous trouverez, dans votre regroupement régional, le réseau et les moyens nécessaires pour favoriser l'instauration d'une véritable démocratie.
 
-    %p.lead= link_to "Découvrez votre ACRQ", hives_path
+    %ul
+      %li= link_to "Découvrez votre ACRQ", hives_path
+      %li= link_to "Signez l'APPEL maintenant", event_path(2)

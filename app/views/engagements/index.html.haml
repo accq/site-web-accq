@@ -10,12 +10,12 @@
 
 .well
   %p Advenant que je sois élu(e), je m’engage à faire le nécessaire pour que soit déposé, dès la première année de mon éventuel mandat, un projet de Loi de convocation d'une assemblée constituante citoyenne en vue d'établir une constitution pour le Québec conforme à l’esprit du projet que m’a soumis l’Alliance pour une constituante citoyenne du Québec. Je m’engage également à voter en faveur de l’adoption d’un tel projet de loi.
-  %p Je, _______, _____, candidat.e dans #{@district.name} m’y engage solennellement.
+  %p Je, ___________________, __________________, candidat.e dans #{@district.name} m’y engage solennellement.
   %p Signature_________________________  Date : _______________
-%table.table.table-striped.table-bordered
+%table.table.table-striped.table-bordered.table-hover
   %thead
     %tr
-      %th.small Personnes candidates
+      %th.small Personnes candidates <span class='#{@non_sollicited.count>0 ? "text-success" : ""}'>interpellées</span> par l'ACCQ
       %th.small Parti
       %th.small.text-center= display_engagement(1)
       %th.small.text-center= display_engagement(0)
@@ -23,14 +23,18 @@
       %th.small.text-center= display_engagement(3)
 
   %tbody
-    -@candidates.order("last_name,middle_name,first_name").each do |c|
+    -if @engagements.count == 0
       %tr
-        %td= c.full_name
-        %td= c.political_party.name
-        %td.text-center.text-success= c.engagement && c.engagement.status == 1 ? fa_icon("check") : ""
-        %td.text-center.text-danger= c.engagement && c.engagement.status == 0 ? fa_icon("check") : ""
-        %td.text-center.text-warning= c.engagement && c.engagement.status == 2 ? fa_icon("check") : ""
-        %td.text-center= c.engagement.nil? || c.engagement.status == 3 ? fa_icon("check") : ""
+        %td{colspan: 6}
+          Aucune personne candidate dans cette circonscription n'a été interpellée par l'ACCQ pour le moment.
+    -@engagements.order("candidates.last_name,candidates.middle_name,candidates.first_name").each do |e|
+      %tr
+        %td= e.candidate.full_name
+        %td= e.candidate.political_party.name
+        %td.text-center.text-success= e.status == 1 ? fa_icon("check") : ""
+        %td.text-center.text-danger= e.status == 0 ? fa_icon("check") : ""
+        %td.text-center.text-warning= e.status == 2 ? fa_icon("check") : ""
+        %td.text-center= e.status == 3 ? fa_icon("check") : ""
     -with_notes = @engagements.select{|e| e.notes.present?}
     -if with_notes.count > 0
       %tfoot
@@ -39,3 +43,20 @@
         -with_notes.each do |e|
           %tr
             %td.small{colspan: 6} #{e.notes}
+
+
+-if @non_sollicited.count > 0
+  %table.table.table-striped.table-bordered
+    %thead
+      %tr
+        %th.small Personnes candidates <span class='text-danger'>non interpellées</span> par l'ACCQ
+        %th.small Parti
+
+    %tbody
+      -@non_sollicited.order("last_name,middle_name,first_name").each do |c|
+        %tr
+          %td= c.full_name
+          %td= c.political_party.name
+
+%p.small
+  NOTA :  L’ACCQ n’a pas interpelé les personnes candidates des partis politiques qui ont obtenu moins de 0.3% des bulletins valides aux dernières élections générales (2014). Nous avons en outre ajouté à la liste deux nouvelles formations politiques : le Nouveau parti démocratique du Québec et Citoyens au pouvoir.

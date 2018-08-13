@@ -52,6 +52,7 @@
               %ul.dropdown-menu
                 %li= link_to "Constat", constat_path
                 %li= link_to "Mission", mission_path
+                %li= link_to "Bibliothèque (à venir)".html_safe, mediatheque_path
                 %li= link_to "Médiathèque".html_safe, mediatheque_path
                 %li= link_to "Promouvoir", promotional_tools_path
 
@@ -61,7 +62,7 @@
 
     -if (controller_name == 'home' && action_name=='show')
       %header
-        =image_tag "cover_nos_voix.jpg", class: "img-responsive", style: "margin: auto"
+        =image_tag "cover_nos_voix.jpg", class: "img-responsive", style: "margin: auto; height: 400px"
     -else
       %header.text-center
         =image_tag "small_bg.jpg", class: "img-responsive", style: "margin: auto"
@@ -78,7 +79,7 @@
       = breadcrumbs style: :bootstrap
       -if content_for?(:page_title)
         .page-header
-          %h1
+          %h2
             =yield(:page_title)
 
       = yield
