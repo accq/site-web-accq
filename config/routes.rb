@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root 'home#show'
   get '/accueil', to: "home#show"
-  get '/appel', to: 'events#show', id: 2
+  get '/lappel', to: 'events#show', id: 2, as: :lappel
   get '/signez-le-manifeste', to: "home#manifest", as: :manifest
   get '/deuxieme-rencontre-nationale', to: "home#deuxieme_rencontre_nationale"
   get '/constat', to: "home#constat", as: :constat
@@ -45,6 +45,7 @@ Rails.application.routes.draw do
   resources :districts do
     resources :engagements
   end
+  resources :engagements, only: :index
   namespace :admin do
     resources :hives, shallow: true do
       resources :hive_contacts
