@@ -1,0 +1,40 @@
+-content_for :page_title do
+  Réponses reçues
+
+-breadcrumb :engagements, @district
+
+
+
+%table.table.table-striped.table-bordered.table-hover
+  %thead
+    %tr
+      %th.small Candidat
+      %th.small Parti
+      %th.small Circonscription
+      %th.small.text-center= display_engagement(1)
+      %th.small.text-center= display_engagement(0)
+      %th.small.text-center= display_engagement(2)
+      %th.small.text-center= display_engagement(3)
+
+  %tbody
+    -if @engagements.count == 0
+      %tr
+        %td{colspan: 7}
+          Aucune réponse à afficher pour le moment
+    -@engagements.includes(:candidate).references(:candidate).order("candidates.last_name,candidates.middle_name,candidates.first_name").each do |e|
+      %tr
+        %td= e.candidate.full_name
+        %td= e.candidate.political_party.name
+        %td= e.candidate.district.name
+        %td.text-center.text-success= e.status == 1 ? fa_icon("check") : ""
+        %td.text-center.text-danger= e.status == 0 ? fa_icon("check") : ""
+        %td.text-center.text-warning= e.status == 2 ? fa_icon("check") : ""
+        %td.text-center= e.status == 3 ? fa_icon("check") : ""
+    -with_notes = @engagements.select{|e| e.notes.present?}
+    -if with_notes.count > 0
+      %tfoot
+        %tr
+          %th.small{colspan: 6} Espace réservé pour commentaires de l'ACCQ
+        -with_notes.each do |e|
+          %tr
+            %td.small{colspan: 6} #{e.notes}

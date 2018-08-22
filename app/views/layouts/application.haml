@@ -39,7 +39,7 @@
         .collapse.navbar-collapse
           %ul.nav.navbar-nav
             %li= link_to "Accueil", root_path
-            %li= link_to "L'APPEL", event_path(2)
+            %li= link_to "L'APPEL", lappel_path
             %li= link_to "Engagement solennel", engagement_candidats_path
             %li= link_to "Projet de loi", projet_de_loi_path
             %li= link_to "Manifeste", manifest_path, id: "sign-manifest"
@@ -62,7 +62,7 @@
 
     -if (controller_name == 'home' && action_name=='show')
       %header
-        =image_tag "cover_nos_voix.jpg", class: "img-responsive", style: "margin: auto; height: 400px"
+        =image_tag "cover_nos_voix.jpg", class: "img-responsive", style: "margin: auto; height: 350px"
     -else
       %header.text-center
         =image_tag "small_bg.jpg", class: "img-responsive", style: "margin: auto"

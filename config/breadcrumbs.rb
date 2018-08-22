@@ -33,8 +33,13 @@ crumb :districts do
 end
 
 crumb :engagements do |district|
-  link district.name, district_engagements_path(district)
-  parent :districts
+  if district
+    link district.name, district_engagements_path(district)
+    parent :districts
+  else
+    link "Réponses reçues"
+    parent :engagement_candidats
+  end
 end
 
 
