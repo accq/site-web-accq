@@ -42,7 +42,7 @@ Rails.application.routes.draw do
   get '/signatures-manifeste' => 'members#index', as: :signatures
 
 
-  resources :districts do
+  resources :circonscriptions, controller: :districts, as: :districts do
     resources :engagements
   end
   resources :engagements, only: :index

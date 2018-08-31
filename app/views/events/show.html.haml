@@ -39,8 +39,10 @@
               =f.input :city, label: "Municipalité", maxlength: 200
               =f.input :postal_code, label: "Code postal", maxlength: 10
 
-
           =f.submit "Soumettre", class: "btn btn-success"
+
+        %p.alert.alert-danger
+          NOTRE ENGAGEMENT : Vos informations personnelles (courriel, téléphone et code postal) demeureront confidentielles et ne seront jamais transmises à qui que ce soit sans votre consentement explicite.
 
     -if @event.id == 2
       %br/
