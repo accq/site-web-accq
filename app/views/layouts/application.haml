@@ -62,7 +62,8 @@
 
     -if (controller_name == 'home' && action_name=='show')
       %header
-        =image_tag "cover_nos_voix.jpg", class: "img-responsive", style: "margin: auto; height: 350px"
+        .text-center
+          =link_to image_tag("le_pouvoir_par_le_peuple_et_pour_le_peuple.jpg"), manifest_path
     -else
       %header.text-center
         =image_tag "small_bg.jpg", class: "img-responsive", style: "margin: auto"
