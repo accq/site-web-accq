@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   get '/constitution', to: "home#constitution", as: :constitution
   get '/engagement-candidats', to: "home#engagement_candidats", as: :engagement_candidats
   get '/projet-de-loi', to: "home#projet_de_loi", as: :projet_de_loi
+  get '/realisations', to: "home#realisations", as: :realisations
   resources :acrq, controller: :hives , as: :hives do
     resources :hive_meetings
   end

@@ -39,8 +39,6 @@
         .collapse.navbar-collapse
           %ul.nav.navbar-nav
             %li= link_to "Accueil", root_path
-            %li= link_to "L'APPEL", lappel_path
-            %li= link_to "Engagement solennel", engagement_candidats_path
             %li= link_to "Projet de loi", projet_de_loi_path
             %li= link_to "Manifeste", manifest_path, id: "sign-manifest"
 
@@ -58,12 +56,13 @@
 
             %li= link_to "Discutoire", mumble_path
             %li= link_to "Médias", media_path
+            %li= link_to "Réalisations", realisations_path
             %li= link_to "Nous joindre", nous_joindre_path
 
     -if (controller_name == 'home' && action_name=='show')
-      %header
+      %header.hidden-xs
         .text-center
-          =link_to image_tag("le_pouvoir_par_le_peuple_et_pour_le_peuple.jpg"), manifest_path
+          =link_to image_tag("cover_accq.png"), mumble_path, style: "height: 450px"
     -else
       %header.text-center
         =image_tag "small_bg.jpg", class: "img-responsive", style: "margin: auto"

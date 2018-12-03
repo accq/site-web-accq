@@ -1,0 +1,12 @@
+-content_for :page_title do
+  Campagne d'interpellation - Élections 2018
+
+-breadcrumb :realisations
+
+%h3.text-center
+  =fa_stacked_icon "exclamation", base: "circle-o", class: "text-danger"
+  =link_to "Engagement solennel des personnes candidates aux élections d'octobre 2018", engagement_candidats_path, class: "text-danger"
+
+%ul.list.list-unstyled.list-inline.text-center
+  %li= link_to "Liste des personnes candidates qui se sont prononcées", engagements_path, class: "btn btn-danger"
+  %li= link_to "Liste des personnes candidates par circonscription", districts_path, class: "btn btn-danger"

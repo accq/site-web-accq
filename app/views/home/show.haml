@@ -1,10 +1,3 @@
-%h3.text-center
-  =fa_stacked_icon "exclamation", base: "circle-o", class: "text-danger"
-  =link_to "Engagement solennel des personnes candidates aux élections d'octobre 2018", engagement_candidats_path, class: "text-danger"
-
-%ul.list.list-unstyled.list-inline.text-center
-  %li= link_to "Liste des personnes candidates qui se sont prononcées", engagements_path, class: "btn btn-danger"
-  %li= link_to "Liste des personnes candidates par circonscription", districts_path, class: "btn btn-danger"
 .row
 
   .col-md-6
@@ -25,10 +18,9 @@
         %br/
         =link_to "Inscription en ligne", event_path(@next_event), class: "btn btn-info"
 
-    %h3.sub-section Joignez-vous à NOUS #{link_to "en signant l'appel!", lappel_path}
+    %h3.sub-sectio= link_to image_tag("constituons.jpg", class: "img-responsive", style: "width: 80%"), "http://inm.qc.ca/constituons/", target: "_blank"
     .youtube-container
-      .youtube-player{"data-id" => "YiwqudxfQIQ"}
-
+      .youtube-player{"data-id" => "jKF8NLuDxKo"}
     %p Plusieurs autres vidéos sont disponibles dans la #{link_to "médiathèque", mediatheque_path}!
 
 
@@ -38,7 +30,7 @@
 
 
   .col-md-6
-    %h3.sub-section Découvrez l'ACRQ de votre région
+    %h3.sub-section= link_to image_tag("signez_le_manifeste.png", class: "img-responsive"), manifest_path
 
     .row
       -@hives.each_with_index do |h,index|
