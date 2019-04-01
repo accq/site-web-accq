@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.5.1'
+ruby '2.3.7'
 gem 'rails', '4.2.10'
 gem 'rails_12factor', group: :production #to run on Heroku or Dokku powered cloud hosting services
 gem 'pg'
