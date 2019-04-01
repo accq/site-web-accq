@@ -1,5 +1,11 @@
 .row
+  .col-xs-12
+    .panel.panel-default
+      .panel-body
+        %h4 NOUVEAU SONDAGE EN LIGNE
+        %p Donnez-nous votre avis sur ce que devrait être une implication citoyenne. Depuis cinq ans déjà, l'idée d'une constituante citoyenne chemine. Nous travaillons à mettre en place les conditions nécessaires pour réaliser cette  avancée remarquable pour le peuple québécois.  Votre participation à ce sondage nous aidera à mener à bien notre mission.
 
+        .text-center= link_to "Répondre au sondage maintenant", sondages_path, class: "btn btn-info btn-lg"
   .col-md-6
     -if @next_event
       %h3.sub-section À ne pas manquer
@@ -18,9 +24,9 @@
         %br/
         =link_to "Inscription en ligne", event_path(@next_event), class: "btn btn-info"
 
-    %h3.sub-sectio= link_to image_tag("constituons.jpg", class: "img-responsive", style: "width: 80%"), "http://inm.qc.ca/constituons/", target: "_blank"
+    %h3.sub-section=link_to(image_tag("assemblee_citoyenne_virtuelle.jpg", class: "img-responsive"), mumble_path)
     .youtube-container
-      .youtube-player{"data-id" => "jKF8NLuDxKo"}
+      .youtube-player{"data-id" => "Lh71SO0Ggy4"}
     %p Plusieurs autres vidéos sont disponibles dans la #{link_to "médiathèque", mediatheque_path}!
 
 

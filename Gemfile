@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
-ruby '2.2.3'
-gem 'rails', '4.2.4'
+ruby '2.5.1'
+gem 'rails', '4.2.10'
 gem 'rails_12factor', group: :production #to run on Heroku or Dokku powered cloud hosting services
 gem 'pg'
 gem 'puma', '~> 2.13.4'
@@ -34,14 +34,15 @@ gem 'will_paginate', '~> 3.0.7'
 gem 'will_paginate-bootstrap'
 gem 'will-paginate-i18n'
 gem 'pickadate-rails'
+gem 'xmlrpc'
 
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
 
-  gem 'rspec', '~> 3.1.0'
-  gem 'rspec-rails', '~> 3.1.0'
+  gem 'rspec', '~> 3.5.0'
+  gem 'rspec-rails', '~> 3.5.0'
   gem 'rb-fsevent', '~> 0.9.4'
   gem 'capybara', '~> 2.4.1'
   gem 'launchy', '~> 2.4.2'
@@ -49,7 +50,7 @@ end
 
 group :test do
   gem 'database_cleaner', '~> 1.3.0'
-  gem 'capybara-webkit', '~> 1.3.0'
+  #gem 'capybara-webkit', '~> 1.3.0'
   gem 'rspec-collection_matchers', '~> 1.0.0'
   gem 'rspec-activemodel-mocks'
 end

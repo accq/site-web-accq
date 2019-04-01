@@ -39,7 +39,7 @@
         .collapse.navbar-collapse
           %ul.nav.navbar-nav
             %li= link_to "Accueil", root_path
-            %li= link_to "Projet de loi", projet_de_loi_path
+            /%li= link_to "Projet de loi", projet_de_loi_path;
             %li= link_to "Manifeste", manifest_path, id: "sign-manifest"
 
             %li.dropdown
@@ -53,6 +53,7 @@
                 %li= link_to "Bibliothèque".html_safe, bibliotheque_path
                 %li= link_to "Médiathèque".html_safe, mediatheque_path
                 %li= link_to "Promouvoir", promotional_tools_path
+                %li= link_to "Sondage", sondage_path
 
             %li= link_to "Discutoire", mumble_path
             %li= link_to "Médias", media_path

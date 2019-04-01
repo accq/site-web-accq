@@ -8,4 +8,6 @@ class HomeController < ApplicationController
     @next_event = Event.upcoming.first
   end
 
+  def sondage
+  end
 end

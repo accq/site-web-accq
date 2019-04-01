@@ -2,6 +2,51 @@
   Signez le manifeste
 
 -breadcrumb :manifest
+
+#myModal.modal.fade{"aria-labelledby" => "myModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-dialog.modal-lg{:role => "document"}
+    .modal-content
+      .modal-header
+        %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button"}
+          %span{"aria-hidden" => "true"} ×
+        %h4#myModalLabel.modal-title EN 2020,  NOUS NOUS ENGAGEONS POUR UN QUÉBEC CITOYEN!
+      .modal-body
+        .text-justify
+          %blockquote
+            Avoir sa propre constitution, c’est comme avoir des papiers d’identité.
+          %cite Claude Béland, coprésident de la Commission sur l'avenir politique et constitutionnel du Québec
+          %br
+          %br
+          %p Le Québec vit, en ce moment, une anomalie historique. Les citoyens n'ont jamais consenti au régime politique qui les régit : une monarchie constitutionnelle dont les rouages et le fonctionnement leur échappent.
+
+          %p La constitution, c'est la loi au-dessus de toutes les autres lois. C'est le texte de loi d'un pays ou d'une province qui garantit, durablement et efficacement, aux citoyennes et aux citoyens que les personnes qui gèrent les affaires de l'État travaillent dans l'intérêt général. C'est en quelque sorte un contrat social qui lie les individus et leurs mandataires.
+
+          %p Pour les citoyennes et les citoyens, une bonne constitution doit assurer leur protection contre les abus de pouvoir. C'est là où on écrit, par exemple: « Les individus PEUVENT.... Les mandataires DOIVENT... »
+
+          %p Concrètement, elle établit les règles que doivent suivre tous les responsables de l'État : les valeurs prioritaires inspirant chaque décision politique; les droits et les devoirs fondamentaux à respecter; les règles des institutions législatives, exécutives, judiciaires et électorales; l'organisation territoriale, régionale et municipale; les relations nationales et internationales; les mécanismes de révision de cette constitution; les conséquences de la violation de ses lois; etc.
+
+          %blockquote
+            Ce qui est important, ce n'est pas qui vote une constitution. Ce qui est important, c'est qui l'écrit.
+          %cite Étienne Chouard, professeur français de droit et d'économie-gestion
+          %br
+          %br
+          %p Une constitution écrite par et pour le peuple résulte d'une action concrète afin que les personnes élues prennent l'habitude de répondre aux exigences de la population en matière d'éducation, de santé, de sécurité, d'économie, de justice, de transport, d'alimentation, d'emploi, de moyens d'expression, d'environnement, etc.
+
+          %p Une Assemblée constituante citoyenne permet à la population de s'approprier la constitution ainsi que le sens des lois qui en découlent.
+
+          %p En signant ce manifeste, vous contribuez à un projet de société d'une grande importance.
+
+          %p
+            Nous votons pour la convocation d'une Assemblée constituante citoyenne !
+            #{link_to "Signez le manifeste maintenant", manifest_path}
+      .modal-footer
+        %button.btn.btn-default{"data-dismiss" => "modal", :type => "button"} Fermer cette fenêtre
+
+.row
+  .col-md-8.text-center
+    .alert.alert-danger
+      %i.fa.fa-info-circle.text-danger
+      =link_to "UNE CONSTITUTION, UN BOUT DE PAPIER INUTILE? ERREUR...", "#", class: "alert-link", data: {"target" => "#myModal", "toggle" => "modal"}
 .row
   .col-md-8#manifesto
     %ol

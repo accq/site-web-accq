@@ -2,6 +2,11 @@ crumb :root do
   link "Accueil", root_path
 end
 
+crumb :sondages do
+  link "Sondage: une constitution, pourquoi?"
+  parent :root
+end
+
 crumb :manifest do
   link "Signez le manifeste"
   parent :root
@@ -29,7 +34,7 @@ crumb :engagement_candidats do
 end
 
 crumb :projet_de_loi do
-  link "Projet de loi", projet_de_loi_path
+  link "Requêtes et recommandations", projet_de_loi_path
   parent :engagement_candidats
 end
 
