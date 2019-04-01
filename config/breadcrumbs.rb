@@ -38,6 +38,11 @@ crumb :projet_de_loi do
   parent :engagement_candidats
 end
 
+crumb :projet_de_loi_v1 do
+  link "Projet de loi (version 1)", projet_de_loi_v1_path
+  parent :realisations
+end
+
 crumb :districts do
   link "Liste des circonscriptions", districts_path
   parent :engagement_candidats

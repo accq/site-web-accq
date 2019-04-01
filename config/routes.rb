@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   get '/constitution', to: "home#constitution", as: :constitution
   get '/engagement-candidats', to: "home#engagement_candidats", as: :engagement_candidats
   get '/projet-de-loi', to: "home#projet_de_loi", as: :projet_de_loi
+  get '/projet-de-loi_v1', to: "home#projet_de_loi_v1", as: :projet_de_loi_v1
   get '/realisations', to: "home#realisations", as: :realisations
   resources :acrq, controller: :hives , as: :hives do
     resources :hive_meetings

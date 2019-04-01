@@ -39,8 +39,8 @@
         .collapse.navbar-collapse
           %ul.nav.navbar-nav
             %li= link_to "Accueil", root_path
-            /%li= link_to "Projet de loi", projet_de_loi_path;
             %li= link_to "Manifeste", manifest_path, id: "sign-manifest"
+            %li= link_to "Projet de loi", projet_de_loi_path;
 
             %li.dropdown
               %a{href: "#", class: "dropdown-toggle", "data-toggle" => "dropdown", role: "button", "aria-haspopup" => "true", "aria-expanded" => "false"}
