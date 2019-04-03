@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   get '/projet-de-loi', to: "home#projet_de_loi", as: :projet_de_loi
   get '/projet-de-loi-v1', to: "home#projet_de_loi_v1", as: :projet_de_loi_v1
   get '/realisations', to: "home#realisations", as: :realisations
+  get '/assemblee-virtuelle', to: "home#assemblee_virtuelle", as: :assemblee_virtuelle
   resources :acrq, controller: :hives , as: :hives do
     resources :hive_meetings
   end

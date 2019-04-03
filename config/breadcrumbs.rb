@@ -7,6 +7,11 @@ crumb :sondages do
   parent :root
 end
 
+crumb :assemblee_virtuelle do
+  link "Assemblée virtuelle"
+  parent :root
+end
+
 crumb :manifest do
   link "Signez le manifeste"
   parent :root

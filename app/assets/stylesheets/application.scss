@@ -54,10 +54,10 @@ body { padding-top: 50px; }
 ol[type='a'] {
   counter-reset: list;
 
-  li {
+  > li {
     list-style: none;
   }
-  li:before {
+  > li:before {
     content: counter(list, lower-alpha) ") ";
     counter-increment: list;
   }
