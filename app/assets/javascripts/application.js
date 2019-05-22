@@ -18,4 +18,8 @@
 //= require pickadate/picker.date
 //= require pickadate/picker.time
 // require pickadate/translations/fr_FR
+//= require jquery.dataTables.min
+//= require dataTables.bootstrap.min
+//= require dataTables.intl.js
+// jquery.inputmask.min
 //= require_tree .

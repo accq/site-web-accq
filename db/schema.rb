@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180805151914) do
+ActiveRecord::Schema.define(version: 20190516180140) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -98,6 +98,7 @@ ActiveRecord::Schema.define(version: 20180805151914) do
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.datetime "confirmed_at"
+    t.string   "status"
   end
 
   create_table "participants", force: :cascade do |t|
@@ -119,6 +120,17 @@ ActiveRecord::Schema.define(version: 20180805151914) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "postal_codes", force: :cascade do |t|
+    t.string   "postal_code",              null: false
+    t.string   "city"
+    t.integer  "no_administrative_region"
+    t.string   "administrative_region"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  add_index "postal_codes", ["postal_code"], name: "index_postal_codes_on_postal_code", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

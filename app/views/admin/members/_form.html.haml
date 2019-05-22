@@ -1,0 +1,12 @@
+=simple_form_for [:admin, @member] do |f|
+  =f.input :name, label: "Nom complet"
+  =f.input :email, label: "Courriel"
+  =f.input :phone, label: "Numéro de téléphone"
+  =f.input :city, label: "Municipalité"
+  =f.input :postal_code, label: "Code postal"
+  =f.input :status, label: "Statut", collection: [["Indésirable", "I"],["Désinscription", "D"],["Erreur de courriel", "CE"], ["Téléphone erronné ou inexistant", "TE"], ["Courriel et téléphone en erreur", "CE-TE"], ["No longer interested", "NLI"]]
+
+  %p
+    =f.button :submit, "Enregistrer", class: "btn btn-success", id: "btn-save"
+
+%p.small.text-right= link_to "Désapprouver la signature", disapprove_admin_member_path(@member), method: :put, data: {confirm: "Désapprouver cette signature?"}, class: "text-danger"
