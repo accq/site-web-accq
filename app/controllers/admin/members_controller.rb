@@ -15,18 +15,39 @@ class Admin::MembersController < ApplicationController
     m.confirmed_at = nil
     m.save
     flash[:success] = "La signature a été désapprouvée et n'apparaît plus sur le site."
-    redirect_to admin_members_path    
+    redirect_to admin_members_path
+  end
+
+  def edit
+    @member = Member.find(params[:id])
+  end
+
+  def update
+    @member = Member.find(params[:id])
+    if @member.update_attributes(member_params)
+      flash[:notice] = "Les informations du membre ont été modifiées"
+      redirect_to admin_members_path
+    else
+      render :edit
+    end
   end
 
   def index
     @unconfirmed_members = Member.unconfirmed.order("created_at")
-    @confirmed_members = Member.confirmed.paginate(page: params[:page]).order("created_at DESC")
+    @confirmed_members = Member.confirmed.order("created_at DESC")
 
     respond_to do |format|
       format.html
       format.csv {
         x=Member.confirmed.order('created_at desc').collect{|m| ["\"#{m.name.to_s.strip}\"", "\"#{m.email.to_s.strip}\"", "\"#{m.phone.to_s.strip}\"", "\"#{m.city.to_s.strip}\"", "\"#{m.postal_code.to_s.strip}\"", "\"#{m.created_at}\""].join(',')}.join("\r\n")
         send_data x
+      }
+
+      format.js {
+        lines = Member.confirmed.includes(:administrative_region)
+        lines = lines.map{|l| [l[:id], l.status_full_name, l[:status], l[:name], l[:email], l[:phone], l[:city], l[:postal_code], l.administrative_region.try(:administrative_region), I18n.l(l[:confirmed_at].to_date, format: :default)]}
+        @confirmed_members = lines
+        render json: {data: lines}
       }
     end
   end
@@ -35,6 +56,11 @@ class Admin::MembersController < ApplicationController
     m = Member.find(params[:id])
     m.destroy
     flash[:success] = "La signature a été supprimée de la base de données."
-    redirect_to admin_members_path    
+    redirect_to admin_members_path
+  end
+
+  private
+  def member_params
+    params.require(:member).permit(:name, :email, :phone, :city, :postal_code)
   end
 end

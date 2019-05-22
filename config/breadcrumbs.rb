@@ -176,6 +176,11 @@ crumb :admin_members do
   parent :admin_root
 end
 
+crumb :edit_member do |member|
+  link "Modifier un membre"
+  parent :admin_members
+end
+
 
 crumb :admin_hives do
   link "Gestion des ACRQ", admin_hives_path

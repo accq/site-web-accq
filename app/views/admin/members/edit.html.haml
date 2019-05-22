@@ -1,0 +1,5 @@
+-content_for :page_title do
+  Modifier les informations d'un membre
+
+-breadcrumb :edit_member, @hive
+=render "form", locals: {member: @member}

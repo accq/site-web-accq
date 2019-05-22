@@ -2,8 +2,9 @@
   Liste des signatures
 
 -breadcrumb :admin_members
+
 .row
-  .col-xs-12  
+  .col-xs-12
     -if @unconfirmed_members.any?
       %h3.sub-section #{Member.unconfirmed.count} signature(s) en attente d'approbation
       %table.table.table-striped.table-hover#unconfirmed-members
@@ -28,31 +29,68 @@
               %td
                 =link_to "Approuver la signature", approve_admin_member_path(m), class: "btn btn-success btn-xs", data: {confirm: "La signature apparaîtra sur le site. Continuer?"}, method: :put
                 =link_to "Supprimer la signature", admin_member_path(m), class: "btn btn-danger btn-xs", data: {confirm: "La signature sera supprimée de la base de données. Continuer?"}, method: :delete
-
     -if @confirmed_members.any?
       %h3.sub-section #{Member.confirmed.count} signatures approuvées
-      %p
-        =link_to "<i class='fa fa-download'></i> Télécharger la liste des membres au format CSV".html_safe, admin_members_path(format: :csv), class: "btn btn-info btn-sm"
-      = will_paginate @confirmed_members, renderer: BootstrapPagination::Rails
-      %table.table.table-striped.table-hover.table-condensed#confirmed-members
+      %table.table.table-striped.table-hover.datatable.table-condensed#confirmed-members
         %thead
           %tr
+            %th ID
+            %th Statut complet
+            %th Statut
             %th Nom
             %th Courriel
             %th Téléphone
             %th Ville
             %th Code postal
+            %th Région
             %th Date de la signature
-            %th
-        %tbody
-          -@confirmed_members.each do |m|
-            %tr
-              %td= m.name
-              %td= mail_to m.email
-              %td= m.phone
-              %td= m.city
-              %td= m.postal_code
-              %td= l(m.created_at, format: :short)
-              %td
-                =link_to "Désapprouver la signature", disapprove_admin_member_path(m), class: "btn btn-danger btn-xs", data: {confirm: "La signature n'apparaîtra plus sur le site. Continuer?"}, method: :put
-      = will_paginate @confirmed_members, renderer: BootstrapPagination::Rails
+      %p
+        =link_to "<i class='fa fa-download'></i> Télécharger la liste des membres au format CSV".html_safe, admin_members_path(format: :csv), class: "btn btn-info btn-sm"
+
+
+:javascript
+  $(function() {
+    $.fn.dataTable.ext.order.intl( 'fr' ); // French locale
+    $('.datatable').dataTable({
+      ajax: "members",
+      "deferRender": true,
+      pageLength: 20,
+      "aoColumns": [
+        { "bSearchable": true, "bSortable": true, "bVisible": false },
+        { "bSearchable": true, "bSortable": true, "bVisible": false },
+        { "bSearchable": true, "bSortable": true },
+        { "bSearchable": true, "bSortable": true },
+        { "bSearchable": true, "bSortable": true },
+        { "bSearchable": true, "bSortable": true },
+        { "bSearchable": true, "bSortable": true },
+        { "bSearchable": true, "bSortable": true },
+        { "bSearchable": true, "bSortable": true },
+        { "bSearchable": false, "bSortable": true },
+      ],
+      createdRow: function(row, data, dataIndex){
+        if(false) {
+          if(data[1] ==  'I')
+            $(row).attr('style', 'color: red');
+          else if(data[1] == 'D')
+            $(row).attr('style', 'color: yellow');
+          else if(data[1] == 'CE')
+            $(row).attr('style', 'color: green');
+          else if(data[1] == 'TE')
+            $(row).attr('style', 'color: green');
+          else if(data[1] == 'CE-TE')
+            $(row).attr('style', 'color: green');
+          else if(data[1] == 'NLI')
+            $(row).attr('style', 'color: gray');
+
+        }
+      }
+    });
+    $('#confirmed-members tbody').on( 'click', 'tr', function () {
+      var data = $('#confirmed-members').DataTable().row($(this)).data();
+      //window.location = 'members/' + data[0] + "/edit"
+      window.open('members/' + data[0] + "/edit", '_blank');
+    });
+
+
+
+  });
