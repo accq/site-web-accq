@@ -15,7 +15,7 @@ class Member < ActiveRecord::Base
   validates :name, presence: true
   validates :postal_code, presence: true
   validates :email, presence: true, email: true, uniqueness: true
-  has_one :administrative_region, primary_key: :postal_code, foreign_key: :postal_code, class_name: "PostalCode"
+#  has_one :administrative_region, primary_key: :postal_code, foreign_key: :postal_code, class_name: "PostalCode"
   before_create :remove_space_from_postal_code
   self.per_page = 30
 

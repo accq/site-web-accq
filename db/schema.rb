@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190516180140) do
+ActiveRecord::Schema.define(version: 20190522022329) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -99,7 +99,10 @@ ActiveRecord::Schema.define(version: 20190516180140) do
     t.datetime "updated_at",   null: false
     t.datetime "confirmed_at"
     t.string   "status"
+    t.integer  "no_region"
   end
+
+  add_index "members", ["no_region"], name: "index_members_on_no_region", using: :btree
 
   create_table "participants", force: :cascade do |t|
     t.string   "first_name",              null: false

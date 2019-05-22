@@ -44,8 +44,8 @@ class Admin::MembersController < ApplicationController
       }
 
       format.js {
-        lines = Member.confirmed.includes(:administrative_region)
-        lines = lines.map{|l| [l[:id], l.status_full_name, l[:status], l[:name], l[:email], l[:phone], l[:city], l[:postal_code], l.administrative_region.try(:administrative_region), I18n.l(l[:confirmed_at].to_date, format: :default)]}
+        lines = Member.confirmed
+        lines = lines.map{|l| [l[:id], l.status_full_name, l[:status], l[:name], l[:email], l[:phone], l[:city], l[:postal_code], l[:no_region].to_s, I18n.l(l[:confirmed_at].to_date, format: :default)]}
         @confirmed_members = lines
         render json: {data: lines}
       }
@@ -61,6 +61,6 @@ class Admin::MembersController < ApplicationController
 
   private
   def member_params
-    params.require(:member).permit(:name, :email, :phone, :city, :postal_code)
+    params.require(:member).permit(:name, :email, :phone, :city, :postal_code, :no_region)
   end
 end
