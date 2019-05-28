@@ -28,8 +28,8 @@ Rails.application.routes.draw do
   get '/realisations', to: "home#realisations", as: :realisations
   get '/assemblee-virtuelle', to: "home#assemblee_virtuelle", as: :assemblee_virtuelle
 
-  resources :workshops do
-    resources :workshop_registrations
+  resources :workshops, path: "ateliers" do
+    resources :workshop_registrations, path: "inscriptions"
   end
 
   resources :acrq, controller: :hives , as: :hives do
