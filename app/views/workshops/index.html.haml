@@ -9,7 +9,7 @@
       %h4
         = w.name
         %small
-          %strong.text-danger #{l(w.starts_at.to_date, format: :long)} à #{l(w.starts_at.to_time, format: "%H:%M")}
+          %strong.text-danger #{l(w.starts_at.to_date, format: :long)} à #{l(w.starts_at, format: "%H:%M")}
     .panel-body
       =w.description
       %p.small Animation: #{w.animation.present? ? w.animation : "N/D"} | Expertise: #{w.expertise.present? ? w.expertise : "N/D"}
