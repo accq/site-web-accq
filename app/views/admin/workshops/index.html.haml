@@ -1,0 +1,26 @@
+-content_for :page_title do
+  Liste des ateliers
+
+-breadcrumb :workshops
+.row
+  .col-xs-12
+    %p
+      =link_to "<i class='fa fa-plus'></i> Ajouter un atelier".html_safe, new_admin_workshop_path, class: "btn btn-info", id: "add-workshop"
+
+
+%table#workshops.table.table-striped.table-hover
+  %thead
+    %tr
+      %th Date
+      %th Nom
+      %th Inscriptions
+      %th
+  %tbody
+    -@workshops.each do |w|
+      %tr
+        %td #{l(w.starts_at.to_date, format: :long)} à #{l(w.starts_at, format: "%H:%M")}
+        %td= w.name
+        %td= link_to "#{w.workshop_registrations.count} / #{w.available_slots}", admin_workshop_workshop_registrations_path(w)
+        %td.options
+          =link_to "Modifier", edit_admin_workshop_path(w), class: "btn btn-sm btn-info"
+          =link_to "Supprimer", admin_workshop_path(w), class: "btn btn-sm btn-danger", method: :delete, data: {confirm: "Attention. Voulez-vous vraiment supprimer cet atelier?"}

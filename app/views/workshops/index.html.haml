@@ -1,0 +1,30 @@
+-content_for :page_title do
+  Ateliers à venir
+
+-breadcrumb :workshops
+
+-@workshops.each do |w|
+  .panel.panel-default
+    .panel-heading
+      %h4
+        = w.name
+        %small
+          %strong.text-danger #{l(w.starts_at.to_date, format: :long)} à #{l(w.starts_at.to_time, format: "%H:%M")}
+    .panel-body
+      =w.description
+      %p.small Animation: #{w.animation.present? ? w.animation : "N/D"} | Expertise: #{w.expertise.present? ? w.expertise : "N/D"}
+
+      -if w.slots_left > 0
+        =link_to "Inscrivez-vous maintenant", new_workshop_workshop_registration_path(w), class: "btn btn-primary"
+        %span.small #{w.slots_left} place(s) disponible(s)
+
+      -else
+        Aucune place n'est disponible pour cet atelier
+
+
+
+      -if w.slots_left < w.available_slots
+        %div.small{id: "inscriptions-#{w.id}"}
+          %hr
+          %strong Qui s'est inscrit?
+          =w.workshop_registrations.order("created_at").collect{|r| r.name}.join(", ")

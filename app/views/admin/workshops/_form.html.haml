@@ -1,0 +1,15 @@
+=simple_form_for [:admin, @workshop] do |f|
+  =f.input :name
+  =f.input :start_date, as: :string, label: 'Date de l\'atelier', input_html: {class: "datepicker"}
+  =f.input :start_time, as: :string, label: 'Heure de l\'atelier', input_html: {class: "timepicker"}
+  =f.input :description
+  =f.input :animation
+  =f.input :expertise
+  =f.input :available_slots
+  =f.button :submit, "Enregistrer", class: "btn btn-success", id: "btn-save"
+
+:javascript
+  $(document).ready(function() {
+      $('.datepicker').pickadate();
+      $('.timepicker').pickatime();
+  });

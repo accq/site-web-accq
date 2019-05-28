@@ -27,6 +27,11 @@ Rails.application.routes.draw do
   get '/projet-de-loi-v1', to: "home#projet_de_loi_v1", as: :projet_de_loi_v1
   get '/realisations', to: "home#realisations", as: :realisations
   get '/assemblee-virtuelle', to: "home#assemblee_virtuelle", as: :assemblee_virtuelle
+
+  resources :workshops do
+    resources :workshop_registrations
+  end
+
   resources :acrq, controller: :hives , as: :hives do
     resources :hive_meetings
   end
@@ -55,7 +60,9 @@ Rails.application.routes.draw do
       resources :hive_contacts
       resources :hive_meetings
     end
-
+    resources :workshops, shallow: true do
+      resources :workshop_registrations
+    end
     resources :events, shallow: true do
       resources :participants do
       end

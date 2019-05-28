@@ -1,0 +1,5 @@
+=simple_form_for [:admin, @workshop_registration] do |f|
+  =f.input :name
+  =f.input :email
+  =f.input :phone
+  =f.button :submit, "Enregistrer", class: "btn btn-success", id: "btn-save"

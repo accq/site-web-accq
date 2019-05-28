@@ -7,6 +7,21 @@ crumb :sondages do
   parent :root
 end
 
+crumb :workshops do
+  link "Nos ateliers", workshops_path
+  parent :root
+end
+
+crumb :workshop do |workshop|
+  link workshop.name
+  parent :workshops
+end
+
+crumb :workshop_registration do |workshop|
+  link "S'inscrire à l'atelier", new_workshop_workshop_registration_path
+  parent :workshop, workshop
+end
+
 crumb :assemblee_virtuelle do
   link "Assemblée virtuelle"
   parent :root
@@ -167,8 +182,34 @@ end
 
 
 #### ADMIN CRUMBS
+
 crumb :admin_root do
   link "Accueil", admin_root_path
+end
+
+crumb :admin_workshops do
+  link "Ateliers", admin_workshops_path
+  parent :admin_root
+end
+
+crumb :edit_workshop do |workshop|
+  link workshop.name, edit_admin_workshop_path(workshop)
+  parent :admin_workshops
+end
+
+crumb :new_workshop do
+  link "Créer un nouvel atelier", new_admin_workshop_path
+  parent :admin_workshops
+end
+
+crumb :admin_workshop_registrations do |workshop|
+  link "Inscritions", admin_workshop_workshop_registrations_path(workshop)
+  parent :edit_workshop, workshop
+end
+
+crumb :edit_workshop_registration do |workshop_registration|
+  link workshop_registration.name, edit_admin_workshop_registration_path(workshop_registration)
+  parent :admin_workshop_registrations, workshop_registration.workshop
 end
 
 crumb :admin_members do
@@ -180,6 +221,7 @@ crumb :edit_member do |member|
   link "Modifier un membre"
   parent :admin_members
 end
+
 
 
 crumb :admin_hives do

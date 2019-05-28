@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190522022329) do
+ActiveRecord::Schema.define(version: 20190528145416) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -152,5 +152,28 @@ ActiveRecord::Schema.define(version: 20190522022329) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "workshop_registrations", force: :cascade do |t|
+    t.integer  "workshop_id"
+    t.string   "email"
+    t.string   "name"
+    t.string   "phone"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "workshop_registrations", ["workshop_id"], name: "index_workshop_registrations_on_workshop_id", using: :btree
+
+  create_table "workshops", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "starts_at"
+    t.datetime "ends_at"
+    t.string   "description"
+    t.string   "animation"
+    t.string   "expertise"
+    t.integer  "available_slots", default: 25
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
 
 end

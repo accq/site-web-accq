@@ -1,0 +1,2 @@
+module Admin::WorkshopRegistrationsHelper
+end

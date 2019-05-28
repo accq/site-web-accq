@@ -1,0 +1,20 @@
+-content_for :page_title do
+  Inscriptions à l'atelier «#{@workshop.name}»
+
+-breadcrumb :admin_workshop_registrations, @workshop
+%table#workshops.table.table-striped.table-hover
+  %thead
+    %tr
+      %th Nom
+      %th Courriel
+      %th Téléphone
+      %th
+  %tbody
+    -@workshop_registrations.each do |r|
+      %tr
+        %td= r.name
+        %td= r.email
+        %td= r.phone
+        %td.options
+          =link_to "Modifier", edit_admin_workshop_registration_path(r), class: "btn btn-sm btn-info"
+          =link_to "Supprimer", admin_workshop_registration_path(r), class: "btn btn-sm btn-danger", method: :delete, data: {confirm: "Attention. Voulez-vous vraiment supprimer cet inscription?"}
