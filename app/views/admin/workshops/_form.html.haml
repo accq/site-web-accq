@@ -2,7 +2,7 @@
   =f.input :name
   =f.input :start_date, as: :string, label: 'Date de l\'atelier', input_html: {class: "datepicker"}
   =f.input :start_time, as: :string, label: 'Heure de l\'atelier', input_html: {class: "timepicker"}
-  =f.input :description
+  =f.input :description, as: :trix_editor
   =f.input :animation
   =f.input :expertise
   =f.input :available_slots

@@ -27,8 +27,9 @@ Rails.application.routes.draw do
   get '/projet-de-loi-v1', to: "home#projet_de_loi_v1", as: :projet_de_loi_v1
   get '/realisations', to: "home#realisations", as: :realisations
   get '/assemblee-virtuelle', to: "home#assemblee_virtuelle", as: :assemblee_virtuelle
-
-  resources :workshops, path: "ateliers" do
+  get '/constitution-citoyenne', to: redirect("http://inm.qc.ca/docs/CONSTITUONS/constitution_citoyenne_quebec_INM.pdf?fbclid=IwAR35h7tVwDvpbUZ6vI6jTo65YtPJwHJmH2LrLno5kiQW89z7gg3LWCxDlwA"), as: :constitution_citoyenne_quebec
+  get '/atelier-constituant-local', to: "home#local_workshops", as: :local_workshops
+  resources :workshops, path: "atelier-constituant-virtuel" do
     resources :workshop_registrations, path: "inscriptions"
   end
 

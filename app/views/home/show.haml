@@ -1,32 +1,21 @@
 .row
-  .col-xs-12
+  .col-sm-6
     .panel.panel-default
       .panel-body
         %h3 SONDAGE EN LIGNE
         %p Depuis cinq ans déjà, l'idée d'une constituante citoyenne chemine. L'ACCQ travaille à mettre en place les conditions nécessaires pour réaliser cette  avancée remarquable pour le peuple québécois. Votre participation à ce sondage nous aidera à mener à bien notre mission.
 
         .text-center= link_to "Répondre au sondage maintenant", sondage_path, class: "btn btn-info btn-lg"
+  .col-sm-6
+    =link_to image_tag("constitution_citoyenne_quebec"), constitution_citoyenne_quebec_path, target: "_blank"
+
   .col-md-6
-    -if @next_event
-      %h3.sub-section À ne pas manquer
 
-      %p
-        %strong Quoi?
-        = @next_event.name
-        %br/
-        %strong Quand?
-        =show_date_range(@next_event.start_date,@next_event.end_date)
-
-      -if @next_event.image.url.present?
-        =link_to(image_tag(@next_event.image_url, class: "img-responsive"), event_path(@next_event))
-
-      %p
-        %br/
-        =link_to "Inscription en ligne", event_path(@next_event), class: "btn btn-info"
-
-    %h3.sub-section=link_to(image_tag("assemblee_citoyenne_virtuelle.jpg", class: "img-responsive"), assemblee_virtuelle_path)
+    %h3.sub-section=link_to(image_tag("assemblee_citoyenne_virtuelle.jpg", class: "img-responsive"), workshops_path)
     .youtube-container
       .youtube-player{"data-id" => "NvCW1Xat-5s"}
+    %p= link_to image_tag("signez_le_manifeste.png", class: "img-responsive"), manifest_path
+
     .youtube-container
       .youtube-player{"data-id" => "Lh71SO0Ggy4"}
     %p Plusieurs autres vidéos sont disponibles dans la #{link_to "médiathèque", mediatheque_path}!
@@ -38,7 +27,7 @@
 
 
   .col-md-6
-    %h3.sub-section= link_to image_tag("signez_le_manifeste.png", class: "img-responsive"), manifest_path
+    %h3.sub-section= link_to image_tag("assemblee_citoyenne_locale.jpg", class: "img-responsive"), local_workshops_path
 
     .row
       -@hives.each_with_index do |h,index|

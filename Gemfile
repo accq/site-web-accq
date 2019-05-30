@@ -13,6 +13,7 @@ gem 'jquery-ui-rails', '~> 6.0.1'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'rails-i18n'
+gem 'trix-rails', require: 'trix'
 
 gem 'csv', '3.1.1'
 gem 'activerecord-import'

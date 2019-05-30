@@ -1,5 +1,5 @@
 -content_for :page_title do
-  Ateliers à venir
+  Ateliers constituants virtuels
 
 -breadcrumb :workshops
 
@@ -11,9 +11,10 @@
         %small
           %strong.text-danger #{l(w.starts_at.to_date, format: :long)} à #{l(w.starts_at, format: "%H:%M")}
     .panel-body
-      =w.description
-      %p.small Animation: #{w.animation.present? ? w.animation : "N/D"} | Expertise: #{w.expertise.present? ? w.expertise : "N/D"}
-
+      %p.small
+        Animation: #{w.animation.present? ? w.animation : "N/D"} | Expertise: #{w.expertise.present? ? w.expertise : "N/D"}
+        %br
+        = link_to "Plus d'information sur cet atelier", new_workshop_workshop_registration_path(w)
       -if w.slots_left > 0
         =link_to "Inscrivez-vous maintenant", new_workshop_workshop_registration_path(w), class: "btn btn-primary"
         %span.small #{w.slots_left} place(s) disponible(s)

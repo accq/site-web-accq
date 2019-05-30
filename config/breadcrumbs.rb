@@ -8,7 +8,12 @@ crumb :sondages do
 end
 
 crumb :workshops do
-  link "Nos ateliers", workshops_path
+  link "Ateliers constituants virtuels", workshops_path
+  parent :root
+end
+
+crumb :local_workshops do
+  link "Ateliers constituants locaux"
   parent :root
 end
 

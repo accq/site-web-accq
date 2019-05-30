@@ -22,4 +22,5 @@
 //= require dataTables.bootstrap.min
 //= require dataTables.intl.js
 // jquery.inputmask.min
+//= require trix
 //= require_tree .
