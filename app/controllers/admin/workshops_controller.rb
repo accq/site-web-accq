@@ -9,7 +9,7 @@ class Admin::WorkshopsController < ApplicationController
   def edit
     @workshop = Workshop.find(params[:id])
     @workshop.start_date = @workshop.starts_at.to_date
-    @workshop.start_time = @workshop.starts_at.to_time.strftime("%H:%M")
+    @workshop.start_time = @workshop.starts_at.strftime("%H:%M")
   end
 
   def update
