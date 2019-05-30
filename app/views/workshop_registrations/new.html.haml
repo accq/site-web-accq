@@ -5,8 +5,13 @@
 
 .row
   .col-sm-6
+    %h3.sub-section Détail de l'atelier
+    %p
+      Quand:
+      %strong.text-danger #{l(@workshop.starts_at.to_date, format: :long)} à #{l(@workshop.starts_at, format: "%H:%M")}
     =@workshop.description.html_safe
   .col-sm-6
+    %h3.sub-section Formulaire d'inscription
     %p.lead Notez que votre courriel et votre numéro de téléphone ne seront pas rendus publics
     =simple_form_for([:workshop, @workshop_registration]) do |f|
       =f.input :name, label: false, placeholder: "Nom complet", input_html: { autocomplete: 'off' }

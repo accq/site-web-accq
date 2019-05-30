@@ -7,17 +7,17 @@
   .panel.panel-default
     .panel-heading
       %h4
-        = w.name
+        =link_to w.name, new_workshop_workshop_registration_path(w)
         %small
           %strong.text-danger #{l(w.starts_at.to_date, format: :long)} à #{l(w.starts_at, format: "%H:%M")}
     .panel-body
-      %p.small
-        Animation: #{w.animation.present? ? w.animation : "N/D"} | Expertise: #{w.expertise.present? ? w.expertise : "N/D"}
-        %br
-        = link_to "Plus d'information sur cet atelier", new_workshop_workshop_registration_path(w)
+      %p.small.text-center
+        Animation: #{w.animation.present? ? w.animation : "N/D"} | Expertise: #{w.expertise.present? ? w.expertise : "N/D"} | #{link_to "Plus d'information sur cet atelier", new_workshop_workshop_registration_path(w)}
       -if w.slots_left > 0
-        =link_to "Inscrivez-vous maintenant", new_workshop_workshop_registration_path(w), class: "btn btn-primary"
-        %span.small #{w.slots_left} place(s) disponible(s)
+        .text-center
+          =link_to "M'inscrire à cet atelier", new_workshop_workshop_registration_path(w), class: "btn btn-primary btn-lg"
+          %br
+          %span.small #{w.slots_left} place(s) disponible(s)
 
       -else
         Aucune place n'est disponible pour cet atelier
