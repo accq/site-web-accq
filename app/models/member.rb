@@ -34,6 +34,13 @@ class Member < ActiveRecord::Base
     end
   end
 
+  def name_reversed
+    arr=self.name.split(" ")
+    first_name = arr[0].to_s
+    last_name = arr[1..10].join(" ").to_s
+    last_name + ", " + first_name
+  end
+
   def self.confirmed
     where("NOT confirmed_at IS NULL")
   end

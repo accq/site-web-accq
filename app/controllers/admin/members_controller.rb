@@ -39,13 +39,13 @@ class Admin::MembersController < ApplicationController
     respond_to do |format|
       format.html
       format.csv {
-        x=Member.confirmed.order('created_at desc').collect{|m| ["\"#{m.name.to_s.strip}\"", "\"#{m.email.to_s.strip}\"", "\"#{m.phone.to_s.strip}\"", "\"#{m.city.to_s.strip}\"", "\"#{m.postal_code.to_s.strip}\"", "\"#{m.created_at}\""].join(',')}.join("\r\n")
+        x=Member.confirmed.order('created_at desc').collect{|m| ["\"#{m.name.to_s.strip}\"", "\"#{m.email.to_s.strip}\"", "\"#{m.phone.to_s.strip}\"", "\"#{m.city.to_s.strip}\"", "\"#{m.postal_code.to_s.strip}\"", "\"#{m.no_region.to_s.strip}\"", "\"#{m.created_at}\""].join(',')}.join("\r\n")
         send_data x
       }
 
       format.js {
         lines = Member.confirmed.order("created_at DESC")
-        lines = lines.map{|l| [l[:id], l.status_full_name, l[:status], l[:name], l[:email], l[:phone], l[:city], l[:postal_code], l[:no_region].to_s, I18n.l(l[:confirmed_at].to_date, format: :default)]}
+        lines = lines.map{|l| [l[:id], l.status_full_name, l[:status], l.name_reversed, l[:email], l[:phone], l[:city], l[:postal_code], l[:no_region].to_s, I18n.l(l[:confirmed_at].to_date, format: :default)]}
         @confirmed_members = lines
         render json: {data: lines}
       }
