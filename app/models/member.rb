@@ -17,6 +17,7 @@ class Member < ActiveRecord::Base
   validates :email, presence: true, email: true, uniqueness: true
 #  has_one :administrative_region, primary_key: :postal_code, foreign_key: :postal_code, class_name: "PostalCode"
   before_create :remove_space_from_postal_code
+  before_save :remove_spaces_from_email_address
   self.per_page = 30
 
   def status_full_name
@@ -43,5 +44,9 @@ class Member < ActiveRecord::Base
 
   def remove_space_from_postal_code
     self.postal_code = self.postal_code.delete(' ')
+  end
+
+  def remove_spaces_from_email_address
+    self.email = self.email.strip
   end
 end
