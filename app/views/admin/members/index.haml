@@ -51,6 +51,9 @@
 :javascript
   $(function() {
     $.fn.dataTable.ext.order.intl( 'fr' ); // French locale
+    $.fn.dataTable.moment( 'D/M/YYYY' );
+
+    $('#example').DataTable();
     $('.datatable').dataTable({
       ajax: "members",
       "deferRender": true,
@@ -87,8 +90,8 @@
     });
     $('#confirmed-members tbody').on( 'click', 'tr', function () {
       var data = $('#confirmed-members').DataTable().row($(this)).data();
-      //window.location = 'members/' + data[0] + "/edit"
-      window.open('members/' + data[0] + "/edit", '_blank');
+      window.location = 'members/' + data[0] + "/edit"
+      //window.open('members/' + data[0] + "/edit", '_blank');
     });
 
 

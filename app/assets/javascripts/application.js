@@ -21,6 +21,8 @@
 //= require jquery.dataTables.min
 //= require dataTables.bootstrap.min
 //= require dataTables.intl.js
+//= require moment.min
+//= require datetime-moment
 // jquery.inputmask.min
 //= require trix
 //= require_tree .
