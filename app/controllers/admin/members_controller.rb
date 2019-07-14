@@ -44,7 +44,7 @@ class Admin::MembersController < ApplicationController
       }
 
       format.js {
-        lines = Member.confirmed
+        lines = Member.confirmed.order("created_at DESC")
         lines = lines.map{|l| [l[:id], l.status_full_name, l[:status], l[:name], l[:email], l[:phone], l[:city], l[:postal_code], l[:no_region].to_s, I18n.l(l[:confirmed_at].to_date, format: :default)]}
         @confirmed_members = lines
         render json: {data: lines}

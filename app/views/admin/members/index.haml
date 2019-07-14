@@ -53,8 +53,8 @@
     $.fn.dataTable.ext.order.intl( 'fr' ); // French locale
     $.fn.dataTable.moment( 'D/M/YYYY' );
 
-    $('#example').DataTable();
     $('.datatable').dataTable({
+      order: [[ 9, "desc" ]],
       ajax: "members",
       "deferRender": true,
       pageLength: 20,
