@@ -17,6 +17,22 @@ crumb :local_workshops do
   parent :root
 end
 
+crumb :statuts_reglements do
+  link "Statuts et règlements"
+  parent :organisation
+end
+
+crumb :obnl do
+  link "OBNL"
+  parent :organisation
+end
+
+crumb :organisation do
+  link "Notre organisation"
+  parent :root
+end
+
+
 crumb :workshop do |workshop|
   link workshop.name
   parent :workshops

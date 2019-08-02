@@ -10,4 +10,11 @@ class HomeController < ApplicationController
 
   def sondage
   end
+
+  def download
+    public_folder=File.join(Rails.root, "public")
+    send_file(File.join(public_folder, params[:filename]))
+  end
+
+
 end

@@ -1,0 +1,11 @@
+-content_for :page_title do
+  Statuts et règlements
+
+-breadcrumb :statuts_reglements
+
+%p.text-center=link_to "Télécharger le document PDF", download_path(filename: "statuts_reglements.pdf")
+%pdf_viewer
+  :plain
+    <object data="/statuts_reglements.pdf" type="application/pdf" width="100%" height="800">
+    alt : <a href="/statuts_reglements.pdf" target: "_blank">statuts_reglements.pdf</a>
+    </object>
