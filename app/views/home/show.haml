@@ -7,17 +7,17 @@
 
         .text-center= link_to "Répondre au sondage maintenant", sondage_path, class: "btn btn-info btn-lg"
   .col-sm-6
-    =link_to image_tag("constitution_citoyenne_quebec.jpg"), constitution_citoyenne_quebec_path, target: "_blank"
+    =link_to image_tag("merci_constituons!.jpg"), constituons_path
 
   .col-md-6
     %h3.sub-section=link_to(image_tag("assemblee_citoyenne_virtuelle.jpg", class: "img-responsive"), workshops_path)
     .youtube-container
       .youtube-player{"data-id" => "NvCW1Xat-5s"}
-    %p= link_to image_tag("signez_le_manifeste.png", class: "img-responsive"), manifest_path
-
-    .youtube-container
-      .youtube-player{"data-id" => "Lh71SO0Ggy4"}
     %p Plusieurs autres vidéos sont disponibles dans la #{link_to "médiathèque", mediatheque_path}!
+
+    %p= link_to image_tag("signez_le_manifeste.png", class: "img-responsive"), manifest_path
+    %p= link_to image_tag("pour_devenir_membre.jpg", class: "img-responsive"), pour_devenir_membre_path
+
 
 
     %h3.sub-section Aimez notre page Facebook

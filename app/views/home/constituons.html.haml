@@ -1,16 +1,39 @@
 -content_for :page_title do
-  Invitation à l'Assemblée générale de fondation de l'ACCQ, le 30 novembre 2019, à Saint-Hyacinthe
+  BEAUCOUP PLUS QU'UNE SIMPLE EXPÉRIENCE THÉÂTRALE
 
--breadcrumb :obnl
+-breadcrumb :constituons
 
 
+%p L’expérience théâtrale « Constituons! », lancée par le metteur en scène Christian Lapointe, a réuni en 2018-19 une quarantaine de citoyen-ne-s ordinaires, tiré-e-s au sort par les soins de la firme Léger, pour rédiger un projet de constitution québécoise. Choisis de façon à respecter la parité homme-femme et refléter les réalités générationnelles, linguistiques et régionales du Québec, ces bénévoles ont produit avec des moyens matériels très limités un projet de constitution qui dépasse les clivages partisans habituels et qui met la table pour l'établissement de consensus nationaux sur nombre de grands enjeux.
 
-%p Comme vous le savez certainement, l’Alliance pour une constituante citoyenne du Québec a été constituée auprès du Registraire des entreprises du Québec le 5 février 2016 en tant qu’organisme à but non lucratif (OBNL).
+%p Cette constitution a d'ailleurs été déposée symboliquement à l'Assemblée nationale au printemps 2019. Notre association tient à féliciter et à remercier toutes celles et ceux qui ont contribué de près ou de loin à la réalisation de Constituons! C'est avec enthousiasme que nombre des membres actifs ont contribué à l'initiative du metteur en scène Christian Lapointe.
+%p Christian, au nom de tous les signataires de notre manifeste ...   MERCI!
 
-%p Vous êtes dès maintenant invité.e à l'#{link_to "Assemblée générale de fondation", "invitation_fondation_accq.pdf", target: "_blank"}, visant à formaliser notre organisation. Tous les signataires du #{link_to "manifeste", manifest_path} sont invités à devenir membres en règle de façon à pouvoir participer, lors de cette assemblée, à l'élection de notre conseil d'administration.
+.youtube-container{style: "margin:0;"}
+  .youtube-player{"data-id" => "Lh71SO0Ggy4"}
 
-%p Nos bénévoles ont rédigé les #{link_to "statuts et règlements", statuts_reglements_path} de l'OBNL que nous vous invitons à lire puisqu'ils devront être entérinés lors de cette rencontre.
+%hr
+%h3 La constitution de Constituons! - Un canevas de départ intéressant...
+=link_to(image_tag("constitution_citoyenne_quebec"), constitution_citoyenne_quebec_path, target: "_blank")
+:javascript
+  (function() {
+      var v = document.getElementsByClassName("youtube-player");
+      for (var n = 0; n < v.length; n++) {
+           var p = document.createElement("div");
+          p.innerHTML = labnolThumb(v[n].dataset.id);
+          p.onclick = labnolIframe;
+          v[n].appendChild(p);
+      }
+  })();
 
-%p Au plaisir de nous voir tous rassemblés et de nous donner les moyens d'accomplir la #{link_to "mission", mission_path} que se donne l'ACCQ.
+  function labnolThumb(id) {
+      return '<img class="youtube-thumb" src="//i.ytimg.com/vi/' + id + '/hqdefault.jpg"><div class="play-button"></div>';
+  }
 
-%p= link_to "Consulter le PDF pour de plus amples informations", "invitation_fondation_accq.pdf", target: "_blank", class: "btn btn-info"
+  function labnolIframe() {
+      var iframe = document.createElement("iframe");
+      iframe.setAttribute("src", "//www.youtube.com/embed/" + this.parentNode.dataset.id + "?autoplay=1&autohide=2&border=0&wmode=opaque&enablejsapi=1&controls=1&showinfo=0");
+      iframe.setAttribute("frameborder", "0");
+      iframe.setAttribute("id", "youtube-iframe");
+      this.parentNode.replaceChild(iframe, this);
+  }

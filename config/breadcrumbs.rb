@@ -1,5 +1,16 @@
+
 crumb :root do
   link "Accueil", root_path
+end
+
+crumb :constituons do
+  link "Constituons!", constituons_path
+  parent :root
+end
+
+crumb :pour_devenir_membre do
+  link "Pour devenir membre", pour_devenir_membre_path
+  parent :root
 end
 
 crumb :sondages do
@@ -13,7 +24,7 @@ crumb :workshops do
 end
 
 crumb :local_workshops do
-  link "Ateliers constituants locaux"
+  link "Rencontres informatives"
   parent :root
 end
 
