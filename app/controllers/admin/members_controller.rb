@@ -20,6 +20,7 @@ class Admin::MembersController < ApplicationController
 
   def edit
     @member = Member.find(params[:id])
+    @member.confirmed_at = @member.confirmed_at.to_date
   end
 
   def update
@@ -61,6 +62,6 @@ class Admin::MembersController < ApplicationController
 
   private
   def member_params
-    params.require(:member).permit(:name, :email, :phone, :city, :postal_code, :no_region, :status)
+    params.require(:member).permit(:name, :email, :phone, :city, :postal_code, :no_region, :status, :confirmed_at)
   end
 end

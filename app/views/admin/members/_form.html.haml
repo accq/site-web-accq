@@ -5,9 +5,15 @@
   =f.input :city, label: "Municipalité"
   =f.input :postal_code, label: "Code postal"
   =f.input :no_region, label: "Numéro région"
+  =f.input :confirmed_at, as: :string, label: "Date de la signature", input_html: {class: "datepicker"}
   =f.input :status, label: "Statut", collection: [["Indésirable", "I"],["Désinscription", "D"],["Erreur de courriel", "CE"], ["Téléphone erronné ou inexistant", "TE"], ["Courriel et téléphone en erreur", "CE-TE"], ["No longer interested", "NLI"]]
 
   %p
     =f.button :submit, "Enregistrer", class: "btn btn-success", id: "btn-save"
 
 %p.small.text-right= link_to "Désapprouver la signature", disapprove_admin_member_path(@member), method: :put, data: {confirm: "Désapprouver cette signature?"}, class: "text-danger"
+
+:javascript
+  $(document).ready(function() {
+    $('.datepicker').pickadate({format: "yyyy-mm-dd"});
+  })
